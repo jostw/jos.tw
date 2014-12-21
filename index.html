@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>jos.tw</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:900">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:100">
     <style>
         html, body {
             width: 100%;
@@ -12,36 +13,59 @@
             margin: 0;
         }
 
-        p {
-            margin: 0;
-        }
-
         .container {
             position: relative;
+
             width: 100%;
             height: 100%;
+            overflow: hidden;
+
             background-size: cover;
-            background-position: bottom right;
+            background-position: bottom center;
             background-image: url("img/jostw.png");
         }
 
-        .name, .about {
+        .mes-que-un-club {
             position: absolute;
-            left: 20%;
-            font-family: "Source Sans Pro";
-            font-weight: bold;
-            color: white;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            opacity: .8;
+
+            background: -webkit-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* Chrome 10+, Saf5.1+ */
+            background:    -moz-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* FF3.6+ */
+            background:     -ms-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* IE10 */
+            background:      -o-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* Opera 11.10+ */
+            background:         linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* W3C */
         }
 
         .name {
-            top: 40%;
+            position: absolute;
+            top: 45%;
+            right: 30%;
+
             margin-top: -100px;
+
+            font-family: "Source Sans Pro", sans-serif;
             font-size: 10em;
+            font-weight: 900;
+            text-align: right;
+
+            color: white;
         }
 
         .about {
-            top: 55%;
-            font-size: 3em;
+            position: absolute;
+            top: 60%;
+            right: 5%;
+
+            font-family: "Raleway", sans-serif;
+            font-size: 6em;
+            font-weight: 100;
+            text-align: right;
+
             color: #CCC;
             color: rgba(255, 255, 255, .5);
         }
@@ -49,12 +73,9 @@
 </head>
 <body>
     <section class="container">
+        <div class="mes-que-un-club"></div>
         <h1 class="name">jos</h1>
-        <article class="about">
-            <p>Front-End Engineer</p>
-            <p>Web Developer</p>
-            <p>TAIWAN</p>
-        </article>
+        <article class="about">front end developer</article>
     </section>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
