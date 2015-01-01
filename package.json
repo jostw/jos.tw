@@ -1,0 +1,20 @@
+{
+  "name": "jos.tw",
+  "version": "0.1.0",
+  "description": "jos.tw",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github:jostw/jos.tw"
+  },
+  "keywords": [
+    "jos",
+    "frontend",
+    "developer"
+  ],
+  "author": "jos",
+  "license": "GPLv2"
+}
