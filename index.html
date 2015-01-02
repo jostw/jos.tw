@@ -1,90 +1,112 @@
-<!doctype html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>jos.tw</title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:900">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:100">
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>jos.tw</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        .container {
-            position: relative;
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:900">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:100">
 
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+        <!-- <link rel="stylesheet" href="css/main.css"> -->
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
 
-            background-size: cover;
-            background-position: bottom center;
-            background-image: url("img/jostw.png");
-        }
+            .container {
+                position: relative;
 
-        .mes-que-un-club {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
 
-            opacity: .8;
+                background-size: cover;
+                background-position: center center;
+                background-image: url("img/jostw.png");
+            }
 
-            background: -webkit-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* Chrome 10+, Saf5.1+ */
-            background:    -moz-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* FF3.6+ */
-            background:     -ms-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* IE10 */
-            background:      -o-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* Opera 11.10+ */
-            background:         linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* W3C */
-        }
+            .mes-que-un-club {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
 
-        .name {
-            position: absolute;
-            top: 45%;
-            right: 30%;
+                opacity: .8;
 
-            margin-top: -100px;
+                background: -webkit-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* Chrome 10+, Saf5.1+ */
+                background:    -moz-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* FF3.6+ */
+                background:     -ms-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* IE10 */
+                background:      -o-linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* Opera 11.10+ */
+                background:         linear-gradient(90deg, #A70000 10%, #0012A7 90%); /* W3C */
+            }
 
-            font-family: "Source Sans Pro", sans-serif;
-            font-size: 10em;
-            font-weight: 900;
-            text-align: right;
+            .name {
+                position: absolute;
+                top: 45%;
+                right: 30%;
 
-            color: white;
-        }
+                margin-top: -100px;
 
-        .about {
-            position: absolute;
-            top: 60%;
-            right: 5%;
+                font-family: "Source Sans Pro", sans-serif;
+                font-size: 10em;
+                font-weight: 900;
+                text-align: right;
 
-            font-family: "Raleway", sans-serif;
-            font-size: 6em;
-            font-weight: 100;
-            text-align: right;
+                color: white;
+            }
 
-            color: #CCC;
-            color: rgba(255, 255, 255, .5);
-        }
-    </style>
-</head>
-<body>
-    <section class="container">
-        <div class="mes-que-un-club"></div>
-        <h1 class="name">jos</h1>
-        <article class="about">front end developer</article>
-    </section>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            .about {
+                position: absolute;
+                top: 60%;
+                right: 5%;
 
-        ga('create', 'UA-6245027-5', 'auto');
-        ga('send', 'pageview');
-    </script>
-</body>
+                font-family: "Raleway", sans-serif;
+                font-size: 6em;
+                font-weight: 100;
+                text-align: right;
+
+                color: #CCC;
+                color: rgba(255, 255, 255, .5);
+            }
+        </style>
+        <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <section class="container">
+            <div class="mes-que-un-club"></div>
+            <h1 class="name">jos</h1>
+            <article class="about">front end developer</article>
+        </section>
+
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script> -->
+        <!-- <script src="js/plugins.js"></script> -->
+        <!-- <script src="js/main.js"></script> -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-6245027-5');ga('send','pageview');
+        </script>
+    </body>
 </html>
