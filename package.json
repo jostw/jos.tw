@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "bower install && wiredep -s index.html"
+    "bower": "bower install & wiredep -s index.html",
+    "scss": "node-sass -o css/ scss/style.scss",
+    "start": "npm install && npm run bower & npm run scss && node app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "license": "GPLv2",
   "devDependencies": {
     "bower": "^1.3.12",
+    "node-sass": "^2.0.0-beta",
     "wiredep": "^2.2.2"
   }
 }
