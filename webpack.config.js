@@ -36,7 +36,7 @@ module.exports = {
                 loader: "style!css!postcss"
             }, {
                 test: /\.js$/,
-                exclude: /node_modules|respond|modernizr|plugins/,
+                exclude: /node_modules|html5shiv|respond|modernizr|plugins/,
                 loader: "babel"
             }, {
                 test: /respond|modernizr/,
