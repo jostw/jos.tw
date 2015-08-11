@@ -19,7 +19,7 @@ module.exports = {
     entry: {
         script: path.resolve(__dirname, "js/app.js"),
 
-        ie: [
+        vendor: [
             "html5shiv",
             path.resolve(__dirname, "node_modules/respond.js/dest/respond.min.js")
         ]
