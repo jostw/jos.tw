@@ -11,4 +11,7 @@
 
 import "normalize.css";
 
+import "../css/vendor/boilerplate.css";
+import "./vendor/plugins";
+
 import "../css/style.css";
