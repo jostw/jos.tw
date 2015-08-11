@@ -16,7 +16,12 @@ var config = require(path.resolve(__dirname, "config"));
 
 module.exports = {
     entry: {
-        script: path.resolve(__dirname, "js/app.js")
+        script: path.resolve(__dirname, "js/app.js"),
+
+        ie: [
+            "html5shiv",
+            path.resolve(__dirname, "node_modules/respond.js/dest/respond.min.js")
+        ]
     },
 
     module: {
@@ -28,6 +33,9 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel"
+            }, {
+                test: /respond\.js/,
+                loader: "imports?this=>window"
             }
         ]
     },
