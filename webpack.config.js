@@ -10,6 +10,7 @@
 "use strict";
 
 var path = require("path");
+var autoprefixer = require("autoprefixer-core");
 
 var config = require(path.resolve(__dirname, "config"));
 
@@ -22,13 +23,17 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: "style!css"
+                loader: "style!css!postcss"
             }, {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel"
             }
         ]
+    },
+
+    postcss: function() {
+        return [autoprefixer];
     },
 
     devServer: {
