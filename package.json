@@ -4,9 +4,10 @@
   "description": "jos.tw",
   "main": "app.js",
   "scripts": {
-    "test": "npm install && node app.js",
-    "start": "webpack-dev-server --hot",
-    "build": "webpack -p",
+    "postinstall": "bower install",
+    "test": "npm install",
+    "start": "npm test && webpack-dev-server --hot",
+    "build": "npm test && webpack -p",
     "postbuild": "babel-node app.js"
   },
   "repository": {

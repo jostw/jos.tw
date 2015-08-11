@@ -10,6 +10,7 @@
 "use strict";
 
 var path = require("path");
+var webpack = require("webpack");
 var autoprefixer = require("autoprefixer-core");
 
 var config = require(path.resolve(__dirname, "config"));
@@ -24,6 +25,10 @@ module.exports = {
         ]
     },
 
+    resolve: {
+        root: [path.resolve(__dirname, "bower_components")]
+    },
+
     module: {
         loaders: [
             {
@@ -31,10 +36,10 @@ module.exports = {
                 loader: "style!css!postcss"
             }, {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: /node_modules|respond|modernizr|plugins/,
                 loader: "babel"
             }, {
-                test: /respond\.js/,
+                test: /respond|modernizr/,
                 loader: "imports?this=>window"
             }
         ]
@@ -43,6 +48,12 @@ module.exports = {
     postcss: function() {
         return [autoprefixer];
     },
+
+    plugins: [
+        new webpack.ResolverPlugin(
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["_originalSource"])
+        )
+    ],
 
     devServer: {
         port: config.port.webpack
