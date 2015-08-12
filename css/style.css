@@ -7,43 +7,54 @@
  * Licensed under the GPLv2 license.
  */
 
-html, body {
-    height: 100%;
-}
+$barca-red: #A70000;
+$barca-blue: #0012A7;
 
-.container {
-    position: relative;
+@define-mixin full-size {
+    position: absolute;
+    top: 0;
+    left: 0;
 
     width: 100%;
     height: 100%;
+}
+
+@define-mixin background-cover $background-url {
+    background-size: cover;
+    background-position: center center;
+    background-image: url($background-url);
+}
+
+@define-mixin font-indent {
+    text-indent: 100%;
+    white-space: nowrap;
     overflow: hidden;
-
-    background-size: cover;
-    background-position: center center;
-    background-image: url("/img/jos-tw.png");
 }
 
-.mes-que-un-club {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    opacity: .8;
-
-    background: linear-gradient(90deg, #A70000 10%, #0012A7 90%);
+.block {
+    height: 100vh;
 }
 
-.about {
-    position: absolute;
-    top: 0;
-    left: 0;
+.banner {
+    @mixin full-size;
+    @mixin background-cover "/img/jos-tw.png";
 
-    width: 100%;
-    height: 100%;
+    .title {
+        @mixin full-size;
+        @mixin background-cover "/img/jos-front-end-developer.png";
+        @mixin font-indent;
 
-    background-size: cover;
-    background-position: center center;
-    background-image: url("/img/jos-front-end-developer.png");
+        z-index: 1;
+
+        margin: 0;
+    }
+
+    .subtitle {
+        @mixin full-size;
+        @mixin font-indent;
+
+        opacity: .8;
+
+        background: linear-gradient(90deg, $barca-red 10%, $barca-blue 90%);
+    }
 }

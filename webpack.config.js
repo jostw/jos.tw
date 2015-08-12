@@ -11,7 +11,6 @@
 
 var path = require("path");
 var webpack = require("webpack");
-var autoprefixer = require("autoprefixer-core");
 
 var config = require(path.resolve(__dirname, "config"));
 
@@ -40,7 +39,9 @@ module.exports = {
     },
 
     resolve: {
-        root: [path.resolve(__dirname, "bower_components")]
+        root: [
+            path.resolve(__dirname, "bower_components")
+        ]
     },
 
     module: {
@@ -60,7 +61,12 @@ module.exports = {
     },
 
     postcss: function() {
-        return [autoprefixer];
+        return [
+            require("postcss-mixins"),
+            require("postcss-nested"),
+            require("postcss-simple-vars"),
+            require("autoprefixer-core")
+        ];
     },
 
     plugins: [
