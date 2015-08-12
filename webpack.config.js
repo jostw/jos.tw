@@ -15,9 +15,23 @@ var autoprefixer = require("autoprefixer-core");
 
 var config = require(path.resolve(__dirname, "config"));
 
+var isDev = process.argv[1].match("dev");
+
 module.exports = {
     entry: {
-        script: path.resolve(__dirname, "js/app.js"),
+        script: (function() {
+            var script = path.resolve(__dirname, "js/app.js");
+
+            if (isDev) {
+                script = [
+                    "webpack-dev-server/client?http://localhost:" + config.port.webpack,
+                    "webpack/hot/dev-server",
+                    script
+                ];
+            }
+
+            return script;
+        })(),
 
         vendor: [
             "html5shiv",

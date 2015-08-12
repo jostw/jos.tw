@@ -14,12 +14,24 @@ import fs from "fs";
 
 import { port } from "./config";
 
+const isDev = ((argv) => argv && argv.match("dev"))(process.argv[2]);
+
 const server = http.createServer((req, res) => {
-    const filename = req.url === "/" ? "index.html" : "." + req.url;
+    let file;
+
+    if (req.url === "/") {
+        file = fs.readFileSync("index.html").toString();
+
+        if (isDev) {
+            file = file.replace("<script src=\"/js/script.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/js/script.js\"></script>");
+        }
+    } else {
+        file = fs.readFileSync("." + req.url);
+    }
 
     console.log(req.method, req.url);
 
-    res.end(fs.readFileSync(filename));
+    res.end(file);
 });
 
 server.listen(port.app, () => {

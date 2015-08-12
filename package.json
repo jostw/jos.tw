@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "bower install",
     "test": "npm install",
-    "start": "npm test && webpack-dev-server --hot",
+    "start": "npm test && babel-node app.js --dev & webpack-dev-server --hot",
     "build": "npm test && webpack -p",
     "postbuild": "babel-node app.js"
   },
