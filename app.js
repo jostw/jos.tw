@@ -9,8 +9,10 @@
 
 "use strict";
 
-import http from "http";
 import fs from "fs";
+import http from "http";
+
+import browserSync from "browser-sync";
 
 import { port } from "./config";
 
@@ -24,6 +26,7 @@ const server = http.createServer((req, res) => {
 
         if (isDev) {
             file = file.replace("<script src=\"/js/script.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/js/script.js\"></script>");
+            file = file.replace("<!-- browser-sync -->", "<script async src=\"http://localhost:" + port.browserSync + "/browser-sync/browser-sync-client.js\"></script>");
         }
     } else {
         file = fs.readFileSync("." + req.url);
@@ -36,4 +39,17 @@ const server = http.createServer((req, res) => {
 
 server.listen(port.app, () => {
     console.log("Server started at port", port.app);
+
+    if (isDev) {
+        const browserSyncServer = browserSync.create();
+
+        browserSyncServer.watch("index.html").on("change", browserSyncServer.reload);
+
+        browserSyncServer.init({
+            logSnippet: false,
+            reloadOnRestart: true,
+
+            port: port.browserSync
+        });
+    }
 });
