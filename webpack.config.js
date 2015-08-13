@@ -80,8 +80,8 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(__dirname, "js"),
-        publicPath: "http://localhost:" + config.port.webpack + "/js/",
+        path: path.resolve(__dirname, "assets"),
+        publicPath: "http://localhost:" + config.port.webpack + "/assets/",
 
         filename: "[name].js"
     }

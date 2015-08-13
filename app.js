@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
         file = fs.readFileSync("index.html").toString();
 
         if (isDev) {
-            file = file.replace("<script src=\"/js/script.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/js/script.js\"></script>");
+            file = file.replace("<script src=\"/assets/script.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/assets/script.js\"></script>");
             file = file.replace("<!-- browser-sync -->", "<script async src=\"http://localhost:" + port.browserSync + "/browser-sync/browser-sync-client.js\"></script>");
         }
     } else {
