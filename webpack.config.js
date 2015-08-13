@@ -50,6 +50,9 @@ module.exports = {
                 test: /\.css$/,
                 loader: "style!css!postcss"
             }, {
+                test: /\.png$/,
+                loader: "file?name=[name].png!image-webpack"
+            }, {
                 test: /\.js$/,
                 exclude: /node_modules|html5shiv|respond|modernizr|plugins/,
                 loader: "babel"

@@ -22,7 +22,7 @@ $barca-blue: #0012A7;
 @define-mixin background-cover $background-url {
     background-size: cover;
     background-position: center center;
-    background-image: url($background-url);
+    background-image: url("/assets/$(background-url)");
 }
 
 @define-mixin font-indent {
@@ -37,11 +37,11 @@ $barca-blue: #0012A7;
 
 .banner {
     @mixin full-size;
-    @mixin background-cover "/img/jos-tw.png";
+    @mixin background-cover jos-tw.png;
 
     .title {
         @mixin full-size;
-        @mixin background-cover "/img/jos-front-end-developer.png";
+        @mixin background-cover jos-front-end-developer.png;
         @mixin font-indent;
 
         z-index: 1;

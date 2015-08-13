@@ -16,3 +16,6 @@ import "../css/vendor/boilerplate.css";
 import "./vendor/plugins";
 
 import "../css/style.css";
+
+import "../img/jos-tw.png";
+import "../img/jos-front-end-developer.png";
