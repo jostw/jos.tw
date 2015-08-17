@@ -25,36 +25,99 @@ $barca-blue: #0012A7;
     background-image: url("/assets/$(background-url)");
 }
 
+@define-mixin font-size $font-size, $line-height: 1.5em {
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
 @define-mixin font-indent {
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
 }
 
-.block {
-    height: 100vh;
+@define-mixin section-cover {
+    @mixin background-cover jos-tw.png;
+
+    position: relative;
+
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
 }
 
 .banner {
-    @mixin full-size;
-    @mixin background-cover jos-tw.png;
+    @mixin section-cover;
+
+    height: 700px;
+    height: 100vh;
+
+    &::before {
+        @mixin full-size;
+
+        content: "";
+
+        opacity: .75;
+
+        background: linear-gradient(90deg, $barca-red 10%, $barca-blue 90%);
+    }
 
     .title {
         @mixin full-size;
-        @mixin background-cover jos-front-end-developer.png;
         @mixin font-indent;
-
-        z-index: 1;
+        @mixin background-cover jos-front-end-developer.png;
 
         margin: 0;
     }
+}
 
-    .subtitle {
-        @mixin full-size;
-        @mixin font-indent;
+.about {
+    @mixin section-cover;
 
-        opacity: .8;
+    padding: 2em 2em 2em 50%;
+    overflow: hidden;
 
-        background: linear-gradient(90deg, $barca-red 10%, $barca-blue 90%);
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: -100%;
+        left: 45%;
+
+        width: 55%;
+        height: 300%;
+        border-radius: 100% 0 0 37.5%;
+        opacity: .875;
+
+        background-color: #FFF;
+    }
+
+    .name,
+    .summary {
+        position: relative;
+
+        color: #333;
+    }
+
+    .name {
+        @mixin font-size 64px;
+
+        margin: 0 0 .25em;
+        padding-left: .75em;
+
+        font-family: "Raleway";
+        font-weight: normal;
+    }
+
+    .summary {
+        @mixin font-size 20px;
+
+        padding-left: 2.75em;
     }
 }
