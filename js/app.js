@@ -10,12 +10,11 @@
 "use strict";
 
 import "normalize.css";
-import "modernizr";
-
 import "../css/vendor/boilerplate.css";
-import "./vendor/plugins";
-
 import "../css/style.css";
+
+import "modernizr";
+import "./vendor/plugins";
 
 import "../img/jos-tw.png";
 import "../img/jos-front-end-developer.png";

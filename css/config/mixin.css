@@ -1,0 +1,42 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+@define-mixin size-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+@define-mixin font-size $font-size, $line-height: 1.5em {
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@define-mixin font-indent {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@define-mixin background-cover $background-url {
+    background-size: cover;
+    background-position: center center;
+    background-image: url("/assets/$(background-url)");
+}
+
+@define-mixin section-cover {
+    @mixin background-cover jos-tw.png;
+
+    position: relative;
+
+    background-attachment: fixed;
+}

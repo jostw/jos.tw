@@ -1,0 +1,33 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+.banner {
+    @mixin section-cover;
+
+    height: 700px;
+    height: 100vh;
+
+    &::before {
+        @mixin size-full;
+
+        content: "";
+
+        opacity: .75;
+
+        background: linear-gradient(90deg, $barca-red 10%, $barca-blue 90%);
+    }
+
+    .title {
+        @mixin size-full;
+        @mixin font-indent;
+        @mixin background-cover jos-front-end-developer.png;
+
+        margin: 0;
+    }
+}
