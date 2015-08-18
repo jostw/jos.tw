@@ -1,0 +1,137 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+$project-height: 500px;
+$label-size: 200px;
+$label-top: calc(($project-height - $label-size * 2) / 2);
+
+.project {
+    @mixin section-cover;
+
+    &::before {
+        @mixin size-full;
+
+        content: "";
+
+        opacity: .75;
+
+        background-color: $black;
+    }
+
+    .list {
+        position: relative;
+
+        height: $project-height;
+        margin: 0;
+        padding: 0;
+    }
+
+    .item {
+        @mixin size-full;
+
+        list-style: none;
+    }
+
+    .checkbox {
+        display: none;
+
+        &:checked + label {
+            top: 0;
+            left: 0;
+            z-index: 2;
+
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+            transition: top .5s,
+                        left .5s,
+                        z-index 0s,
+                        width .5s,
+                        height .5s,
+                        margin .5s;
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    .label {
+        @mixin font-size 32px, $label-size;
+
+        position: absolute;
+        left: 50%;
+        z-index: 1;
+
+        text-align: center;
+
+        cursor: pointer;
+
+        transition: top .5s,
+                    left .5s,
+                    z-index 1.5s,
+                    width .5s,
+                    height .5s,
+                    margin .5s;
+
+        &:hover {
+            &::before {
+                opacity: .5;
+            }
+        }
+
+        &::before {
+            @mixin size-full;
+
+            content: "";
+
+            opacity: .75;
+
+            background-color: $black;
+
+            transition: opacity .2s;
+        }
+    }
+
+    .label-large,
+    .label-wide {
+        top: $label-top;
+    }
+
+    .label-large {
+        width: calc($label-size * 2);
+        height: calc($label-size * 2);
+        margin-left: -calc($label-size * 2);
+
+        line-height: calc($label-size * 2);
+    }
+
+    .label-wide {
+        width: calc($label-size * 2);
+        height: $label-size;
+    }
+
+    .label-small {
+        top: calc($label-top + $label-size);
+
+        width: $label-size;
+        height: $label-size;
+    }
+
+    .label-small-right {
+        margin-left: $label-size;
+    }
+
+    .text {
+        position: relative;
+
+        color: $white;
+    }
+}
