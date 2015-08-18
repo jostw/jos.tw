@@ -25,14 +25,14 @@
         border-radius: 100% 0 0 37.5%;
         opacity: .875;
 
-        background-color: #FFF;
+        background-color: $white;
     }
 
     .name,
     .summary {
         position: relative;
 
-        color: #333;
+        color: $black;
     }
 
     .name {
