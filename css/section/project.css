@@ -28,14 +28,10 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
         position: relative;
 
         height: $project-height;
-        margin: 0;
-        padding: 0;
     }
 
     .item {
         @mixin size-full;
-
-        list-style: none;
     }
 
     .checkbox {
