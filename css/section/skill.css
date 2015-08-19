@@ -17,12 +17,11 @@
     $hexagon-color: #DDD;
 
     .list {
-        margin: -calc($hexagon-height * .75 + 2px) 0 -calc($hexagon-height * .25 - 2px);
+        padding-bottom: calc($hexagon-height / 2 + 2px);
     }
 
     .row {
-        margin-left: -$hexagon-width;
-        margin-right: -$hexagon-width;
+        margin: 0 -$hexagon-width -calc($hexagon-height / 2 + 2px);
 
         text-align: center;
     }
@@ -36,7 +35,7 @@
         vertical-align: middle;
         width: $hexagon-width;
         height: $hexagon-height;
-        margin-top: calc($hexagon-height / 2 + 2px);
+        margin: calc($hexagon-height / 2 + 2px) 0;
         opacity: .9375;
 
         line-height: $hexagon-height;
