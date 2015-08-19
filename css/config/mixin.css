@@ -32,11 +32,3 @@
     background-position: center center;
     background-image: url("/assets/$(background-url)");
 }
-
-@define-mixin section-cover {
-    @mixin background-cover jos-tw.png;
-
-    position: relative;
-
-    background-attachment: fixed;
-}

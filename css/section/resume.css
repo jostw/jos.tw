@@ -8,8 +8,6 @@
  */
 
 .resume {
-    @mixin section-cover;
-
     padding: 10em 0;
 
     font-family: "Raleway";

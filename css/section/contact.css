@@ -8,8 +8,6 @@
  */
 
 .contact {
-    @mixin section-cover;
-
     padding: 7em 0;
 
     .form {

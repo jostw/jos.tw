@@ -8,7 +8,7 @@
  */
 
 .banner {
-    @mixin section-cover;
+    position: relative;
 
     height: 700px;
     height: 100vh;

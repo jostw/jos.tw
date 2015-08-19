@@ -8,8 +8,6 @@
  */
 
 .skill {
-    @mixin section-cover;
-
     overflow: hidden;
 
     $hexagon-width: 200px;

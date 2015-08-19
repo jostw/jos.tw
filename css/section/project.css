@@ -12,7 +12,7 @@ $label-size: 200px;
 $label-top: calc(($project-height - $label-size * 2) / 2);
 
 .project {
-    @mixin section-cover;
+    position: relative;
 
     &::before {
         @mixin size-full;

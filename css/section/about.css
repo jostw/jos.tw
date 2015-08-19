@@ -8,7 +8,7 @@
  */
 
 .about {
-    @mixin section-cover;
+    position: relative;
 
     padding: 2em 2em 2em 50%;
     overflow: hidden;
