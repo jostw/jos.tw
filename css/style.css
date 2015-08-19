@@ -17,3 +17,5 @@
 @import "section/resume.css";
 @import "section/skill.css";
 @import "section/contact.css";
+
+@import "layout/footer.css";
