@@ -12,7 +12,7 @@
 
     $hexagon-width: 200px;
     $hexagon-height: calc($hexagon-width * 0.57735);
-    $hexagon-color: #DDD;
+    $hexagon-color: $white;
 
     .list {
         padding-bottom: calc($hexagon-height / 2 + 2px);
