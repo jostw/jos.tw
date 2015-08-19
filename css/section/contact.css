@@ -58,6 +58,13 @@
         width: 80%;
         border: 0;
         padding: .625em 1em;
+        opacity: .875;
+
+        transition: opacity .2s;
+
+        &:focus {
+            opacity: 1;
+        }
     }
 
     .textarea {
@@ -71,10 +78,17 @@
         margin: .5em 0 .5em 20%;
         border: 0;
         padding: .75em;
+        opacity: .875;
 
         font-family: "Raleway";
 
         color: $white;
         background-color: $barca-red;
+
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }
