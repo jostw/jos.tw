@@ -1,0 +1,82 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+.contact {
+    @mixin section-cover;
+
+    padding: 5em 0;
+
+    .form {
+        position: relative;
+
+        width: 50%;
+        margin: 0 auto;
+        padding: 2.5em 3em;
+
+        &::before {
+            @mixin size-full;
+
+            content: "";
+
+            opacity: .75;
+
+            background-color: $black;
+        }
+    }
+
+    .label {
+        position: relative;
+
+        display: block;
+        padding: .5em 0;
+
+        white-space: nowrap;
+    }
+
+    .text {
+        @mixin font-size 18px, 2.1875em;
+
+        display: inline-block;
+        vertical-align: top;
+        width: 20%;
+        margin-right: -.1875em;
+        padding-right: 1em;
+
+        font-family: "Raleway";
+        text-align: right;
+
+        color: $white;
+    }
+
+    .input,
+    .textarea {
+        vertical-align: top;
+        width: 80%;
+        border: 0;
+        padding: .625em 1em;
+    }
+
+    .textarea {
+        height: 100px;
+    }
+
+    .submit {
+        position: relative;
+
+        width: 80%;
+        margin: .5em 0 .5em 20%;
+        border: 0;
+        padding: .75em;
+
+        font-family: "Raleway";
+
+        color: $white;
+        background-color: $barca-red;
+    }
+}

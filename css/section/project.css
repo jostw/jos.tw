@@ -128,6 +128,8 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
     .text {
         position: relative;
 
+        font-family: "Raleway";
+
         color: $white;
     }
 }
