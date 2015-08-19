@@ -1,0 +1,47 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+.resume {
+    @mixin section-cover;
+
+    padding: 10em 0;
+
+    font-family: "Raleway";
+    text-align: center;
+
+    .information {
+        @mixin font-size 40px;
+
+        margin: 0 0 1em;
+
+        font-weight: normal;
+
+        color: $white;
+    }
+
+    .link {
+        @mixin font-size 24px, 2.5em;
+
+        display: inline-block;
+
+        border-radius: 2.5em;
+        padding: 0 3em;
+
+        text-decoration: none;
+
+        color: $white;
+        background-color: $barca-blue;
+
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: .875;
+        }
+    }
+}
