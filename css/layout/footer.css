@@ -11,7 +11,7 @@
     position: relative;
 
     margin-top: -2em;
-    padding: 3em 1em 1em;
+    padding: 3em 0 1em;
 
     &::before {
         @mixin size-full;
@@ -32,17 +32,16 @@
     .list {
         position: absolute;
         right: 1em;
-        bottom: .25em;
+        bottom: -.75em;
     }
 
     .item {
         display: inline-block;
+        padding: 0 .25em;
     }
 
     .link {
         @mixin font-size 32px;
-
-        padding: 0 .125em;
 
         color: $gray;
 
