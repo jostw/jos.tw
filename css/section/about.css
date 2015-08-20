@@ -10,7 +10,6 @@
 .about {
     position: relative;
 
-    padding: 2em 2em 2em 50%;
     overflow: hidden;
 
     &::before {
@@ -18,9 +17,9 @@
 
         position: absolute;
         top: -100%;
-        left: 45%;
+        left: 40%;
 
-        width: 55%;
+        width: 60%;
         height: 300%;
         border-radius: 100% 0 0 37.5%;
         opacity: .875;
@@ -32,14 +31,15 @@
     .summary {
         position: relative;
 
+        padding-left: 50%;
+
         color: $black;
     }
 
     .name {
         @mixin font-size 64px;
 
-        margin: 0 0 .25em;
-        padding-left: .75em;
+        margin: .5em 0 .25em;
 
         font-family: "Raleway";
         font-weight: normal;
@@ -48,6 +48,6 @@
     .summary {
         @mixin font-size 20px;
 
-        padding-left: 2.75em;
+        margin-bottom: 2.5em;
     }
 }
