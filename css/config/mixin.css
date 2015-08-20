@@ -29,6 +29,6 @@
 
 @define-mixin background-cover $background-url {
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-image: url("/assets/$(background-url)");
 }

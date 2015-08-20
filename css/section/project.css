@@ -24,20 +24,20 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
         background-color: $black;
     }
 
-    .list {
+    > .list {
         position: relative;
 
         height: $project-height;
-    }
 
-    .item {
-        @mixin size-full;
+        > .item {
+            @mixin size-full;
+        }
     }
 
     .checkbox {
         display: none;
 
-        &:checked + label {
+        &:checked + .label {
             top: 0;
             left: 0;
             z-index: 2;
@@ -56,18 +56,38 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
             &::before {
                 opacity: 1;
             }
+
+            .name {
+                padding-top: 1em;
+                opacity: 1;
+
+                line-height: 1.5em;
+            }
+
+            .screen {
+                right: 50%;
+
+                transition: right .2s ease .4s;
+            }
+
+            .details {
+                left: 50%;
+
+                transition: left .2s ease .4s;
+            }
         }
     }
 
     .label {
-        @mixin font-size 32px, $label-size;
-
         position: absolute;
         left: 50%;
         z-index: 1;
 
+        overflow: hidden;
+
         text-align: center;
 
+        background-color: $black;
         cursor: pointer;
 
         transition: top .5s,
@@ -79,7 +99,15 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         &:hover {
             &::before {
-                opacity: .5;
+                opacity: .9375;
+            }
+
+            .logo {
+                transform: scale(1.5);
+            }
+
+            .name {
+                opacity: 1;
             }
         }
 
@@ -88,7 +116,9 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
             content: "";
 
-            opacity: .75;
+            z-index: 1;
+
+            opacity: 0;
 
             background-color: $black;
 
@@ -96,40 +126,154 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
         }
     }
 
-    .label-large,
-    .label-wide {
+    .label-air,
+    .label-online,
+    .label-study {
         top: $label-top;
     }
 
-    .label-large {
+    .label-air,
+    .label-imusic {
+        .logo {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .label-air {
         width: calc($label-size * 2);
         height: calc($label-size * 2);
         margin-left: -calc($label-size * 2);
 
-        line-height: calc($label-size * 2);
+        .name {
+            line-height: calc($label-size * 2);
+        }
     }
 
-    .label-wide {
+    .label-online,
+    .label-study {
+        width: $label-size;
+        height: $label-size;
+
+        .logo {
+            top: 50%;
+            left: 50%;
+        }
+    }
+
+    .label-online {
+        $online-logo-width: 150px;
+        $online-logo-height: 30px;
+
+        .logo {
+            width: $online-logo-width;
+            margin: -calc($online-logo-height / 2) 0 0 -calc($online-logo-width / 2);
+        }
+    }
+
+    .label-study {
+        margin-left: $label-size;
+
+        $study-logo-width: 144px;
+        $study-logo-height: 32px;
+
+        .logo {
+            width: $study-logo-width;
+            margin: -calc($study-logo-height / 2) 0 0 -calc($study-logo-width / 2);
+        }
+    }
+
+    .label-imusic {
+        top: calc($label-top + $label-size);
+
         width: calc($label-size * 2);
         height: $label-size;
     }
 
-    .label-small {
-        top: calc($label-top + $label-size);
+    .logo {
+        position: absolute;
 
-        width: $label-size;
-        height: $label-size;
+        transition: transform .2s;
     }
 
-    .label-small-right {
-        margin-left: $label-size;
+    .container {
+        display: block;
+        height: 100%;
+        padding: 0;
     }
 
-    .text {
+    .screen {
+        position: absolute;
+        top: 20%;
+        right: 100%;
+        z-index: 1;
+
+        width: auto;
+        height: 60%;
+
+        transition: right .2s;
+    }
+
+    .name {
+        @mixin font-size 32px, $label-size;
+
         position: relative;
+        z-index: 2;
+
+        display: block;
+        opacity: 0;
 
         font-family: "Raleway";
 
         color: $white;
+
+        transition: padding .2s,
+                    opacity .2s,
+                    line-height .2s;
+    }
+
+    .details {
+        position: absolute;
+        top: 20%;
+        left: 100%;
+        z-index: 1;
+
+        width: 50%;
+
+        transition: left .2s;
+
+        .list {
+            padding-left: 2em;
+
+            text-align: left;
+        }
+
+        .item {
+            @mixin font-size 20px;
+
+            margin-bottom: 1em;
+
+            color: $white;
+        }
+    }
+
+    .link {
+        display: block;
+        width: 100px;
+        margin-left: 2em;
+        padding: .5em 0;
+        opacity: .875;
+
+        font-family: "Raleway";
+        text-decoration: none;
+
+        color: $white;
+        background-color: $barca-blue;
+
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }
