@@ -22,6 +22,7 @@
   "author": "jos",
   "license": "GPLv2",
   "dependencies": {
+    "firebase": "^2.2.9",
     "html5shiv": "^3.7.3",
     "normalize.css": "^3.0.3",
     "respond.js": "^1.4.2"

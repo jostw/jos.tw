@@ -27,3 +27,5 @@ import "../img/muzik-study.png";
 import "../img/muzik-study-screen.png";
 import "../img/imusic.png";
 import "../img/imusic-screen.png";
+
+import "./section/contact";
