@@ -67,9 +67,14 @@ module.exports = {
         return [
             require("postcss-import"),
             require("postcss-mixins"),
+            require("postcss-each"),
             require("postcss-nested"),
             require("postcss-simple-vars"),
             require("postcss-calc"),
+            require("postcss-sprites")({
+                stylesheetPath: path.resolve(__dirname, "assets/"),
+                spritePath: path.resolve(__dirname, "img/sprite.png")
+            }),
             require("autoprefixer-core")
         ];
     },
@@ -86,7 +91,16 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "assets"),
-        publicPath: "http://localhost:" + config.port.webpack + "/assets/",
+
+        publicPath: (function() {
+            var path = "/assets/";
+
+            if (isDev) {
+                path = "http://localhost:" + config.port.webpack + path;
+            }
+
+            return path;
+        })(),
 
         filename: "[name].js"
     }

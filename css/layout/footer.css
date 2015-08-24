@@ -37,7 +37,7 @@
 
     .item {
         display: inline-block;
-        padding: 0 .25em;
+        padding-left: .5em;
     }
 
     .link {
@@ -48,27 +48,11 @@
         transition: color .2s;
     }
 
-    .link-linkedin {
-        &:hover {
-            color: $linkedin-blue;
-        }
-    }
-
-    .link-github {
-        &:hover {
-            color: $white;
-        }
-    }
-
-    .link-twitter {
-        &:hover {
-            color: $twitter-blue;
-        }
-    }
-
-    .link-pinterest {
-        &:hover {
-            color: $pinterest-red;
+    @each $link in linkedin, github, twitter, pinterest {
+        .link-$(link) {
+            &:hover {
+                color: $$(link);
+            }
         }
     }
 }

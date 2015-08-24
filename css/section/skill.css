@@ -63,4 +63,30 @@
             border-top: calc($hexagon-height / 2) solid $hexagon-color;
         }
     }
+
+    .icon {
+        @mixin font-indent;
+
+        position: absolute;
+        top: -15px;
+        left: 28px;
+        z-index: 1;
+
+        width: 145px;
+        height: 145px;
+
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    @each $icon in susy, compass, sass, postcss, angularjs, backbone, marionette,
+                   docker, git, html5, css3, javascript, es6, nodejs, express,
+                   grunt, gulp, browserify, webpack, react, flux, jquery {
+        .icon-$(icon) {
+            background-image: url("../img/sprites/$(icon).png");
+        }
+    }
 }

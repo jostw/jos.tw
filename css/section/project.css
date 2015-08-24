@@ -55,6 +55,8 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
             &::before {
                 opacity: 1;
+
+                background-color: $black;
             }
 
             .name {
@@ -99,10 +101,12 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         &:hover {
             &::before {
-                opacity: .9375;
+                opacity: .375;
             }
 
             .logo {
+                opacity: .125;
+
                 transform: scale(1.5);
             }
 
@@ -120,9 +124,10 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
             opacity: 0;
 
-            background-color: $black;
+            background-color: $barca-red;
 
-            transition: opacity .2s;
+            transition: opacity .2s,
+                        background-color .2s;
         }
     }
 
@@ -193,7 +198,8 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
     .logo {
         position: absolute;
 
-        transition: transform .2s;
+        transition: opacity .2s,
+                    transform .2s;
     }
 
     .container {
@@ -258,6 +264,12 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
     }
 
     .link {
+        color: $white;
+
+        font-family: "Raleway";
+    }
+
+    .visit {
         display: block;
         width: 100px;
         margin-left: 2em;
