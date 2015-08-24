@@ -49,5 +49,7 @@
         @mixin font-size 20px;
 
         margin-bottom: 2.5em;
+
+        text-align: justify;
     }
 }
