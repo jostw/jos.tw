@@ -28,6 +28,13 @@ const server = http.createServer((req, res) => {
             file = file.replace("<script src=\"/assets/script.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/assets/script.js\"></script>");
             file = file.replace("<!-- browser-sync -->", "<script async src=\"http://localhost:" + port.browserSync + "/browser-sync/browser-sync-client.js\"></script>");
         }
+    } else if (req.url === "/resume/" || req.url === "/resume") {
+        file = fs.readFileSync("resume/index.html").toString();
+
+        if (isDev) {
+            file = file.replace("<script src=\"/assets/resume.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/assets/resume.js\"></script>");
+            file = file.replace("<!-- browser-sync -->", "<script async src=\"http://localhost:" + port.browserSync + "/browser-sync/browser-sync-client.js\"></script>");
+        }
     } else {
         file = fs.readFileSync("." + req.url);
     }
@@ -44,6 +51,7 @@ server.listen(port.app, () => {
         const browserSyncServer = browserSync.create();
 
         browserSyncServer.watch("index.html").on("change", browserSyncServer.reload);
+        browserSyncServer.watch("resume/index.html").on("change", browserSyncServer.reload);
 
         browserSyncServer.init({
             logSnippet: false,

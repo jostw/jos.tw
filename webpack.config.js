@@ -18,6 +18,11 @@ var isDev = process.argv[1].match("dev");
 
 module.exports = {
     entry: {
+        vendor: [
+            "html5shiv",
+            path.resolve(__dirname, "node_modules/respond.js/dest/respond.min.js")
+        ],
+
         script: (function() {
             var script = path.resolve(__dirname, "js/app.js");
 
@@ -32,10 +37,19 @@ module.exports = {
             return script;
         })(),
 
-        vendor: [
-            "html5shiv",
-            path.resolve(__dirname, "node_modules/respond.js/dest/respond.min.js")
-        ]
+        resume: (function() {
+            var resume = path.resolve(__dirname, "js/resume.js");
+
+            if (isDev) {
+                resume = [
+                    "webpack-dev-server/client?http://localhost:" + config.port.webpack,
+                    "webpack/hot/dev-server",
+                    resume
+                ];
+            }
+
+            return resume;
+        })()
     },
 
     resolve: {
