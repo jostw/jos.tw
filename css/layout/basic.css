@@ -9,6 +9,12 @@
 
 $max-width: 1200px;
 
+body {
+    @mixin background-cover jos-tw.png;
+
+    background-attachment: fixed;
+}
+
 .container {
     position: relative;
 
