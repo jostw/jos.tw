@@ -10,8 +10,7 @@
 "use strict";
 
 import "normalize.css";
-import "../css/vendor/boilerplate.css";
-import "../css/style.css";
+import "../css/index.css";
 
 import "modernizr";
 import "./vendor/plugins";

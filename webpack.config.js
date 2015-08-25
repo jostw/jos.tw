@@ -23,8 +23,8 @@ module.exports = {
             path.resolve(__dirname, "node_modules/respond.js/dest/respond.min.js")
         ],
 
-        script: (function() {
-            var script = path.resolve(__dirname, "js/app.js");
+        index: (function() {
+            var script = path.resolve(__dirname, "js/index.js");
 
             if (isDev) {
                 script = [
