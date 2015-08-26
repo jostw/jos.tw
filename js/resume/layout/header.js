@@ -7,6 +7,8 @@
  * Licensed under the GPLv2 license.
  */
 
+"use strict";
+
 document.addEventListener("DOMContentLoaded", () => {
     const $email = document.getElementsByClassName("js-email")[0];
 
