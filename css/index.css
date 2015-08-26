@@ -13,12 +13,12 @@
 @import "config/mixin.css";
 @import "config/reset.css";
 
-@import "section/banner.css";
+@import "layout/basic.css";
+@import "layout/header.css";
+@import "layout/footer.css";
+
 @import "section/about.css";
 @import "section/project.css";
 @import "section/resume.css";
 @import "section/skill.css";
 @import "section/contact.css";
-
-@import "layout/basic.css";
-@import "layout/footer.css";
