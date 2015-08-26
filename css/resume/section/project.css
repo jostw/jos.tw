@@ -12,6 +12,10 @@
 
     margin-bottom: 1.5em;
 
+    strong {
+        font-weight: normal;
+    }
+
     .ps {
         @mixin font-size 14px, 22px;
 
