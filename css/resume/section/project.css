@@ -1,0 +1,30 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+.project {
+    position: relative;
+
+    margin-bottom: 1.5em;
+
+    .ps {
+        @mixin font-size 14px, 22px;
+
+        font-weight: normal;
+
+        color: $gray;
+    }
+
+    .list {
+        margin-top: .5em;
+    }
+
+    .link {
+        color: $black;
+    }
+}

@@ -1,0 +1,26 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+.header {
+    padding: 2.5em 0;
+
+    .title,
+    .subtitle {
+        margin: 0;
+
+        font-family: "Raleway";
+        font-weight: normal;
+    }
+
+    .title {
+        @mixin font-size 48px;
+
+        margin-left: -.125em;
+    }
+}

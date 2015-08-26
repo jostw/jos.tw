@@ -1,0 +1,19 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+$max-width: 800px;
+$label-width: 200px;
+
+.container {
+    position: relative;
+
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 1em 0 $label-width;
+}
