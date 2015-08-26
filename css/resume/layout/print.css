@@ -12,8 +12,12 @@
         content: none;
     }
 
+    .hide-from-print {
+        display: none;
+    }
+
     .container {
-        padding-left: 160px;
+        padding-left: 155px;
     }
 
     .header {
@@ -26,15 +30,7 @@
         }
     }
 
-    .footer {
-        display: none;
-    }
-
     .project {
-        .ps {
-            display: none;
-        }
-
         .link {
             text-decoration: none;
         }
