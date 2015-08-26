@@ -22,5 +22,6 @@
 @import "resume/section/award.css";
 @import "resume/section/school.css";
 @import "resume/section/publication.css";
+@import "resume/section/skill.css";
 
 @import "resume/layout/print.css";

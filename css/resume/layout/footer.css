@@ -8,7 +8,9 @@
  */
 
 .footer {
-    padding: 1em 0;
+    padding: 1em 0 2em;
+
+    text-align: center;
 
     .copyright {
         @mixin font-size 14px;

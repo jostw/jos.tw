@@ -34,6 +34,12 @@
         top: .125em;
     }
 
+    .label-skill {
+        top: -.09375em;
+
+        line-height: 28px;
+    }
+
     .article {
         text-align: justify;
     }
