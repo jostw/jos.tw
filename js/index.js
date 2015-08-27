@@ -27,4 +27,6 @@ import "../img/muzik-study-screen.png";
 import "../img/imusic.png";
 import "../img/imusic-screen.png";
 
+import "../img/sparkler.png";
+
 import "./section/contact";

@@ -8,10 +8,63 @@
  */
 
 .resume {
+    @mixin background-cover sparkler.png;
+
+    position: relative;
+
     padding: 10em 0;
 
     font-family: "Raleway";
     text-align: center;
+
+    background-attachment: fixed;
+
+    &:hover {
+        &::after {
+            opacity: .625;
+        }
+    }
+
+    $triangle-height: 60px;
+
+    &::before {
+        @mixin background-cover sparkler.png;
+
+        content: "";
+
+        position: absolute;
+        bottom: -$triangle-height;
+        left: 0;
+
+        width: 100%;
+        height: $triangle-height;
+
+        background-attachment: fixed;
+    }
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: -$triangle-height;
+
+        width: 100%;
+        opacity: 0;
+
+        background-color: $black;
+
+        transition: opacity .2s;
+    }
+
+    .information,
+    .link {
+        position: relative;
+        z-index: 1;
+
+        color: $white;
+    }
 
     .information {
         @mixin font-size 40px;
@@ -19,8 +72,6 @@
         margin: 0 0 1em;
 
         font-weight: normal;
-
-        color: $white;
     }
 
     .link {
@@ -34,7 +85,6 @@
 
         text-decoration: none;
 
-        color: $white;
         background-color: $barca-blue;
 
         transition: opacity .2s;
