@@ -10,7 +10,7 @@
 $max-width: 1200px;
 
 body {
-    @mixin background-cover jos-tw.png;
+    @mixin background-cover jos.png;
 
     background-attachment: fixed;
 }
