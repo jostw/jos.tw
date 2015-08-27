@@ -28,6 +28,28 @@
         }
     }
 
+    .form-loading {
+        .submit,
+        .complete {
+            transform: rotateX(180deg);
+        }
+
+        .loading {
+            transform: rotateX(0deg);
+        }
+    }
+
+    .form-complete {
+        .submit,
+        .loading {
+            transform: rotateX(180deg);
+        }
+
+        .complete {
+            transform: rotateX(0deg);
+        }
+    }
+
     .label {
         position: relative;
 
@@ -69,30 +91,77 @@
         &:focus {
             opacity: 1;
         }
+
+        &:read-only {
+            opacity: .5;
+
+            color: $gray;
+        }
     }
 
     .textarea {
         height: 100px;
     }
 
-    .submit {
-        position: relative;
-
+    .submit,
+    .loading,
+    .complete {
         width: 80%;
-        margin: .5em 0 .5em 20%;
-        border: 0;
         padding: .75em;
-        opacity: .875;
 
         font-family: "Raleway";
+        text-align: center;
 
         color: $white;
-        background-color: $barca-red;
 
-        transition: opacity .2s;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+
+    .submit,
+    .complete {
+        opacity: .875;
+
+        transition: opacity .2s,
+                    transform .5s;
 
         &:hover {
             opacity: 1;
         }
+    }
+
+    .submit {
+        margin-left: 20%;
+        border: 0;
+        outline: 0;
+
+        background-color: $barca-red;
+
+        transform: rotateX(0deg);
+    }
+
+    .loading,
+    .complete {
+        position: absolute;
+        top: .5em;
+        left: 20%;
+
+        transform: rotateX(180deg);
+    }
+
+    .loading {
+        background-color: $barca-blue;
+
+        transition: transform .5s;
+
+        .icon {
+            margin-right: .125em;
+        }
+    }
+
+    .complete {
+        text-decoration: none;
+
+        background-color: $green;
     }
 }

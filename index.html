@@ -222,7 +222,19 @@
                         <textarea class="textarea js-contact-form-message" name="message" required></textarea>
                     </label>
 
-                    <button class="submit">Send</button>
+                    <div class="label">
+                        <button class="submit">Send</button>
+
+                        <div class="loading">
+                            <span class="icon fa fa-paper-plane"></span>
+                            <span>Sending...</span>
+                        </div>
+
+                        <a class="complete js-contact-form-complete" href="#" title="Click to reset form">
+                            <span class="icon fa fa-check"></span>
+                            <span>Complete!</span>
+                        </a>
+                    </div>
                 </form>
             </section>
         </main>
