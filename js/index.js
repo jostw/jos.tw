@@ -16,6 +16,8 @@ import "modernizr";
 import "./vendor/plugins";
 
 import "../img/jos-tw.png";
+
+import "../img/jos.png";
 import "../img/jos-front-end-developer.png";
 
 import "../img/muzik-air.png";
