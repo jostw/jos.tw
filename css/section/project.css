@@ -146,6 +146,9 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
         .logo {
             top: 0;
             left: 0;
+
+            width: 100%;
+            height: 100%;
         }
     }
 
@@ -176,6 +179,7 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         .logo {
             width: $online-logo-width;
+            height: $online-logo-height;
             margin: -calc($online-logo-height / 2) 0 0 -calc($online-logo-width / 2);
         }
     }
@@ -188,6 +192,7 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         .logo {
             width: $study-logo-width;
+            height: $study-logo-height;
             margin: -calc($study-logo-height / 2) 0 0 -calc($study-logo-width / 2);
         }
     }
@@ -204,6 +209,12 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         transition: opacity .2s,
                     transform .2s;
+    }
+
+    @each $project in muzik-air, muzik-online, muzik-study, imusic {
+        .logo-$(project) {
+            background-image: url("../img/sprites/$(project).png");
+        }
     }
 
     .container {
