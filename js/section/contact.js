@@ -13,7 +13,7 @@ import Firebase from "firebase";
 
 const firebase = new Firebase("https://jostw.firebaseio.com");
 
-document.addEventListener("DOMContentLoaded", () => {
+export function init() {
     const $contactForm = document.getElementsByClassName("js-contact-form")[0];
     const $contactFormName = document.getElementsByClassName("js-contact-form-name")[0];
     const $contactFormEmail = document.getElementsByClassName("js-contact-form-email")[0];
@@ -56,4 +56,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return false;
     };
-});
+};

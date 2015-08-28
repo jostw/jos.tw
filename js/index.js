@@ -31,4 +31,10 @@ import "../img/imusic-screen.png";
 
 import "../img/sparkler.png";
 
-import "./section/contact";
+import * as project from "./section/project";
+import * as contact from "./section/contact";
+
+document.addEventListener("DOMContentLoaded", () => {
+    project.init();
+    contact.init();
+});

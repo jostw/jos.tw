@@ -70,6 +70,10 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
                 right: 50%;
 
                 transition: right .2s ease .4s;
+
+                &[data-src] {
+                    right: 100%;
+                }
             }
 
             .details {
