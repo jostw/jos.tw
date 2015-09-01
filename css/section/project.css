@@ -236,7 +236,7 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
     }
 
     .name {
-        @mixin font-size 32px, $label-size;
+        @mixin font-size 26px, $label-size;
 
         position: relative;
         z-index: 2;
