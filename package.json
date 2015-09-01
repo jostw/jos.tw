@@ -25,7 +25,9 @@
     "firebase": "^2.2.9",
     "html5shiv": "^3.7.3",
     "normalize.css": "^3.0.3",
-    "respond.js": "^1.4.2"
+    "respond.js": "^1.4.2",
+    "scrollreveal": "^2.3.2",
+    "skrollr": "^0.6.26"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",

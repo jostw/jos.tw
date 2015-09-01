@@ -30,7 +30,14 @@ import "../img/sparkler.png";
 import * as project from "./section/project";
 import * as contact from "./section/contact";
 
+import skrollr from "skrollr";
+import ScrollReveal from "scrollreveal";
+
 document.addEventListener("DOMContentLoaded", () => {
     project.init();
     contact.init();
+
+    skrollr.init({ forceHeight: false });
+
+    window.sr = new ScrollReveal({ reset: true });
 });

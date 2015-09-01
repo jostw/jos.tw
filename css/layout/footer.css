@@ -13,20 +13,12 @@
     margin-top: -2em;
     padding: 3em 0 1em;
 
-    &::before {
-        @mixin size-full;
-
-        content: "";
-
-        background: linear-gradient(0, $black, transparent);
-    }
-
     .copyright {
         @mixin font-size 14px;
 
         position: relative;
 
-        color: $gray;
+        color: $white;
     }
 
     .list {
@@ -43,14 +35,19 @@
     .link {
         @mixin font-size 32px;
 
-        color: $gray;
+        opacity: .5;
 
-        transition: color .2s;
+        color: $white;
+
+        transition: opacity .2s,
+                    color .2s;
     }
 
     @each $link in linkedin, github, twitter, pinterest {
         .link-$(link) {
             &:hover {
+                opacity: 1;
+
                 color: $$(link);
             }
         }

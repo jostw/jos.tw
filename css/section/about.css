@@ -12,12 +12,12 @@
 
     overflow: hidden;
 
-    &::before {
+    .background {
         content: "";
 
         position: absolute;
         top: -100%;
-        left: 40%;
+        right: 0;
 
         width: 60%;
         height: 300%;
@@ -31,6 +31,7 @@
     .summary {
         position: relative;
 
+        width: 100%;
         padding-left: 50%;
 
         color: $black;
