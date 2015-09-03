@@ -80,9 +80,10 @@ module.exports = {
     postcss: function() {
         return [
             require("postcss-import"),
-            require("postcss-mixins"),
             require("postcss-each"),
+            require("postcss-mixins"),
             require("postcss-nested"),
+            require("postcss-mixins"),
             require("postcss-simple-vars"),
             require("postcss-calc"),
             require("postcss-sprites")({

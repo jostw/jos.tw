@@ -1,0 +1,22 @@
+/*
+ * jos.tw
+ *
+ * https://github.com/jostw/jos.tw
+ *
+ * Copyright (c) 2015 jos
+ * Licensed under the GPLv2 license.
+ */
+
+$max-width:     1200px;
+$desktop-width: 1024px;
+$tablet-width:   768px;
+$mobile-width:   480px;
+$min-width:      320px;
+
+@each $screen in max, desktop, tablet, mobile, min {
+    @define-mixin media-$(screen) {
+        @media (max-width: $$(screen)-width) {
+            @mixin-content;
+        }
+    }
+}

@@ -7,8 +7,6 @@
  * Licensed under the GPLv2 license.
  */
 
-$max-width: 1200px;
-
 body {
     @mixin background-cover jos.png;
 

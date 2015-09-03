@@ -9,6 +9,7 @@
 
 @import "vendor/boilerplate.css";
 
+@import "config/grid.css";
 @import "config/color.css";
 @import "config/mixin.css";
 @import "config/reset.css";

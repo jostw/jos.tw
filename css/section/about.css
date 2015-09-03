@@ -25,6 +25,8 @@
         opacity: .875;
 
         background-color: $white;
+
+        transition: width .2s;
     }
 
     .name,
@@ -35,6 +37,9 @@
         padding-left: 50%;
 
         color: $black;
+
+        transition: padding .2s,
+                    font-size .2s;
     }
 
     .name {
@@ -52,5 +57,26 @@
         margin-bottom: 2.5em;
 
         text-align: justify;
+    }
+
+    @mixin media-desktop {
+        .background {
+            width: 120%;
+        }
+
+        .name,
+        .summary {
+            padding-left: 0;
+        }
+    }
+
+    @mixin media-mobile {
+        .name {
+            @mixin font-size 48px;
+        }
+
+        .summary {
+            @mixin font-size 16px;
+        }
     }
 }
