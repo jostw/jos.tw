@@ -15,7 +15,7 @@ export function init() {
     const $projectCheckboxes = Array.from(document.getElementsByClassName("js-project-checkbox"));
 
     $projectCheckboxes.map(($projectCheckbox) => {
-        const $projectScreen = $projectCheckbox.nextElementSibling.children[1].children[0];
+        const $projectScreen = $projectCheckbox.nextElementSibling.children[1].children[1];
 
         const projectCheckboxHandler = () => {
             $projectScreen.setAttribute("src", $projectScreen.getAttribute("data-src"));

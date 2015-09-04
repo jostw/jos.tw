@@ -7,9 +7,14 @@
  * Licensed under the GPLv2 license.
  */
 
-$project-height: 500px;
 $label-size: 200px;
-$label-top: calc(($project-height - $label-size * 2) / 2);
+$label-size-small: calc($label-size * .625);
+
+$label-top: calc($label-size / 4);
+
+$project-height: calc($label-size * 2 + $label-top * 2);
+$project-height-double: calc($label-size * 4 + $label-top * 2);
+$project-height-small: calc($label-size-small * 5 + $label-top * 2);
 
 .project {
     position: relative;
@@ -28,6 +33,8 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
         position: relative;
 
         height: $project-height;
+
+        transition: height .2s;
 
         > .item {
             @mixin size-full;
@@ -67,19 +74,23 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
             }
 
             .screen {
-                right: 50%;
+                left: 0;
 
-                transition: right .2s ease .4s;
+                transition: top .2s,
+                            left .2s ease .4s,
+                            width .2s;
 
                 &[data-src] {
-                    right: 100%;
+                    left: -100%;
                 }
             }
 
             .details {
                 left: 50%;
 
-                transition: left .2s ease .4s;
+                transition: top .2s,
+                            left .2s ease .4s,
+                            width .2s;
             }
         }
     }
@@ -207,7 +218,11 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
     .logo {
         position: absolute;
 
-        transition: opacity .2s,
+        transition: top .5s,
+                    left .5s,
+                    width .6s,
+                    height .6s,
+                    opacity .2s,
                     transform .2s;
     }
 
@@ -221,25 +236,27 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
         display: block;
         height: 100%;
         padding: 0;
+        overflow: hidden;
     }
 
     .screen {
         position: absolute;
         top: 20%;
-        right: 100%;
-        z-index: 1;
+        left: -100%;
+        z-index: 2;
 
-        width: auto;
-        height: 60%;
+        width: 50%;
 
-        transition: right .2s;
+        transition: top .2s,
+                    left .2s,
+                    width .2s;
     }
 
     .name {
         @mixin font-size 26px, $label-size;
 
         position: relative;
-        z-index: 2;
+        z-index: 3;
 
         display: block;
         opacity: 0;
@@ -261,7 +278,9 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         width: 50%;
 
-        transition: left .2s;
+        transition: top .2s,
+                    left .2s,
+                    width .2s;
 
         .list {
             padding-left: 2em;
@@ -301,6 +320,121 @@ $label-top: calc(($project-height - $label-size * 2) / 2);
 
         &:hover {
             opacity: 1;
+        }
+    }
+
+    @mixin media-desktop {
+        > .list {
+            height: $project-height-double;
+        }
+
+        .checkbox {
+            &:checked + .label {
+                .details {
+                    left: 10%;
+                }
+            }
+        }
+
+        .label-air,
+        .label-online,
+        .label-imusic {
+            margin-left: -$label-size;
+        }
+
+        .label-online,
+        .label-study {
+            top: calc($label-top + $label-size * 2);
+        }
+
+        .label-study {
+            margin-left: 0;
+        }
+
+        .label-imusic {
+            top: calc($label-top + $label-size * 3);
+        }
+
+        .screen {
+            position: relative;
+            top: 1.5em;
+
+            width: 90%;
+        }
+
+        .details {
+            position: relative;
+            top: 4em;
+
+            width: 80%;
+        }
+    }
+
+    @mixin media-mobile {
+        > .list {
+            height: $project-height-small;
+        }
+
+        .checkbox {
+            &:checked + .label {
+                .details {
+                    left: 5%;
+                }
+            }
+        }
+
+        .label {
+            width: calc($label-size-small * 2);
+            margin-left: -$label-size-small;
+        }
+
+        .label-air {
+            height: calc($label-size-small * 2);
+
+            .name {
+                line-height: calc($label-size-small * 2);
+            }
+        }
+
+        .label-air,
+        .label-imusic {
+            .logo {
+                top: -30%;
+                left: -30%;
+
+                width: 160%;
+                height: 160%;
+
+                transform: scale(.625);
+            }
+        }
+
+        .label-online,
+        .label-study,
+        .label-imusic {
+            height: $label-size-small;
+
+            .name {
+                line-height: $label-size-small;
+            }
+        }
+
+        .label-online {
+            top: calc($label-top + $label-size-small * 2);
+        }
+
+        .label-study {
+            top: calc($label-top + $label-size-small * 3);
+        }
+
+        .label-imusic {
+            top: calc($label-top + $label-size-small * 4);
+        }
+
+        .details {
+            top: 3em;
+
+            width: 90%;
         }
     }
 }
