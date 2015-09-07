@@ -17,6 +17,11 @@
         margin: 0 auto;
         padding: 2.5em 3em;
 
+        transition: width .2s,
+                    padding .2s,
+                    opacity .6s,
+                    transform .6s !important;
+
         &::before {
             @mixin size-full;
 
@@ -63,6 +68,8 @@
     .input,
     .textarea {
         vertical-align: top;
+
+        transition: width .2s;
     }
 
     .text {
@@ -122,9 +129,6 @@
     .complete {
         opacity: .875;
 
-        transition: opacity .2s,
-                    transform .5s;
-
         &:hover {
             opacity: 1;
         }
@@ -138,6 +142,11 @@
         background-color: $barca-red;
 
         transform: rotateX(0deg);
+
+        transition: width .2s,
+                    margin .2s,
+                    opacity .2s,
+                    transform .5s;
     }
 
     .loading,
@@ -152,7 +161,9 @@
     .loading {
         background-color: $barca-blue;
 
-        transition: transform .5s;
+        transition: left .2s,
+                    width .2s,
+                    transform .5s;
 
         .icon {
             margin-right: .125em;
@@ -163,5 +174,74 @@
         text-decoration: none;
 
         background-color: $green;
+
+        transition: left .2s,
+                    width .2s,
+                    opacity .2s,
+                    transform .5s;
+    }
+
+    @mixin media-desktop {
+        .form {
+            width: 70%;
+        }
+    }
+
+    @mixin media-tablet {
+        .form {
+            width: 90%;
+            padding-right: 1.5em;
+            padding-left: 1.5em;
+        }
+
+        .text {
+            width: 25%;
+        }
+
+        .input,
+        .textarea,
+        .submit,
+        .loading,
+        .complete {
+            width: 70%;
+        }
+
+        .submit {
+            margin-left: 25%;
+        }
+
+        .loading,
+        .complete {
+            left: 25%;
+        }
+    }
+
+    @mixin media-mobile {
+        .form {
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+        .text {
+            display: block;
+
+            text-align: left;
+        }
+
+        .input,
+        .textarea,
+        .submit,
+        .loading,
+        .complete {
+            width: 100%;
+        }
+
+        .submit {
+            margin-left: 0;
+        }
+
+        .loading,
+        .complete {
+            left: 0;
+        }
     }
 }
