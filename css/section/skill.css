@@ -19,7 +19,7 @@
     }
 
     .row {
-        margin: 0 -$hexagon-width -calc($hexagon-height / 2 + 2px);
+        margin: 0 -calc($hexagon-width * 4) -calc($hexagon-height / 2 + 2px);
 
         text-align: center;
 
