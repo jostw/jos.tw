@@ -29,14 +29,14 @@ const server = http.createServer((req, res) => {
             file = file.replace("<!-- browser-sync -->", "<script async src=\"http://localhost:" + port.browserSync + "/browser-sync/browser-sync-client.js\"></script>");
         }
     } else if (req.url === "/resume/" || req.url === "/resume") {
-        file = fs.readFileSync("resume/index.html").toString();
+        file = fs.readFileSync("resume.html").toString();
 
         if (isDev) {
             file = file.replace("<script src=\"/assets/resume.js\"></script>", "<script src=\"http://localhost:" + port.webpack + "/assets/resume.js\"></script>");
             file = file.replace("<!-- browser-sync -->", "<script async src=\"http://localhost:" + port.browserSync + "/browser-sync/browser-sync-client.js\"></script>");
         }
     } else {
-        file = fs.readFileSync("." + req.url);
+        file = fs.readFileSync("dist" + req.url);
     }
 
     console.log(req.method, req.url);

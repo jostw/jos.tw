@@ -105,7 +105,7 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(__dirname, "assets"),
+        path: path.resolve(__dirname, "dist/assets"),
 
         publicPath: (function() {
             var path = "/assets/";
