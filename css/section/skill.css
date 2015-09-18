@@ -94,9 +94,9 @@
         }
     }
 
-    @each $icon in susy, compass, sass, postcss, angularjs, backbone, marionette,
-                   docker, git, html5, css3, javascript, es6, nodejs, express,
-                   grunt, gulp, browserify, webpack, react, flux, jquery {
+    @each $icon in pure, susy, compass, sass, postcss, angularjs, backbone, marionette, handlebars,
+                   aws, docker, git, html5, css3, javascript, es6, nodejs, express, hapi,
+                   requirejs, grunt, gulp, browserify, webpack, react, flux, jquery, bootstrap {
         .icon-$(icon) {
             background-image: url("../img/sprites/$(icon).png");
         }

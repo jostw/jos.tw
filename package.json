@@ -21,7 +21,7 @@
     "developer"
   ],
   "author": "jos",
-  "license": "GPLv2",
+  "license": "GPL-2.0",
   "dependencies": {
     "firebase": "^2.2.9",
     "html5shiv": "^3.7.3",
