@@ -13,8 +13,9 @@ import fs from "fs";
 import http from "http";
 
 import browserSync from "browser-sync";
+import { minify } from "html-minifier";
 
-import { port } from "./config";
+import { port, templates } from "./config";
 
 const isDev = ((argv) => argv && argv.match("dev"))(process.argv[2]);
 
@@ -58,6 +59,14 @@ server.listen(port.app, () => {
             reloadOnRestart: true,
 
             port: port.browserSync
+        });
+    } else {
+        templates.map((template) => {
+            let index = fs.readFileSync(template.src).toString();
+
+            index = minify(index, { removeComments: true });
+
+            fs.writeFileSync(template.dest, index);
         });
     }
 });

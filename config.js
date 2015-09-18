@@ -14,5 +14,15 @@ module.exports = {
         app: 3000,
         webpack: 3001,
         browserSync: 3002
-    }
+    },
+
+    templates: [
+        {
+            src: "index.html",
+            dest: "dist/index.html"
+        }, {
+            src: "resume.html",
+            dest: "dist/resume/index.html"
+        }
+    ]
 };
