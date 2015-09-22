@@ -52,7 +52,7 @@ server.listen(port.app, () => {
         const browserSyncServer = browserSync.create();
 
         browserSyncServer.watch("index.html").on("change", browserSyncServer.reload);
-        browserSyncServer.watch("resume/index.html").on("change", browserSyncServer.reload);
+        browserSyncServer.watch("resume.html").on("change", browserSyncServer.reload);
 
         browserSyncServer.init({
             logSnippet: false,

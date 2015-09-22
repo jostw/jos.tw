@@ -10,7 +10,7 @@
 .header {
     position: relative;
 
-    padding: 2.5em 0;
+    padding: 2.5em 0 1.5em;
 
     .title,
     .subtitle {
