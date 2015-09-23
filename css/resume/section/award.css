@@ -9,8 +9,6 @@
 
 .award {
     .name {
-        margin: 1.25em 0 0;
-
         text-decoration: none;
 
         color: $black;

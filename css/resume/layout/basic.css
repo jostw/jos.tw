@@ -8,7 +8,7 @@
  */
 
 $max-width: 800px;
-$label-width: 200px;
+$label-width: 100px;
 
 .container {
     position: relative;

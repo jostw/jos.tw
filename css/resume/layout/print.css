@@ -13,15 +13,20 @@
     }
 
     .hide-from-print {
-        display: none;
+        display: none !important;
+    }
+
+    .show-from-print {
+        display: block !important;
+        visibility: visible;
     }
 
     .container {
-        padding-left: 155px;
+        padding-left: calc($label-width + 10px);
     }
 
     .header {
-        padding-top: 1.25em;
+        padding-top: .5em;
     }
 
     .section {
