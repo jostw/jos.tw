@@ -47,6 +47,10 @@
                     bottom .2s;
     }
 
+    .list {
+        white-space: nowrap;
+    }
+
     .item {
         position: relative;
 
@@ -74,10 +78,6 @@
             bottom: -2em;
 
             text-align: left;
-        }
-
-        .list {
-            white-space: nowrap;
         }
 
         .item {

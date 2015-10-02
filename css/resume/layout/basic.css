@@ -15,9 +15,13 @@ $label-width: 120px;
 
     max-width: $max-width;
     margin: 0 auto;
-    padding: 0 1.5em 0 $label-width;
+    padding: 0 1.5em 0 calc($label-width - 20px);
 
     transition: padding .2s;
+
+    @mixin media-desktop {
+        padding-left: $label-width;
+    }
 
     @mixin media-mobile {
         padding-left: 1.5em;

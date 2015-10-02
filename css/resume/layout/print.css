@@ -21,15 +21,40 @@
         visibility: visible;
     }
 
-    .container {
-        padding-left: calc($label-width + 10px);
-    }
-
     .header {
         padding-top: .5em;
+
+        .subtitle {
+            margin-bottom: 0;
+        }
+
+        .contact {
+            left: inherit;
+            bottom: .25em;
+
+            text-align: right;
+        }
+
+        .item {
+            display: block;
+            padding-right: 0;
+
+            &::after {
+                display: none;
+            }
+        }
     }
 
     .section {
+        .name {
+            margin-bottom: .25em;
+        }
+
+        .period {
+            top: 0;
+            left: inherit;
+        }
+
         .item {
             list-style: disc;
         }
