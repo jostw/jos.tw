@@ -11,6 +11,9 @@
     margin-top: -.125em;
 
     .name {
+        margin-bottom: .25em;
+
         line-height: 30px;
+        white-space: normal;
     }
 }

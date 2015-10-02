@@ -19,6 +19,7 @@
 @import "resume/layout/section.css";
 @import "resume/layout/footer.css";
 
+@import "resume/section/company.css";
 @import "resume/section/project.css";
 @import "resume/section/award.css";
 @import "resume/section/school.css";

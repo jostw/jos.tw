@@ -22,7 +22,10 @@
         .name {
             @mixin font-size 18px;
 
+            margin-bottom: .25em;
+
             font-weight: normal;
+            white-space: normal;
         }
 
         .list {

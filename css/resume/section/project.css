@@ -22,6 +22,9 @@
         font-weight: normal;
 
         color: $gray;
+
+        transition: font-size .2s,
+                    line-height .2s;
     }
 
     .list {
@@ -30,5 +33,11 @@
 
     .link {
         color: $black;
+    }
+
+    @mixin media-mobile {
+        .ps {
+            @mixin font-size 12px, 20px;
+        }
     }
 }

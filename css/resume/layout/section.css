@@ -12,6 +12,8 @@
 
     margin-bottom: 1.25em;
 
+    transition: padding .2s;
+
     .label {
         @mixin font-size 16px, 24px;
 
@@ -28,6 +30,9 @@
         text-align: right;
 
         color: $gray;
+
+        transition: top .2s,
+                    left .2s;
     }
 
     .label-publication {
@@ -36,6 +41,12 @@
 
     .label-skill {
         line-height: 22px;
+
+        .br {
+            display: block;
+
+            transition: padding .2s;
+        }
     }
 
     .article {
@@ -52,8 +63,13 @@
         text-align: left;
         text-decoration: none;
         letter-spacing: .0625em;
+        white-space: nowrap;
 
         color: $black;
+
+        transition: margin .2s,
+                    font-size .2s,
+                    line-height .2s;
 
         &[href]:hover {
             text-decoration: underline;
@@ -66,13 +82,16 @@
     }
 
     .period {
-        @mixin font-size 14px;
+        @mixin font-size 14px, 1.875em;
 
         position: absolute;
         top: 0;
         right: 0;
 
         color: $gray;
+
+        transition: top .2s,
+                    left .2s;
     }
 
     .list {
@@ -99,6 +118,42 @@
             border-radius: 100%;
 
             background-color: $black;
+        }
+    }
+
+    @mixin media-tablet {
+        .name {
+            margin-bottom: 2em;
+        }
+
+        .period {
+            top: 1.625em;
+            left: 0;
+        }
+    }
+
+    @mixin media-mobile {
+        padding-top: 2.25em;
+
+        .label {
+            left: 0;
+
+            text-align: left;
+        }
+
+        .label-summary {
+            top: 1.25em;
+        }
+
+        .label-skill {
+            .br {
+                display: inline;
+                padding-left: .325em;
+            }
+        }
+
+        .name {
+            @mixin font-size 18px, 18px;
         }
     }
 }

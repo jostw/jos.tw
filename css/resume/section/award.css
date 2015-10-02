@@ -8,10 +8,16 @@
  */
 
 .award {
+    position: relative;
+
     .name {
         text-decoration: none;
 
         color: $black;
+    }
+
+    .name-app {
+        margin-bottom: .25em;
     }
 
     .list {
