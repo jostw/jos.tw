@@ -39,5 +39,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     skrollr.init({ forceHeight: false });
 
-    window.sr = new ScrollReveal({ reset: true });
+    window.sr = new ScrollReveal();
 });
