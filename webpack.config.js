@@ -69,7 +69,7 @@ module.exports = {
             }, {
                 test: /\.js$/,
                 exclude: /node_modules|html5shiv|respond|modernizr|plugins/,
-                loader: "babel!jshint"
+                loader: "babel!jscs!jshint"
             }, {
                 test: /respond|modernizr/,
                 loader: "imports?this=>window"

@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "bower install",
     "jshint": "jshint *.js",
-    "test": "npm run jshint",
+    "jscs": "jscs *.js",
+    "test": "npm run jshint & npm run jscs",
     "start": "npm test && babel-node app.js --dev & webpack-dev-server --hot",
     "build": "npm test && webpack -p",
     "postbuild": "babel-node app.js",
