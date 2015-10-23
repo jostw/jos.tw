@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "postinstall": "bower install",
-    "test": "npm install",
+    "jshint": "jshint *.js",
+    "test": "npm run jshint",
     "start": "npm test && babel-node app.js --dev & webpack-dev-server --hot",
     "build": "npm test && webpack -p",
     "postbuild": "babel-node app.js",
@@ -44,6 +45,8 @@
     "image-webpack-loader": "^1.6.1",
     "imagemin": "^3.2.0",
     "imports-loader": "^0.6.4",
+    "jshint": "^2.8.0",
+    "jshint-loader": "^0.8.3",
     "postcss-calc": "^4.1.0",
     "postcss-each": "^0.6.0",
     "postcss-import": "^6.2.0",

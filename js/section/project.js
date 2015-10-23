@@ -29,4 +29,4 @@ export function init() {
 
         $projectCheckbox.addEventListener("change", projectCheckboxHandler);
     });
-};
+}
