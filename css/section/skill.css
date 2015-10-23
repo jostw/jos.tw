@@ -37,7 +37,7 @@
     }
 
     .hexagon {
-        @mixin font-size 24px;
+        @mixin font-size 24px, $hexagon-height;
 
         position: relative;
 
@@ -47,8 +47,6 @@
         height: $hexagon-height;
         margin: calc($hexagon-height / 2 + 2px) 0;
         opacity: .875;
-
-        line-height: $hexagon-height;
 
         background-color: $hexagon-color;
 

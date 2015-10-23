@@ -62,7 +62,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: "style!css!postcss"
+                loader: "style!css!csslint!postcss"
             }, {
                 test: /\.png$/,
                 loader: "file?name=[name].png!image-webpack"

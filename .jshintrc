@@ -1,6 +1,6 @@
 {
-    "esnext": true,
+    "esnext"    : true,
 
-    "browser": true,
-    "node": true
+    "browser"   : true,
+    "node"      : true
 }

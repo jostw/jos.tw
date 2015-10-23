@@ -184,10 +184,10 @@ $project-height-small: calc($label-size-small * 5 + $label-top * 3);
         }
     }
 
-    .label-online {
-        $online-logo-width: 150px;
-        $online-logo-height: 30px;
+    $online-logo-width: 150px;
+    $online-logo-height: 30px;
 
+    .label-online {
         .logo {
             width: $online-logo-width;
             height: $online-logo-height;
@@ -195,11 +195,11 @@ $project-height-small: calc($label-size-small * 5 + $label-top * 3);
         }
     }
 
+    $study-logo-width: 144px;
+    $study-logo-height: 32px;
+
     .label-study {
         margin-left: $label-size;
-
-        $study-logo-width: 144px;
-        $study-logo-height: 32px;
 
         .logo {
             width: $study-logo-width;
