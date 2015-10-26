@@ -10,11 +10,37 @@
 .footer {
     padding: 1em 0 2em;
 
-    text-align: center;
+    text-align: left;
 
     .copyright {
         @mixin font-size 14px;
 
         color: $gray;
+    }
+
+    .list {
+        position: absolute;
+        top: -.375em;
+        right: 2em;
+        z-index: 1;
+
+        .item {
+            display: inline-block;
+            padding: 0 .25em;
+        }
+
+        .icon {
+            @mixin font-size 22px;
+
+            text-decoration: none;
+
+            color: $gray;
+
+            transition: color .2s;
+
+            &:hover {
+                color: $twitter;
+            }
+        }
     }
 }
