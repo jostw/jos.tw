@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Message from '../components/Message';
+import MessageList from '../components/MessageList';
 
 class App extends Component {
   render() {
     return (
-      <Message />
+      <MessageList />
     );
   }
 }

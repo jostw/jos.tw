@@ -4,7 +4,7 @@ import './Message.css';
 class Message extends Component {
   render() {
     return (
-      <span className="message">Hello World!</span>
+      <span className="message">{ this.props.children }</span>
     );
   }
 }
