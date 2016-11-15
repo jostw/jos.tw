@@ -9,7 +9,7 @@ class MessageList extends Component {
         this.props.messages.map((message, index) => {
           return (
             <li className={ `message-${message.type}` } key={ index }>
-              <Message>{ message.content }</Message>
+              <Message hasHTML={ message.has_html }>{ message.content }</Message>
             </li>
           );
         })

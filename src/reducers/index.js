@@ -1,29 +1,6 @@
 import { combineReducers } from 'redux';
+import { messages as aboutMessages } from './aboutReducer';
 
-function messages(state = [], action) {
-  switch(action.type) {
-    default:
-      return [
-        {
-          content: 'Hello World!',
-          type: 'server'
-        }, {
-          content: 'Hello World!',
-          type: 'server'
-        }, {
-          content: 'Hello World!',
-          type: 'client'
-        }, {
-          content: 'Hello World!',
-          type: 'client'
-        }, {
-          content: 'Hello World!',
-          type: 'server'
-        }
-      ];
-  }
-}
-
-const rootReducer = combineReducers({ messages });
+const rootReducer = combineReducers({ aboutMessages });
 
 export default rootReducer;

@@ -5,13 +5,15 @@ import MessageList from '../components/MessageList';
 class App extends Component {
   render() {
     return (
-      <MessageList messages={ this.props.messages } />
+      <section>
+        <MessageList messages={ this.props.aboutMessages } />
+      </section>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { messages: state.messages };
+  return { aboutMessages: state.aboutMessages };
 };
 
 export default connect(mapStateToProps)(App);
