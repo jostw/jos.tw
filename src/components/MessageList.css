@@ -8,6 +8,8 @@
 }
 
 .message-client {
+  margin-top: 1em;
+
   text-align: right;
 }
 
@@ -16,7 +18,6 @@
   margin-top: .125em;
 }
 
-.message-server + .message-client,
 .message-client + .message-server {
   margin-top: 1em;
 }
