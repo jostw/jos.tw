@@ -7,34 +7,34 @@
   list-style: none;
 }
 
-.message-right {
+.message-client {
   text-align: right;
 }
 
-.message-left + .message-left,
-.message-right + .message-right {
+.message-server + .message-server,
+.message-client + .message-client {
   margin-top: .125em;
 }
 
-.message-left + .message-right,
-.message-right + .message-left {
+.message-server + .message-client,
+.message-client + .message-server {
   margin-top: 1em;
 }
 
-.message-left .message {
+.message-server .message {
   border-bottom-left-radius: 0;
 }
 
-.message-right .message {
+.message-client .message {
   border-bottom-right-radius: 0;
 
   background-color: #E3F2FD;
 }
 
-.message-left + .message-left .message {
+.message-server + .message-server .message {
   border-top-left-radius: 0;
 }
 
-.message-right + .message-right .message {
+.message-client + .message-client .message {
   border-top-right-radius: 0;
 }
