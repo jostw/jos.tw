@@ -6,3 +6,35 @@
 .message-list li {
   list-style: none;
 }
+
+.message-right {
+  text-align: right;
+}
+
+.message-left + .message-left,
+.message-right + .message-right {
+  margin-top: .125em;
+}
+
+.message-left + .message-right,
+.message-right + .message-left {
+  margin-top: 1em;
+}
+
+.message-left .message {
+  border-bottom-left-radius: 0;
+}
+
+.message-right .message {
+  border-bottom-right-radius: 0;
+
+  background-color: #E3F2FD;
+}
+
+.message-left + .message-left .message {
+  border-top-left-radius: 0;
+}
+
+.message-right + .message-right .message {
+  border-top-right-radius: 0;
+}

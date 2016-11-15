@@ -6,7 +6,19 @@ class MessageList extends Component {
   render() {
     return (
       <ul className="message-list">
-        <li>
+        <li className="message-left">
+          <Message>{ 'Hello World!' }</Message>
+        </li>
+        <li className="message-left">
+          <Message>{ 'Hello World!' }</Message>
+        </li>
+        <li className="message-right">
+          <Message>{ 'Hello World!' }</Message>
+        </li>
+        <li className="message-right">
+          <Message>{ 'Hello World!' }</Message>
+        </li>
+        <li className="message-left">
           <Message>{ 'Hello World!' }</Message>
         </li>
       </ul>
