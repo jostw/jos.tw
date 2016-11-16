@@ -25,6 +25,10 @@ class Message extends Component {
       );
     }
 
+    if (message.is_visible) {
+      classList.push('message-visible');
+    }
+
     return (
       <div className={ classList.join(' ') }>{ content }</div>
     );

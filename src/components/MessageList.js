@@ -7,8 +7,14 @@ class MessageList extends Component {
     return (
       <ul className="message-list">{
         this.props.messages.map((message, index) => {
+          const classList = [`message-${message.type}`];
+
+          if (message.is_typing || message.is_visible) {
+            classList.push(`message-${message.type}-visible`);
+          }
+
           return (
-            <li className={ `message-${message.type}` } key={ index }>
+            <li className={ classList.join(' ') } key={ index }>
               <Message message={ message } />
             </li>
           );

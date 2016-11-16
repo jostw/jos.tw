@@ -1,16 +1,24 @@
 .message {
   display: inline-block;
-  max-width: 100%;
+  max-width: 4.5em;
   border-radius: .75em;
-  padding: 1em;
+  padding: 0 1em;
 
+  color: #EEE;
   background-color: #EEE;
 
-  transition: max-width 1s linear;
+  transition: padding .5s;
 }
 
-.message-typing {
-  max-width: 4.5em;
+.message-typing,
+.message-visible {
+  padding: 1em;
+}
+
+.message-visible {
+  max-width: 100%;
+
+  transition: max-width 1s linear;
 }
 
 .message .text {
@@ -19,11 +27,11 @@
 
   white-space: nowrap;
 
-  transition: color .25s ease .25s;
+  transition: color .3s ease .3s;
 }
 
-.message-typing .text {
-  color: #EEE;
+.message-visible .text {
+  color: #000;
 }
 
 .message .ellipsis,

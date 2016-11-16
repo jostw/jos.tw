@@ -4,8 +4,12 @@ import * as actions from '../actions';
 
 export function* startHello() {
   yield call(delay, 1000);
+  yield put(actions.enterHelloMessage(0));
+  yield call(delay, 600);
   yield put(actions.showHelloMessage(0));
   yield call(delay, 1000);
+  yield put(actions.enterHelloMessage(1));
+  yield call(delay, 600);
   yield put(actions.showHelloMessage(1));
 }
 

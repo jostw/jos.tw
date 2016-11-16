@@ -4,22 +4,22 @@
 }
 
 .message-list li {
+  max-height: 0;
+  overflow: hidden;
+
   list-style: none;
+
+  transition: max-height .5s,
+              margin .5s;
+}
+
+.message-list .message-server-visible,
+.message-list .message-client-visible {
+  max-height: 3.5em;
 }
 
 .message-client {
-  margin-top: 1em;
-
   text-align: right;
-}
-
-.message-server + .message-server,
-.message-client + .message-client {
-  margin-top: .125em;
-}
-
-.message-client + .message-server {
-  margin-top: 1em;
 }
 
 .message-server .message {
@@ -38,4 +38,17 @@
 
 .message-client + .message-client .message {
   border-top-right-radius: 0;
+}
+
+.message-client-visible {
+  margin-top: 1em;
+}
+
+.message-server-visible + .message-server-visible,
+.message-client-visible + .message-client-visible {
+  margin-top: .125em;
+}
+
+.message-client-visible + .message-server-visible {
+  margin-top: 1em;
 }
