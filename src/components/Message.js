@@ -5,11 +5,11 @@ class Message extends Component {
   render() {
     const { message } = this.props;
 
-    let className = ['message'];
+    let classList = ['message'];
     let content;
 
     if (message.is_typing) {
-      className.push('message-typing');
+      classList.push('message-typing');
 
       content = (
         <span className="text ellipsis"></span>
@@ -26,7 +26,7 @@ class Message extends Component {
     }
 
     return (
-      <div className={ className.join(' ') }>{ content }</div>
+      <div className={ classList.join(' ') }>{ content }</div>
     );
   }
 }

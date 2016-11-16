@@ -8,13 +8,7 @@ class App extends Component {
   componentDidMount() {
     const { actions } = this.props;
 
-    setTimeout(() => {
-      actions.showHelloMessage(0);
-    }, 1000);
-
-    setTimeout(() => {
-      actions.showHelloMessage(1);
-    }, 2000);
+    actions.startHello();
   }
 
   render() {
