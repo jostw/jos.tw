@@ -3,15 +3,30 @@ import './Message.css';
 
 class Message extends Component {
   render() {
-    if (this.props.hasHTML) {
-      return (
-        <span className="message"
-              dangerouslySetInnerHTML={{ __html: this.props.children }}></span>
+    const { message } = this.props;
+
+    let className = ['message'];
+    let content;
+
+    if (message.is_typing) {
+      className.push('message-typing');
+
+      content = (
+        <span className="text ellipsis"></span>
+      );
+    } else if (message.has_html) {
+      content = (
+        <span className="text"
+              dangerouslySetInnerHTML={{ __html: message.content }}></span>
+      );
+    } else {
+      content = (
+        <span className="text">{ message.content }</span>
       );
     }
 
     return (
-      <span className="message">{ this.props.children }</span>
+      <div className={ className.join(' ') }>{ content }</div>
     );
   }
 }

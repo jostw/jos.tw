@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 import MessageList from '../components/MessageList';
 
 class App extends Component {
+  componentDidMount() {
+    const { actions } = this.props;
+
+    setTimeout(() => {
+      actions.showHelloMessage(0);
+    }, 1000);
+
+    setTimeout(() => {
+      actions.showHelloMessage(1);
+    }, 2000);
+  }
+
   render() {
     return (
       <div>
@@ -25,4 +39,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return { actions: bindActionCreators(actions, dispatch) };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
