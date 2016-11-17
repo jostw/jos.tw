@@ -18,7 +18,7 @@
 .message-visible {
   max-width: 100%;
 
-  transition: max-width 1s linear;
+  transition: max-width 1s ease-in-out;
 }
 
 .message .text {
@@ -41,7 +41,7 @@
   height: .5em;
   border-radius: 100%;
 
-  background-color: #DDD;
+  background-color: #000;
 }
 
 .message .ellipsis {
@@ -50,6 +50,8 @@
   display: inline-block;
   margin: 0 1em;
   overflow: visible;
+
+  opacity: .125;
 }
 
 .message .ellipsis::before,

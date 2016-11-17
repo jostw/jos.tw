@@ -4,6 +4,10 @@ import Message from './Message';
 
 class MessageList extends Component {
   render() {
+    if (this.props.messages.length === 0) {
+      return null;
+    }
+
     return (
       <ul className="message-list">{
         this.props.messages.map((message, index) => {

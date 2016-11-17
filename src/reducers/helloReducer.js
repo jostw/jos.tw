@@ -1,6 +1,6 @@
 import { ENTER_HELLO_MESSAGE, SHOW_HELLO_MESSAGE } from '../actions';
 
-const messageList = [
+export function messages(state = [
   {
     type: 'server',
     content: 'Hi, it\'s good to see you!',
@@ -12,20 +12,26 @@ const messageList = [
     is_typing: false,
     is_visible: false
   }
-];
-
-export function messages(state = [], action) {
+], action) {
   switch(action.type) {
     case ENTER_HELLO_MESSAGE:
-      messageList[action.index].is_typing = true;
-      break;
+      return [
+        ...state.slice(0, action.index),
+        Object.assign({}, state[action.index], {
+          is_typing: true
+        }),
+        ...state.slice(action.index + 1)
+      ];
     case SHOW_HELLO_MESSAGE:
-      messageList[action.index].is_typing = false;
-      messageList[action.index].is_visible = true;
-      break;
+      return [
+        ...state.slice(0, action.index),
+        Object.assign({}, state[action.index], {
+          is_typing: false,
+          is_visible: true
+        }),
+        ...state.slice(action.index + 1)
+      ];
     default:
-      break;
+      return state;
   }
-
-  return messageList;
 }
