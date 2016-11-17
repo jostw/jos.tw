@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+
 import './MessageList.css';
 import Message from './Message';
 
 class MessageList extends Component {
   render() {
-    if (this.props.messages.length === 0) {
+    const { messages } = this.props;
+
+    if (messages.length === 0) {
       return null;
     }
 
     return (
       <ul className="message-list">{
-        this.props.messages.map((message, index) => {
+        messages.map((message, index) => {
           const classList = [`message-${message.type}`];
 
           if (message.is_typing || message.is_visible) {

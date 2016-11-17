@@ -1,12 +1,18 @@
+import { combineReducers } from 'redux';
+
 import { ENTER_ABOUT_MESSAGE, SHOW_ABOUT_MESSAGE } from '../actions';
 
-export function messages(state = [
-  {
-    type: 'client',
-    content: 'Tell me about yourself!',
-    is_typing: false,
-    is_visible: false
-  }, {
+function response(state = {
+  type: 'client',
+  content: 'Tell me about yourself!',
+  is_typing: false,
+  is_visible: true
+}, action) {
+  return state;
+}
+
+function messages(state = [
+  Object.assign({}, response(), { is_visible: false }), {
     type: 'server',
     content: 'I\'m a <strong>Front End Developer</strong> from Taiwan',
     has_html: true,
@@ -48,3 +54,5 @@ export function messages(state = [
       return state;
   }
 }
+
+export default combineReducers({ response, messages });

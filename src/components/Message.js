@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+
 import './Message.css';
 
 class Message extends Component {
   render() {
-    const { message } = this.props;
+    const { message, onClick } = this.props;
 
     let classList = ['message'];
     let content;
 
     if (message.is_typing) {
-      classList.push('message-typing');
-
+      classList = [...classList, 'message-typing'];
       content = (
         <span className="text ellipsis"></span>
       );
@@ -26,7 +26,16 @@ class Message extends Component {
     }
 
     if (message.is_visible) {
-      classList.push('message-visible');
+      classList = [...classList, 'message-visible'];
+    }
+
+    if (onClick) {
+      return (
+        <a href="#"
+           className={ classList.join(' ') }
+           onClick={ onClick }
+           title={ message.content }>{ content }</a>
+      );
     }
 
     return (

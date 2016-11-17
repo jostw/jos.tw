@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 import { ENTER_HELLO_MESSAGE, SHOW_HELLO_MESSAGE } from '../actions';
 
 export function messages(state = [
@@ -35,3 +37,5 @@ export function messages(state = [
       return state;
   }
 }
+
+export default combineReducers({ messages });

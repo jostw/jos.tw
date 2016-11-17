@@ -13,3 +13,7 @@ export const SHOW_ABOUT_MESSAGE = 'SHOW_ABOUT_MESSAGE';
 export const startAbout = () => ({ type: START_ABOUT });
 export const enterAboutMessage = index => ({ type: ENTER_ABOUT_MESSAGE, index });
 export const showAboutMessage = index => ({ type: SHOW_ABOUT_MESSAGE, index });
+
+export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';
+
+export const toggleResponse = isVisible => ({ type: TOGGLE_RESPONSE, is_visible: isVisible });

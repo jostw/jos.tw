@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { messages as helloMessages } from './helloReducer';
-import { messages as aboutMessages } from './aboutReducer';
 
-const rootReducer = combineReducers({ helloMessages, aboutMessages });
+import hello from './helloReducer';
+import about from './aboutReducer';
+import response from './responseReducer';
+
+const rootReducer = combineReducers({ hello, about, response });
 
 export default rootReducer;

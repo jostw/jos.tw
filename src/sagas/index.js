@@ -1,5 +1,6 @@
 import { takeLatest, delay } from 'redux-saga';
 import { put, call, fork } from 'redux-saga/effects';
+
 import * as actions from '../actions';
 
 export function* startHello() {
@@ -13,12 +14,11 @@ export function* startHello() {
   yield put(actions.showHelloMessage(1));
 
   yield call(delay, 1000);
-  yield put(actions.startAbout());
+  yield put(actions.toggleResponse(true));
 }
 
 export function* startAbout() {
-  yield call(delay, 1000);
-  yield put(actions.enterAboutMessage(0));
+  yield put(actions.toggleResponse(false));
   yield call(delay, 600);
   yield put(actions.showAboutMessage(0));
   yield call(delay, 1000);

@@ -1,0 +1,27 @@
+.response {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+
+  transition: max-height .5s,
+              margin .5s;
+}
+
+.response-visible {
+  max-height: 4.5em;
+  margin-top: 1em;
+}
+
+.response-input {
+  border-top: 1px solid #EEE;
+  padding: .5em;
+
+  text-align: right;
+
+  background-color: #F5F5F5;
+}
+
+.response-input .message {
+  border: 1px solid #BBDEFB;
+  background-color: #E3F2FD;
+}
