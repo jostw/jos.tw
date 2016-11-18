@@ -1,18 +1,18 @@
+export const ENTER_MESSAGE = 'ENTER_MESSAGE';
+export const SHOW_MESSAGE = 'SHOW_MESSAGE';
+
+export const enterMessage = (section, index) => ({ type: ENTER_MESSAGE, section, index });
+export const showMessage = (section, index) => ({ type: SHOW_MESSAGE, section, index });
+
 export const START_HELLO = 'START_HELLO';
-export const ENTER_HELLO_MESSAGE = 'ENTER_HELLO_MESSAGE';
-export const SHOW_HELLO_MESSAGE = 'SHOW_HELLO_MESSAGE';
+export const SECTION_HELLO = 'SECTION_HELLO';
 
 export const startHello = () => ({ type: START_HELLO });
-export const enterHelloMessage = index => ({ type: ENTER_HELLO_MESSAGE, index });
-export const showHelloMessage = index => ({ type: SHOW_HELLO_MESSAGE, index });
 
 export const START_ABOUT = 'START_ABOUT';
-export const ENTER_ABOUT_MESSAGE = 'ENTER_ABOUT_MESSAGE';
-export const SHOW_ABOUT_MESSAGE = 'SHOW_ABOUT_MESSAGE';
+export const SECTION_ABOUT = 'SECTION_ABOUT';
 
 export const startAbout = () => ({ type: START_ABOUT });
-export const enterAboutMessage = index => ({ type: ENTER_ABOUT_MESSAGE, index });
-export const showAboutMessage = index => ({ type: SHOW_ABOUT_MESSAGE, index });
 
 export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';
 

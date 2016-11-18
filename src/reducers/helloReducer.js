@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { ENTER_HELLO_MESSAGE, SHOW_HELLO_MESSAGE } from '../actions';
+import { SECTION_HELLO } from '../actions';
+import { createFilteredReducer } from './filterReducer';
 
-export function messages(state = [
+function messages(state = [
   {
     type: 'server',
     content: 'Hi, it\'s good to see you!',
@@ -15,27 +16,9 @@ export function messages(state = [
     is_visible: false
   }
 ], action) {
-  switch(action.type) {
-    case ENTER_HELLO_MESSAGE:
-      return [
-        ...state.slice(0, action.index),
-        Object.assign({}, state[action.index], {
-          is_typing: true
-        }),
-        ...state.slice(action.index + 1)
-      ];
-    case SHOW_HELLO_MESSAGE:
-      return [
-        ...state.slice(0, action.index),
-        Object.assign({}, state[action.index], {
-          is_typing: false,
-          is_visible: true
-        }),
-        ...state.slice(action.index + 1)
-      ];
-    default:
-      return state;
-  }
+  return state;
 }
 
-export default combineReducers({ messages });
+export default combineReducers({
+  messages: createFilteredReducer(messages, action => action.section === SECTION_HELLO)
+});

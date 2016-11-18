@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { ENTER_ABOUT_MESSAGE, SHOW_ABOUT_MESSAGE } from '../actions';
+import { SECTION_ABOUT } from '../actions';
+import { createFilteredReducer } from './filterReducer';
 
 function response(state = {
   type: 'client',
@@ -32,27 +33,10 @@ function messages(state = [
     is_visible: false
   }
 ], action) {
-  switch(action.type) {
-    case ENTER_ABOUT_MESSAGE:
-      return [
-        ...state.slice(0, action.index),
-        Object.assign({}, state[action.index], {
-          is_typing: true
-        }),
-        ...state.slice(action.index + 1)
-      ];
-    case SHOW_ABOUT_MESSAGE:
-      return [
-        ...state.slice(0, action.index),
-        Object.assign({}, state[action.index], {
-          is_typing: false,
-          is_visible: true
-        }),
-        ...state.slice(action.index + 1)
-      ];
-    default:
-      return state;
-  }
+  return state;
 }
 
-export default combineReducers({ response, messages });
+export default combineReducers({
+  response,
+  messages: createFilteredReducer(messages, action => action.section === SECTION_ABOUT)
+});

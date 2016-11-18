@@ -3,43 +3,44 @@ import { put, call, fork } from 'redux-saga/effects';
 
 import * as actions from '../actions';
 
-export function* startHello() {
+function* startHello() {
   yield call(delay, 1000);
-  yield put(actions.enterHelloMessage(0));
+  yield put(actions.enterMessage(actions.SECTION_HELLO, 0));
   yield call(delay, 600);
-  yield put(actions.showHelloMessage(0));
+  yield put(actions.showMessage(actions.SECTION_HELLO, 0));
   yield call(delay, 1000);
-  yield put(actions.enterHelloMessage(1));
+  yield put(actions.enterMessage(actions.SECTION_HELLO, 1));
   yield call(delay, 600);
-  yield put(actions.showHelloMessage(1));
+  yield put(actions.showMessage(actions.SECTION_HELLO, 1));
 
   yield call(delay, 1000);
   yield put(actions.toggleResponse(true));
 }
 
-export function* startAbout() {
+function* startAbout() {
   yield put(actions.toggleResponse(false));
+
   yield call(delay, 600);
-  yield put(actions.showAboutMessage(0));
+  yield put(actions.showMessage(actions.SECTION_ABOUT, 0));
   yield call(delay, 1000);
-  yield put(actions.enterAboutMessage(1));
+  yield put(actions.enterMessage(actions.SECTION_ABOUT, 1));
   yield call(delay, 600);
-  yield put(actions.showAboutMessage(1));
+  yield put(actions.showMessage(actions.SECTION_ABOUT, 1));
   yield call(delay, 1000);
-  yield put(actions.enterAboutMessage(2));
+  yield put(actions.enterMessage(actions.SECTION_ABOUT, 2));
   yield call(delay, 600);
-  yield put(actions.showAboutMessage(2));
+  yield put(actions.showMessage(actions.SECTION_ABOUT, 2));
   yield call(delay, 1000);
-  yield put(actions.enterAboutMessage(3));
+  yield put(actions.enterMessage(actions.SECTION_ABOUT, 3));
   yield call(delay, 600);
-  yield put(actions.showAboutMessage(3));
+  yield put(actions.showMessage(actions.SECTION_ABOUT, 3));
 }
 
-export function* watchStartHello() {
+function* watchStartHello() {
   yield* takeLatest(actions.START_HELLO, startHello);
 }
 
-export function* watchStartAbout() {
+function* watchStartAbout() {
   yield* takeLatest(actions.START_ABOUT, startAbout);
 }
 
