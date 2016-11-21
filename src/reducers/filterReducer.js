@@ -1,7 +1,7 @@
 import { ENTER_MESSAGE, SHOW_MESSAGE } from '../actions';
 
 function messagesFilter(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case ENTER_MESSAGE:
       return [
         ...state.slice(0, action.index),

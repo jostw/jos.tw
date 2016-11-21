@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
 
-    this.onStartAbout = this.onStartAbout.bind(this);
+    this.onStartSection = this.onStartSection.bind(this);
   }
 
   componentDidMount() {
@@ -31,24 +31,42 @@ class App extends Component {
         </section>
 
         <Response response={ response }
-                  message={ about.response }
-                  onClick={ this.onStartAbout } />
+                  onStartSection={ this.onStartSection } />
       </div>
     );
   }
 
-  onStartAbout(e) {
-    e.preventDefault();
+  onStartSection(section) {
+    return e => {
+      e.preventDefault();
 
-    this.props.actions.startAbout();
+      this.props.actions.startSection(section);
+    };
   }
 }
+
+const mapSectionToResponse = (section, state) => {
+  switch (section) {
+    case actions.SECTION_ABOUT:
+      return state.about.response;
+    default:
+      return {};
+  }
+};
 
 const mapStateToProps = state => {
   return {
     hello: state.hello,
     about: state.about,
-    response: state.response
+    response: {
+      responses: state.response.sections.map(section => {
+        return {
+          section,
+          message: mapSectionToResponse(section, state)
+        };
+      }),
+      is_visible: state.response.is_visible
+    }
   };
 };
 

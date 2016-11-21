@@ -21,6 +21,15 @@
   background-color: #F5F5F5;
 }
 
+.response-input ul {
+  margin: 0;
+  padding: 0;
+}
+
+.response-input li {
+  list-style: none;
+}
+
 .response-input .message {
   border: 1px solid #BBDEFB;
   background-color: #E3F2FD;

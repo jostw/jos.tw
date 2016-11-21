@@ -14,7 +14,7 @@ function* startHello() {
   yield put(actions.showMessage(actions.SECTION_HELLO, 1));
 
   yield call(delay, 1000);
-  yield put(actions.toggleResponse(true));
+  yield put(actions.toggleResponse(actions.SECTION_ABOUT));
 }
 
 function* startAbout() {
