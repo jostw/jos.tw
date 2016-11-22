@@ -7,12 +7,6 @@ import MessageList from '../components/MessageList';
 import Response from '../components/Response';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.onStartSection = this.onStartSection.bind(this);
-  }
-
   componentDidMount() {
     this.props.actions.startHello();
   }
@@ -23,55 +17,63 @@ class App extends Component {
     return (
       <div>
         <section>
-          <MessageList messages={ hello.messages } />
+          <MessageList messages={ hello } />
         </section>
 
         <section>
-          <MessageList messages={ about.messages } />
+          <MessageList messages={ about } />
         </section>
 
-        <Response response={ response }
-                  onStartSection={ this.onStartSection } />
+        <Response response={ response } />
       </div>
     );
   }
-
-  onStartSection(section) {
-    return e => {
-      e.preventDefault();
-
-      this.props.actions.startSection(section);
-    };
-  }
 }
 
-const mapSectionToResponse = (section, state) => {
+function mapSectionToResponse(section, response) {
   switch (section) {
     case actions.SECTION_ABOUT:
-      return state.about.response;
+      return response.about;
     default:
       return {};
   }
-};
+}
 
-const mapStateToProps = state => {
+function mapStateToProps(state) {
   return {
     hello: state.hello,
     about: state.about,
-    response: {
-      responses: state.response.sections.map(section => {
-        return {
-          section,
-          message: mapSectionToResponse(section, state)
-        };
-      }),
-      is_visible: state.response.is_visible
-    }
+    response: state.response
   };
-};
+}
 
-const mapDispatchToProps = dispatch => {
+function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actions, dispatch) };
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+function mergeProps(stateProps, dispatchProps, ownProps) {
+  const { hello, about, response } = stateProps;
+
+  return Object.assign({}, ownProps, {
+    hello: hello.messages,
+    about: [about.response, ...about.messages],
+    response: {
+      messages: response.sections.map(section => {
+        const message = mapSectionToResponse(section, { about: about.response });
+
+        return Object.assign({}, message, {
+          onclick: e => {
+            e.preventDefault();
+
+            dispatchProps.actions.startSection(section);
+          },
+          is_visible: true
+        });
+      }),
+      is_visible: response.is_visible
+    },
+    actions: dispatchProps.actions
+  });
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(App);

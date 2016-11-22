@@ -4,10 +4,14 @@ import './Message.css';
 
 class Message extends Component {
   render() {
-    const { message, onClick } = this.props;
+    const { message } = this.props;
 
     let classList = ['message'];
     let content;
+
+    if (message.is_visible) {
+      classList = [...classList, 'message-visible'];
+    }
 
     if (message.is_typing) {
       classList = [...classList, 'message-typing'];
@@ -25,15 +29,11 @@ class Message extends Component {
       );
     }
 
-    if (message.is_visible) {
-      classList = [...classList, 'message-visible'];
-    }
-
-    if (onClick) {
+    if (message.onclick) {
       return (
         <a href="#"
            className={ classList.join(' ') }
-           onClick={ onClick }
+           onClick={ message.onclick }
            title={ message.content }>{ content }</a>
       );
     }

@@ -1,3 +1,9 @@
+export const ENTER_RESPONSE = 'ENTER_RESPONSE';
+export const SHOW_RESPONSE = 'SHOW_RESPONSE';
+
+export const enterResponse = section => ({ type: ENTER_RESPONSE, section });
+export const showResponse = section => ({ type: SHOW_RESPONSE, section });
+
 export const ENTER_MESSAGE = 'ENTER_MESSAGE';
 export const SHOW_MESSAGE = 'SHOW_MESSAGE';
 

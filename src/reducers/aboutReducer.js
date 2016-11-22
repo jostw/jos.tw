@@ -5,38 +5,34 @@ import { createFilteredReducer } from './filterReducer';
 
 function response(state = {
   type: 'client',
-  content: 'Tell me about yourself!',
-  is_typing: false,
-  is_visible: true
+  content: 'Tell me about yourself!'
 }, action) {
   return state;
 }
 
 function messages(state = [
-  Object.assign({}, response(), { is_visible: false }), {
+  {
     type: 'server',
     content: 'I\'m a <strong>Front End Developer</strong> from Taiwan',
-    has_html: true,
-    is_typing: false,
-    is_visible: false
+    has_html: true
   }, {
     type: 'server',
     content: 'Having 4 years experience with solid <strong>JavaScript</strong> programming skills',
-    has_html: true,
-    is_typing: false,
-    is_visible: false
+    has_html: true
   }, {
     type: 'server',
     content: 'and familiar with <strong>modern web frameworks</strong>',
-    has_html: true,
-    is_typing: false,
-    is_visible: false
+    has_html: true
   }
 ], action) {
   return state;
 }
 
+function checkAboutSection(action) {
+  return action.section === SECTION_ABOUT;
+}
+
 export default combineReducers({
-  response,
-  messages: createFilteredReducer(messages, action => action.section === SECTION_ABOUT)
+  response: createFilteredReducer(response, checkAboutSection),
+  messages: createFilteredReducer(messages, checkAboutSection)
 });

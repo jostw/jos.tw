@@ -5,7 +5,7 @@ import Message from './Message';
 
 class Response extends Component {
   render() {
-    const { response, onStartSection } = this.props;
+    const { response } = this.props;
 
     let classList = ['response'];
     let messages = null;
@@ -14,14 +14,13 @@ class Response extends Component {
       classList = [...classList, 'response-visible'];
     }
 
-    if (response.responses.length > 0) {
+    if (response.messages.length > 0) {
       messages = (
         <ul>{
-          response.responses.map((response, index) => {
+          response.messages.map((message, index) => {
             return (
               <li key={ index }>
-                <Message message={ response.message }
-                         onClick={ onStartSection(response.section) } />
+                <Message message={ message } />
               </li>
             );
           })
@@ -30,9 +29,9 @@ class Response extends Component {
     }
 
     return (
-      <div className={ classList.join(' ') }>
+      <section className={ classList.join(' ') }>
         <div className="response-input">{ messages }</div>
-      </div>
+      </section>
     );
   }
 }

@@ -21,6 +21,10 @@ function* startAbout() {
   yield put(actions.toggleResponse(false));
 
   yield call(delay, 600);
+  yield put(actions.showResponse(actions.SECTION_ABOUT));
+  yield call(delay, 1000);
+  yield put(actions.enterMessage(actions.SECTION_ABOUT, 0));
+  yield call(delay, 600);
   yield put(actions.showMessage(actions.SECTION_ABOUT, 0));
   yield call(delay, 1000);
   yield put(actions.enterMessage(actions.SECTION_ABOUT, 1));
@@ -30,10 +34,6 @@ function* startAbout() {
   yield put(actions.enterMessage(actions.SECTION_ABOUT, 2));
   yield call(delay, 600);
   yield put(actions.showMessage(actions.SECTION_ABOUT, 2));
-  yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT, 3));
-  yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT, 3));
 }
 
 function* watchStartHello() {
