@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import MessageList from '../components/MessageList';
+import Section from '../components/Section';
 import Response from '../components/Response';
 
 class App extends Component {
@@ -16,34 +16,24 @@ class App extends Component {
 
     return (
       <div>
-        <section>
-          <MessageList messages={ hello } />
-        </section>
-
-        <section>
-          <MessageList messages={ about } />
-        </section>
-
+        <Section section={ hello } />
+        <Section section={ about } />
         <Response response={ response } />
       </div>
     );
   }
 }
 
-function mapSectionToResponse(section, response) {
-  switch (section) {
-    case actions.SECTION_ABOUT:
-      return response.about;
-    default:
-      return {};
-  }
-}
-
 function mapStateToProps(state) {
+  const { hello, about, response } = state;
+
   return {
-    hello: state.hello,
-    about: state.about,
-    response: state.response
+    hello: [hello.hello],
+    about: [about.aboutYourself],
+    response: response,
+    responseMap: {
+      [actions.SECTION_ABOUT_YOURSELF]: about.aboutYourself.response
+    }
   };
 }
 
@@ -52,22 +42,20 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { hello, about, response } = stateProps;
+  const { hello, about, response, responseMap } = stateProps;
 
   return Object.assign({}, ownProps, {
-    hello: hello.messages,
-    about: [about.response, ...about.messages],
+    hello: hello.map(subSection => subSection.messages),
+    about: about.map(subSection => [subSection.response, ...subSection.messages]),
     response: {
       messages: response.sections.map(section => {
-        const message = mapSectionToResponse(section, { about: about.response });
-
-        return Object.assign({}, message, {
+        return Object.assign({}, responseMap[section], {
+          is_visible: true,
           onclick: e => {
             e.preventDefault();
 
             dispatchProps.actions.startSection(section);
-          },
-          is_visible: true
+          }
         });
       }),
       is_visible: response.is_visible

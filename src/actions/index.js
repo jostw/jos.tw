@@ -15,17 +15,17 @@ export const START_HELLO = 'START_HELLO';
 
 export const startHello = () => ({ type: START_HELLO });
 
-export const SECTION_ABOUT = 'SECTION_ABOUT';
-export const START_ABOUT = 'START_ABOUT';
+export const SECTION_ABOUT_YOURSELF = 'SECTION_ABOUT_YOURSELF';
+export const START_ABOUT_YOURSELF = 'START_ABOUT_YOURSELF';
 
-export const startAbout = () => ({ type: START_ABOUT });
+export const startAboutYourself = () => ({ type: START_ABOUT_YOURSELF });
 
 export const startSection = section => {
   switch (section) {
     case SECTION_HELLO:
       return startHello();
-    case SECTION_ABOUT:
-      return startAbout();
+    case SECTION_ABOUT_YOURSELF:
+      return startAboutYourself();
     default:
       return { type: null };
   }

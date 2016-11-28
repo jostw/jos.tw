@@ -14,39 +14,39 @@ function* startHello() {
   yield put(actions.showMessage(actions.SECTION_HELLO, 1));
 
   yield call(delay, 1000);
-  yield put(actions.toggleResponse(actions.SECTION_ABOUT));
+  yield put(actions.toggleResponse(actions.SECTION_ABOUT_YOURSELF));
 }
 
-function* startAbout() {
+function* startAboutYourself() {
   yield put(actions.toggleResponse(false));
 
   yield call(delay, 600);
-  yield put(actions.showResponse(actions.SECTION_ABOUT));
+  yield put(actions.showResponse(actions.SECTION_ABOUT_YOURSELF));
   yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT, 0));
+  yield put(actions.enterMessage(actions.SECTION_ABOUT_YOURSELF, 0));
   yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT, 0));
+  yield put(actions.showMessage(actions.SECTION_ABOUT_YOURSELF, 0));
   yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT, 1));
+  yield put(actions.enterMessage(actions.SECTION_ABOUT_YOURSELF, 1));
   yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT, 1));
+  yield put(actions.showMessage(actions.SECTION_ABOUT_YOURSELF, 1));
   yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT, 2));
+  yield put(actions.enterMessage(actions.SECTION_ABOUT_YOURSELF, 2));
   yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT, 2));
+  yield put(actions.showMessage(actions.SECTION_ABOUT_YOURSELF, 2));
 }
 
 function* watchStartHello() {
   yield* takeLatest(actions.START_HELLO, startHello);
 }
 
-function* watchStartAbout() {
-  yield* takeLatest(actions.START_ABOUT, startAbout);
+function* watchStartAboutYourself() {
+  yield* takeLatest(actions.START_ABOUT_YOURSELF, startAboutYourself);
 }
 
 export default function* rootSaga() {
   yield [
     fork(watchStartHello),
-    fork(watchStartAbout)
+    fork(watchStartAboutYourself)
   ];
 }

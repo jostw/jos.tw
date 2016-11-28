@@ -52,7 +52,11 @@ export function createFilteredReducer(reducerFunction, reducerPredicate) {
     }
 
     const nextState = reducerFunction(state, action);
-    return nextState.constructor === Object ?
-      responseFilter(nextState, action) : messagesFilter(nextState, action);
+
+    return Object.assign(nextState.response ? {
+      response: responseFilter(nextState.response, action)
+    } : {}, {
+      messages: messagesFilter(nextState.messages, action)
+    });
   }
 }
