@@ -27,6 +27,25 @@ function* toggleResponse(...sections) {
   yield put(actions.toggleResponse(sections));
 }
 
+function* startSection(action) {
+  switch (action.section) {
+    case actions.SECTION_HELLO:
+      yield startHello();
+      break;
+    case actions.SECTION_ABOUT_YOURSELF:
+      yield startAboutYourself();
+      break;
+    case actions.SECTION_PROJECT_LIST:
+      yield startProjectList();
+      break;
+    case actions.SECTION_PROJECT_FIREFOX:
+      yield startProjectFirefox();
+      break;
+    default:
+      break;
+  }
+}
+
 function* startHello() {
   yield showMessage(actions.SECTION_HELLO, 2);
   yield toggleResponse(actions.SECTION_ABOUT_YOURSELF, actions.SECTION_PROJECT_LIST);
@@ -52,27 +71,10 @@ function* startProjectFirefox() {
   yield showMessage(actions.SECTION_PROJECT_FIREFOX, 4);
 }
 
-function* watchStartHello() {
-  yield* takeLatest(actions.START_HELLO, startHello);
-}
-
-function* watchStartAboutYourself() {
-  yield* takeLatest(actions.START_ABOUT_YOURSELF, startAboutYourself);
-}
-
-function* watchStartProjectList() {
-  yield* takeLatest(actions.START_PROJECT_LIST, startProjectList);
-}
-
-function* watchStartProjectFirefox() {
-  yield* takeLatest(actions.START_PROJECT_FIREFOX, startProjectFirefox);
+function* watchStartSection() {
+  yield* takeLatest(actions.START_SECTION, startSection);
 }
 
 export default function* rootSaga() {
-  yield [
-    fork(watchStartHello),
-    fork(watchStartAboutYourself),
-    fork(watchStartProjectList),
-    fork(watchStartProjectFirefox)
-  ];
+  yield fork(watchStartSection);
 }
