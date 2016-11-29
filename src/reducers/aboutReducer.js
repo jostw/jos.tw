@@ -19,7 +19,7 @@ function aboutYourself(state = {
       has_html: true
     }, {
       type: 'server',
-      content: 'and familiar with <strong>modern web frameworks</strong>',
+      content: 'Also familiar with <strong>modern web frameworks</strong>',
       has_html: true
     }
   ]

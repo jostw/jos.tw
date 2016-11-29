@@ -6,7 +6,7 @@ export default function response(state = {
 }, action) {
   switch(action.type) {
     case TOGGLE_RESPONSE:
-      const isVisible = !action.sections.includes(false);
+      const isVisible = !!action.sections;
 
       return Object.assign({}, state, {
         sections: isVisible ? action.sections : state.sections,

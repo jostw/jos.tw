@@ -18,6 +18,16 @@ class Message extends Component {
       content = (
         <span className="text ellipsis"></span>
       );
+    } else if (message.is_array) {
+      content = (
+        <ul>{
+          message.content.map((item, index) => {
+            return (
+              <li className="text" key={ index }>{ item }</li>
+            );
+          })
+        }</ul>
+      );
     } else if (message.has_html) {
       content = (
         <span className="text"

@@ -3,30 +3,37 @@
   padding: 0;
   overflow: hidden;
 
-  transition: max-height .5s,
-              margin .5s;
+  transition: max-height .5s ease-out,
+              margin .5s ease-in .2s;
 }
 
 .response-visible {
-  max-height: 4.6875em;
+  max-height: 9.3125em;
   margin-top: 1em;
+
+  transition: max-height .5s ease-in,
+              margin .5s ease-out;
 }
 
 .response-input {
   border-top: 1px solid #EEE;
   padding: .5em;
 
-  text-align: right;
+  text-align: end;
 
   background-color: #F5F5F5;
 }
 
 .response-input ul {
-  margin: 0;
+  margin: 0 0 -.5em;
   padding: 0;
 }
 
 .response-input li {
+  display: inline-block;
+  margin-inline-start: .5em;
+  margin-bottom: .5em;
+
   list-style: none;
 }
 

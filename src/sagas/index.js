@@ -3,37 +3,46 @@ import { put, call, fork } from 'redux-saga/effects';
 
 import * as actions from '../actions';
 
-function* startHello() {
-  yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_HELLO, 0));
+function* showResponse(section) {
   yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_HELLO, 0));
-  yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_HELLO, 1));
-  yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_HELLO, 1));
+  yield put(actions.showResponse(section));
+}
+
+function* showMessage(section, size) {
+  for (let index = 0; index < size; index++) {
+    yield call(delay, 1000);
+    yield put(actions.enterMessage(section, index));
+    yield call(delay, 600);
+    yield put(actions.showMessage(section, index));
+  }
+}
+
+function* toggleResponse(...sections) {
+  if (sections.includes(false)) {
+    yield put(actions.toggleResponse(false));
+    return;
+  }
 
   yield call(delay, 1000);
-  yield put(actions.toggleResponse(actions.SECTION_ABOUT_YOURSELF));
+  yield put(actions.toggleResponse(sections));
+}
+
+function* startHello() {
+  yield showMessage(actions.SECTION_HELLO, 2);
+  yield toggleResponse(actions.SECTION_ABOUT_YOURSELF, actions.SECTION_PROJECT_LIST);
 }
 
 function* startAboutYourself() {
-  yield put(actions.toggleResponse(false));
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_ABOUT_YOURSELF);
+  yield showMessage(actions.SECTION_ABOUT_YOURSELF, 3);
+  yield toggleResponse(actions.SECTION_PROJECT_LIST)
+}
 
-  yield call(delay, 600);
-  yield put(actions.showResponse(actions.SECTION_ABOUT_YOURSELF));
-  yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT_YOURSELF, 0));
-  yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT_YOURSELF, 0));
-  yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT_YOURSELF, 1));
-  yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT_YOURSELF, 1));
-  yield call(delay, 1000);
-  yield put(actions.enterMessage(actions.SECTION_ABOUT_YOURSELF, 2));
-  yield call(delay, 600);
-  yield put(actions.showMessage(actions.SECTION_ABOUT_YOURSELF, 2));
+function* startProjectList() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_PROJECT_LIST);
+  yield showMessage(actions.SECTION_PROJECT_LIST, 3);
 }
 
 function* watchStartHello() {
@@ -44,9 +53,14 @@ function* watchStartAboutYourself() {
   yield* takeLatest(actions.START_ABOUT_YOURSELF, startAboutYourself);
 }
 
+function* watchStartProjectList() {
+  yield* takeLatest(actions.START_PROJECT_LIST, startProjectList);
+}
+
 export default function* rootSaga() {
   yield [
     fork(watchStartHello),
-    fork(watchStartAboutYourself)
+    fork(watchStartAboutYourself),
+    fork(watchStartProjectList)
   ];
 }

@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.message-list li {
+.message-list > li {
   max-height: 0;
   overflow: hidden;
 
@@ -18,8 +18,12 @@
   max-height: 3.5em;
 }
 
+.message-list .message-multiline {
+  max-height: 6.5em;
+}
+
 .message-client {
-  text-align: right;
+  text-align: end;
 }
 
 .message-server .message {

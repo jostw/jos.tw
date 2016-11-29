@@ -13,24 +13,27 @@ export const showMessage = (section, index) => ({ type: SHOW_MESSAGE, section, i
 export const SECTION_HELLO = 'SECTION_HELLO';
 export const START_HELLO = 'START_HELLO';
 
-export const startHello = () => ({ type: START_HELLO });
-
 export const SECTION_ABOUT_YOURSELF = 'SECTION_ABOUT_YOURSELF';
 export const START_ABOUT_YOURSELF = 'START_ABOUT_YOURSELF';
 
-export const startAboutYourself = () => ({ type: START_ABOUT_YOURSELF });
+export const SECTION_PROJECT_LIST = 'SECTION_PROJECT_LIST';
+export const START_PROJECT_LIST = 'START_PROJECT_LIST';
 
 export const startSection = section => {
   switch (section) {
     case SECTION_HELLO:
-      return startHello();
+      return { type: START_HELLO };
     case SECTION_ABOUT_YOURSELF:
-      return startAboutYourself();
+      return { type: START_ABOUT_YOURSELF };
+    case SECTION_PROJECT_LIST:
+      return { type: START_PROJECT_LIST };
     default:
       return { type: null };
   }
 };
 
+export const startHello = () => startSection(SECTION_HELLO);
+
 export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';
 
-export const toggleResponse = (...sections) => ({ type: TOGGLE_RESPONSE, sections });
+export const toggleResponse = sections => ({ type: TOGGLE_RESPONSE, sections });

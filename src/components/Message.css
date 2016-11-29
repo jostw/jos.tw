@@ -24,6 +24,24 @@
   transition: max-width 1s ease-in-out;
 }
 
+.message ul {
+  position: relative;
+
+  padding-inline-start: 1em;
+}
+
+.message li::before {
+  content: '';
+
+  position: absolute;
+  left: 0;
+
+  width: .5em;
+  height: 0;
+  margin-top: .6875em;
+  border-bottom: 1px solid #000;
+}
+
 .message .text {
   display: block;
   overflow: hidden;
