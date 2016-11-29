@@ -36,13 +36,20 @@ function* startAboutYourself() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_ABOUT_YOURSELF);
   yield showMessage(actions.SECTION_ABOUT_YOURSELF, 3);
-  yield toggleResponse(actions.SECTION_PROJECT_LIST)
+  yield toggleResponse(actions.SECTION_PROJECT_LIST);
 }
 
 function* startProjectList() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_LIST);
   yield showMessage(actions.SECTION_PROJECT_LIST, 3);
+  yield toggleResponse(actions.SECTION_PROJECT_FIREFOX);
+}
+
+function* startProjectFirefox() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_PROJECT_FIREFOX);
+  yield showMessage(actions.SECTION_PROJECT_FIREFOX, 4);
 }
 
 function* watchStartHello() {
@@ -57,10 +64,15 @@ function* watchStartProjectList() {
   yield* takeLatest(actions.START_PROJECT_LIST, startProjectList);
 }
 
+function* watchStartProjectFirefox() {
+  yield* takeLatest(actions.START_PROJECT_FIREFOX, startProjectFirefox);
+}
+
 export default function* rootSaga() {
   yield [
     fork(watchStartHello),
     fork(watchStartAboutYourself),
-    fork(watchStartProjectList)
+    fork(watchStartProjectList),
+    fork(watchStartProjectFirefox)
   ];
 }

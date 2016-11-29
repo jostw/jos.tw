@@ -18,10 +18,10 @@ class MessageList extends Component {
 
           if (message.is_typing || message.is_visible) {
             classList.push(`message-${message.type}-visible`);
+          }
 
-            if (message.is_visible && message.is_array) {
-              classList.push('message-multiline');
-            }
+          if (message.is_visible && message.is_array) {
+            classList.push('message-multiline');
           }
 
           return (

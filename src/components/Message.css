@@ -39,7 +39,9 @@
   width: .5em;
   height: 0;
   margin-top: .6875em;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid transparent;
+
+  transition: border .3s ease .5s
 }
 
 .message .text {
@@ -48,12 +50,20 @@
 
   white-space: nowrap;
 
-  transition: color .3s ease .3s;
+  transition: color .3s ease .5s;
+}
+
+.message-visible li::before {
+  border-bottom-color: #000;
 }
 
 .message-visible .text,
 .message-client .message .text {
   color: #000;
+}
+
+.message-visible .link {
+  color: #1E88E5;
 }
 
 .message .ellipsis,

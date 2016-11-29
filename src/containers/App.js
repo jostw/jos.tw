@@ -31,11 +31,12 @@ function mapStateToProps(state) {
   return {
     hello: [hello.hello],
     about: [about.aboutYourself],
-    project: [project.projectList],
+    project: [project.projectList, project.projectFirefox],
     response: response,
     responseMap: {
       [actions.SECTION_ABOUT_YOURSELF]: about.aboutYourself.response,
-      [actions.SECTION_PROJECT_LIST]: project.projectList.response
+      [actions.SECTION_PROJECT_LIST]: project.projectList.response,
+      [actions.SECTION_PROJECT_FIREFOX]: project.projectFirefox.response
     }
   };
 }

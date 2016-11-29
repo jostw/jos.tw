@@ -19,6 +19,9 @@ export const START_ABOUT_YOURSELF = 'START_ABOUT_YOURSELF';
 export const SECTION_PROJECT_LIST = 'SECTION_PROJECT_LIST';
 export const START_PROJECT_LIST = 'START_PROJECT_LIST';
 
+export const SECTION_PROJECT_FIREFOX = 'SECTION_PROJECT_FIREFOX';
+export const START_PROJECT_FIREFOX = 'START_PROJECT_FIREFOX';
+
 export const startSection = section => {
   switch (section) {
     case SECTION_HELLO:
@@ -27,6 +30,8 @@ export const startSection = section => {
       return { type: START_ABOUT_YOURSELF };
     case SECTION_PROJECT_LIST:
       return { type: START_PROJECT_LIST };
+    case SECTION_PROJECT_FIREFOX:
+      return { type: START_PROJECT_FIREFOX };
     default:
       return { type: null };
   }
