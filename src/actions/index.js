@@ -12,13 +12,13 @@ export const showMessage = (section, index) => ({ type: SHOW_MESSAGE, section, i
 
 export const START_SECTION = 'START_SECTION';
 
-export const SECTION_HELLO = 'SECTION_HELLO';
+export const SECTION_HELLO_WORLD = 'SECTION_HELLO_WORLD';
 export const SECTION_ABOUT_YOURSELF = 'SECTION_ABOUT_YOURSELF';
 export const SECTION_PROJECT_LIST = 'SECTION_PROJECT_LIST';
 export const SECTION_PROJECT_FIREFOX = 'SECTION_PROJECT_FIREFOX';
+export const SECTION_RESUME_LINK = 'SECTION_RESUME_LINK';
 
-export const startSection = section => ({ type: START_SECTION, section });
-export const startHello = () => startSection(SECTION_HELLO);
+export const startSection = (section = SECTION_HELLO_WORLD) => ({ type: START_SECTION, section });
 
 export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';
 

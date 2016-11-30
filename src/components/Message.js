@@ -13,12 +13,7 @@ class Message extends Component {
       classList = [...classList, 'message-visible'];
     }
 
-    if (message.is_typing) {
-      classList = [...classList, 'message-typing'];
-      content = (
-        <span className="text ellipsis"></span>
-      );
-    } else if (message.is_array) {
+    if (message.is_array) {
       content = (
         <ul>{
           message.content.map((item, index) => {

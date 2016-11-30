@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { SECTION_HELLO } from '../actions';
+import { SECTION_HELLO_WORLD } from '../actions';
 import { createFilteredReducer } from './filterReducer';
 
-function hello(state = {
+function helloWorld(state = {
   messages: [
     {
       type: 'server',
@@ -18,5 +18,5 @@ function hello(state = {
 }
 
 export default combineReducers({
-  hello: createFilteredReducer(hello, action => action.section === SECTION_HELLO)
+  helloWorld: createFilteredReducer(helloWorld, action => action.section === SECTION_HELLO_WORLD)
 });

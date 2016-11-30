@@ -29,8 +29,8 @@ function* toggleResponse(...sections) {
 
 function* startSection(action) {
   switch (action.section) {
-    case actions.SECTION_HELLO:
-      yield startHello();
+    case actions.SECTION_HELLO_WORLD:
+      yield startHelloWorld();
       break;
     case actions.SECTION_ABOUT_YOURSELF:
       yield startAboutYourself();
@@ -41,13 +41,16 @@ function* startSection(action) {
     case actions.SECTION_PROJECT_FIREFOX:
       yield startProjectFirefox();
       break;
+    case actions.SECTION_RESUME_LINK:
+      yield startResumeLink();
+      break;
     default:
       break;
   }
 }
 
-function* startHello() {
-  yield showMessage(actions.SECTION_HELLO, 2);
+function* startHelloWorld() {
+  yield showMessage(actions.SECTION_HELLO_WORLD, 2);
   yield toggleResponse(actions.SECTION_ABOUT_YOURSELF, actions.SECTION_PROJECT_LIST);
 }
 
@@ -55,7 +58,7 @@ function* startAboutYourself() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_ABOUT_YOURSELF);
   yield showMessage(actions.SECTION_ABOUT_YOURSELF, 3);
-  yield toggleResponse(actions.SECTION_PROJECT_LIST);
+  yield toggleResponse(actions.SECTION_PROJECT_LIST, actions.SECTION_RESUME_LINK);
 }
 
 function* startProjectList() {
@@ -69,6 +72,13 @@ function* startProjectFirefox() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_FIREFOX);
   yield showMessage(actions.SECTION_PROJECT_FIREFOX, 4);
+  yield toggleResponse(actions.SECTION_RESUME_LINK);
+}
+
+function* startResumeLink() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_RESUME_LINK);
+  yield showMessage(actions.SECTION_RESUME_LINK, 2);
 }
 
 function* watchStartSection() {

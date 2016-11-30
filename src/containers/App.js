@@ -8,35 +8,41 @@ import Response from '../components/Response';
 
 class App extends Component {
   componentDidMount() {
-    this.props.actions.startHello();
+    this.props.actions.startSection();
   }
 
   render() {
-    const { hello, about, project, response } = this.props;
+    const { hello, about, project, resume, response } = this.props;
 
     return (
       <div>
         <Section section={ hello } />
         <Section section={ about } />
         <Section section={ project } />
+        <Section section={ resume } />
         <Response response={ response } />
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  const { hello, about, project, response } = state;
+function mapStateToProps({ hello, about, project, resume, response }) {
+  const { helloWorld } = hello;
+  const { aboutYourself } = about;
+  const { projectList, projectFirefox } = project;
+  const { resumeLink } = resume;
 
   return {
-    hello: [hello.hello],
-    about: [about.aboutYourself],
-    project: [project.projectList, project.projectFirefox],
+    hello: [helloWorld],
+    about: [aboutYourself],
+    project: [projectList, projectFirefox],
+    resume: [resumeLink],
     response: response,
     responseMap: {
-      [actions.SECTION_ABOUT_YOURSELF]: about.aboutYourself.response,
-      [actions.SECTION_PROJECT_LIST]: project.projectList.response,
-      [actions.SECTION_PROJECT_FIREFOX]: project.projectFirefox.response
+      [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
+      [actions.SECTION_PROJECT_LIST]: projectList.response,
+      [actions.SECTION_PROJECT_FIREFOX]: projectFirefox.response,
+      [actions.SECTION_RESUME_LINK]: resumeLink.response
     }
   };
 }
@@ -45,13 +51,22 @@ function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actions, dispatch) };
 }
 
+function mergeMessages(section) {
+  if (section.response) {
+    return [section.response, ...section.messages];
+  }
+
+  return section.messages;
+}
+
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { hello, about, project, response, responseMap } = stateProps;
+  const { hello, about, project, resume, response, responseMap } = stateProps;
 
   return Object.assign({}, ownProps, {
-    hello: hello.map(subSection => subSection.messages),
-    about: about.map(subSection => [subSection.response, ...subSection.messages]),
-    project: project.map(subSection => [subSection.response, ...subSection.messages]),
+    hello: hello.map(mergeMessages),
+    about: about.map(mergeMessages),
+    project: project.map(mergeMessages),
+    resume: resume.map(mergeMessages),
     response: {
       messages: response.sections.map(section => {
         return Object.assign({}, responseMap[section], {

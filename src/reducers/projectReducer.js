@@ -35,7 +35,8 @@ function projectFirefox(state = {
   messages: [
     {
       type: 'server',
-      content: 'I\'ve been working on Preferences and DevTools in Firefox'
+      content: 'I\'ve been working on <strong>Preferences</strong> and <strong>DevTools</strong> in Firefox',
+      has_html: true
     }, {
       type: 'server',
       content: 'Basically all of my works in Mozilla are open source'
