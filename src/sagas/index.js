@@ -44,6 +44,9 @@ function* startSection(action) {
     case actions.SECTION_RESUME_LINK:
       yield startResumeLink();
       break;
+    case actions.SECTION_RESUME_MORE:
+      yield startResumeMore();
+      break;
     default:
       break;
   }
@@ -79,6 +82,13 @@ function* startResumeLink() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_RESUME_LINK);
   yield showMessage(actions.SECTION_RESUME_LINK, 2);
+  yield toggleResponse(actions.SECTION_RESUME_MORE);
+}
+
+function* startResumeMore() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_RESUME_MORE);
+  yield showMessage(actions.SECTION_RESUME_MORE, 1);
 }
 
 function* watchStartSection() {

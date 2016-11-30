@@ -30,19 +30,20 @@ function mapStateToProps({ hello, about, project, resume, response }) {
   const { helloWorld } = hello;
   const { aboutYourself } = about;
   const { projectList, projectFirefox } = project;
-  const { resumeLink } = resume;
+  const { resumeLink, resumeMore } = resume;
 
   return {
     hello: [helloWorld],
     about: [aboutYourself],
     project: [projectList, projectFirefox],
-    resume: [resumeLink],
+    resume: [resumeLink, resumeMore],
     response: response,
     responseMap: {
       [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
       [actions.SECTION_PROJECT_LIST]: projectList.response,
       [actions.SECTION_PROJECT_FIREFOX]: projectFirefox.response,
-      [actions.SECTION_RESUME_LINK]: resumeLink.response
+      [actions.SECTION_RESUME_LINK]: resumeLink.response,
+      [actions.SECTION_RESUME_MORE]: resumeMore.response
     }
   };
 }
