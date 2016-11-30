@@ -26,17 +26,28 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ hello, about, project, resume, response }) {
-  const { helloWorld } = hello;
-  const { aboutYourself } = about;
-  const { projectList, projectFirefox } = project;
-  const { resumeLink, resumeMore } = resume;
+function mapSectionToMessages(...sections) {
+  return sections.map(section => {
+    if (section.response) {
+      return [section.response, ...section.messages];
+    }
 
+    return section.messages;
+  });
+}
+
+function mapStateToProps({
+  hello: { helloWorld },
+  about: { aboutYourself },
+  project: { projectList, projectFirefox },
+  resume: { resumeLink, resumeMore },
+  response
+}) {
   return {
-    hello: [helloWorld],
-    about: [aboutYourself],
-    project: [projectList, projectFirefox],
-    resume: [resumeLink, resumeMore],
+    hello: mapSectionToMessages(helloWorld),
+    about: mapSectionToMessages(aboutYourself),
+    project: mapSectionToMessages(projectList, projectFirefox),
+    resume: mapSectionToMessages(resumeLink, resumeMore),
     response: response,
     responseMap: {
       [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
@@ -52,22 +63,11 @@ function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actions, dispatch) };
 }
 
-function mergeMessages(section) {
-  if (section.response) {
-    return [section.response, ...section.messages];
-  }
-
-  return section.messages;
-}
-
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { hello, about, project, resume, response, responseMap } = stateProps;
 
   return Object.assign({}, ownProps, {
-    hello: hello.map(mergeMessages),
-    about: about.map(mergeMessages),
-    project: project.map(mergeMessages),
-    resume: resume.map(mergeMessages),
+    hello, about, project, resume,
     response: {
       messages: response.sections.map(section => {
         return Object.assign({}, responseMap[section], {
