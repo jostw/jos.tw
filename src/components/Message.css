@@ -14,12 +14,11 @@
   content: '';
 
   position: absolute;
-  top: 50%;
+  top: 1.5em;
   left: 1em;
 
   width: .5em;
   height: .5em;
-  margin-top: -.25em;
   border-radius: 100%;
   opacity: .125;
 
@@ -34,7 +33,10 @@
 .message ul {
   position: relative;
 
+  max-height: 1.5em;
   padding-inline-start: 1em;
+
+  transition: max-height .5s ease;
 }
 
 .message li::before {
@@ -66,15 +68,19 @@
   transition: color .3s ease .5s;
 }
 
-.message-visible::before {
-  opacity: 0;
-}
-
 .message-visible,
 .message-client .message {
   max-width: 100%;
 
   transition: max-width 1s ease-in-out;
+}
+
+.message-visible::before {
+  opacity: 0;
+}
+
+.message-visible ul {
+  max-height: 4.5em;
 }
 
 .message-visible li::before {
