@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    const { hello, about, project, resume, response } = this.props;
+    const { hello, about, project, resume, contact, response } = this.props;
 
     return (
       <div>
@@ -20,6 +20,7 @@ class App extends Component {
         <Section section={ about } />
         <Section section={ project } />
         <Section section={ resume } />
+        <Section section={ contact } />
         <Response response={ response } />
       </div>
     );
@@ -41,6 +42,7 @@ function mapStateToProps({
   about: { aboutYourself },
   project: { projectList, projectFirefox },
   resume: { resumeLink, resumeMore },
+  contact: { contactMail },
   response
 }) {
   return {
@@ -48,13 +50,15 @@ function mapStateToProps({
     about: mapSectionToMessages(aboutYourself),
     project: mapSectionToMessages(projectList, projectFirefox),
     resume: mapSectionToMessages(resumeLink, resumeMore),
+    contact: mapSectionToMessages(contactMail),
     response: response,
     responseMap: {
       [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
       [actions.SECTION_PROJECT_LIST]: projectList.response,
       [actions.SECTION_PROJECT_FIREFOX]: projectFirefox.response,
       [actions.SECTION_RESUME_LINK]: resumeLink.response,
-      [actions.SECTION_RESUME_MORE]: resumeMore.response
+      [actions.SECTION_RESUME_MORE]: resumeMore.response,
+      [actions.SECTION_CONTACT_MAIL]: contactMail.response
     }
   };
 }
@@ -64,10 +68,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { hello, about, project, resume, response, responseMap } = stateProps;
+  const { hello, about, project, resume, contact, response, responseMap } = stateProps;
 
   return Object.assign({}, ownProps, {
-    hello, about, project, resume,
+    hello, about, project, resume, contact,
     response: {
       messages: response.sections.map(section => {
         return Object.assign({}, responseMap[section], {

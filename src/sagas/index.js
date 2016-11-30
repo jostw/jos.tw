@@ -47,6 +47,9 @@ function* startSection(action) {
     case actions.SECTION_RESUME_MORE:
       yield startResumeMore();
       break;
+    case actions.SECTION_CONTACT_MAIL:
+      yield startContactMail();
+      break;
     default:
       break;
   }
@@ -82,13 +85,20 @@ function* startResumeLink() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_RESUME_LINK);
   yield showMessage(actions.SECTION_RESUME_LINK, 2);
-  yield toggleResponse(actions.SECTION_RESUME_MORE);
+  yield toggleResponse(actions.SECTION_RESUME_MORE, actions.SECTION_CONTACT_MAIL);
 }
 
 function* startResumeMore() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_RESUME_MORE);
   yield showMessage(actions.SECTION_RESUME_MORE, 1);
+  yield toggleResponse(actions.SECTION_CONTACT_MAIL);
+}
+
+function* startContactMail() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_CONTACT_MAIL);
+  yield showMessage(actions.SECTION_CONTACT_MAIL, 1);
 }
 
 function* watchStartSection() {
