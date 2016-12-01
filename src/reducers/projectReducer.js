@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX } from '../actions';
+import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA } from '../actions';
 import { createFilteredReducer } from './filterReducer';
 
 function projectList(state = {
@@ -53,7 +53,35 @@ function projectFirefox(state = {
   return state;
 }
 
+const GAIA_LINK = 'https://github.com/mozilla-b2g/gaia/commits/v2.6?author=jostw';
+
+function projectGaia(state = {
+  response: {
+    type: 'client',
+    content: 'Tell me more about Gaia'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'Gaia is the user interface level of Firefox OS'
+    }, {
+      type: 'server',
+      content: 'I\'ve implement new features on Home App and System App'
+    }, {
+      type: 'server',
+      content: 'It\'s a really large code base with some browser specific APIs'
+    }, {
+      type: 'server',
+      content: `You can browse my contributions <a class="link" href="${GAIA_LINK}" title="${GAIA_LINK}" target="_blank">here</a>`,
+      has_html: true
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
   projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
-  projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX)
+  projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
+  projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA)
 });
