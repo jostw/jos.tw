@@ -14,11 +14,15 @@ class Message extends Component {
     }
 
     if (message.is_array) {
+      classList = [...classList, 'message-fullscreen'];
       content = (
         <ul>{
           message.content.map((item, index) => {
+            const classList = ['text', 'project', item.split(' ').join('-').toLowerCase()];
             return (
-              <li className="text" key={ index }>{ item }</li>
+              <li className={ classList.join(' ') } key={ index }>
+                <span className="name">{ item }</span>
+              </li>
             );
           })
         }</ul>

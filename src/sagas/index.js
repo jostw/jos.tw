@@ -8,8 +8,8 @@ function* showResponse(section) {
   yield put(actions.showResponse(section));
 }
 
-function* showMessage(section, size) {
-  for (let index = 0; index < size; index++) {
+function* showMessage(section, size, startIndex = 0) {
+  for (let index = startIndex; index < size; index++) {
     yield call(delay, 1000);
     yield put(actions.enterMessage(section, index));
     yield call(delay, 600);
@@ -76,7 +76,9 @@ function* startAboutYourself() {
 function* startProjectList() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_LIST);
-  yield showMessage(actions.SECTION_PROJECT_LIST, 3);
+  yield showMessage(actions.SECTION_PROJECT_LIST, 2);
+  yield call(delay, 1000);
+  yield showMessage(actions.SECTION_PROJECT_LIST, 3, 2);
   yield toggleResponse(actions.SECTION_PROJECT_FIREFOX, actions.SECTION_PROJECT_GAIA, actions.SECTION_PROJECT_MARKETPLACE_APP);
 }
 
