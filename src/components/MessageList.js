@@ -14,14 +14,14 @@ class MessageList extends Component {
     return (
       <ul className="message-list">{
         messages.map((message, index) => {
-          const classList = [`message-${message.type}`];
+          let classList = [`message-${message.type}`];
 
           if (message.is_typing || message.is_visible) {
-            classList.push(`message-${message.type}-visible`);
+            classList = [...classList, `message-${message.type}-visible`];
           }
 
-          if (message.is_visible && message.is_array) {
-            classList.push('message-multiline');
+          if (message.is_visible && (message.is_array || message.is_iframe)) {
+            classList = [...classList, 'message-multiline'];
           }
 
           return (

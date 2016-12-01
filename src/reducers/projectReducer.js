@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA } from '../actions';
+import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP } from '../actions';
 import { createFilteredReducer } from './filterReducer';
 
 function projectList(state = {
@@ -46,7 +46,7 @@ function projectFirefox(state = {
       has_html: true
     }, {
       type: 'server',
-      content: 'Every commit is listed and you can also check the bug refers to it!'
+      content: 'Every commit is listed and you can also see the bug refers to it!'
     }
   ]
 }, action) {
@@ -63,7 +63,8 @@ function projectGaia(state = {
   messages: [
     {
       type: 'server',
-      content: 'Gaia is the user interface level of Firefox OS'
+      content: 'Gaia is the user interface level of <strong>Firefox OS</strong>',
+      has_html: true
     }, {
       type: 'server',
       content: 'I\'ve implement new features on Home App and System App'
@@ -80,8 +81,46 @@ function projectGaia(state = {
   return state;
 }
 
+const CES_LINK = 'https://blog.mozilla.org/blog/2016/01/05/firefox-os-will-power-new-panasonic-uhd-tvs-unveiled-at-ces/';
+const MARKETPLACE_APP_LINK = 'https://github.com/mozilla-b2g/marketplace-tv-front-end';
+
+function projectMarketplaceApp(state = {
+  response: {
+    type: 'client',
+    content: 'Tell me more about Marketplace App'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'It\'s also known as <strong>Web Apps</strong> discovery portal for Firefox OS TV',
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'This is my first project in Mozilla!'
+    }, {
+      type: 'server',
+      content: `We actually build this in 2 months in order to make a demo in <a class="link" href="${CES_LINK}" title="${CES_LINK}" target="_blank">CES 2016</a>`,
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'Here\'s a demo video'
+    }, {
+      type: 'server',
+      content: 'https://drive.google.com/file/d/0B4K8q1qWmtAvZm1jRDZBUXh6cnc/preview',
+      is_iframe: true
+    }, {
+      type: 'server',
+      content: `Source code is available at <a class="link" href="${MARKETPLACE_APP_LINK}" title="${MARKETPLACE_APP_LINK}" target="_blank">GitHub</a>!`,
+      has_html: true
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
   projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
   projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
-  projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA)
+  projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA),
+  projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP)
 });

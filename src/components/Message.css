@@ -3,8 +3,10 @@
 
   display: inline-block;
   max-width: 4.5em;
+  margin-bottom: -.375em;
   border-radius: .75em;
   padding: 1em;
+  overflow: hidden;
 
   color: transparent;
   background-color: #F5F5F5;
@@ -53,6 +55,15 @@
   transition: border .3s ease .5s
 }
 
+.message iframe {
+  display: block;
+  width: 267px;
+  border: 0;
+  opacity: 0;
+
+  transition: opacity .3s ease .5s
+}
+
 .message .text {
   display: block;
   overflow: hidden;
@@ -87,6 +98,10 @@
   border-bottom-color: #000;
 }
 
+.message-visible iframe {
+  opacity: 1;
+}
+
 .message-visible .text,
 .message-client .message .text {
   color: #000;
@@ -94,4 +109,8 @@
 
 .message-visible .link {
   color: #1E88E5;
+}
+
+.message-fullscreen {
+  padding: 0;
 }

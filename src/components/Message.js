@@ -23,6 +23,11 @@ class Message extends Component {
           })
         }</ul>
       );
+    } else if (message.is_iframe) {
+      classList = [...classList, 'message-fullscreen'];
+      content = (
+        <iframe src={ message.content }></iframe>
+      );
     } else if (message.has_html) {
       content = (
         <span className="text"
