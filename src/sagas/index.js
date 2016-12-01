@@ -100,7 +100,7 @@ function* startProjectMarketplaceApp() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_MARKETPLACE_APP);
   yield showMessage(actions.SECTION_PROJECT_MARKETPLACE_APP, 6);
-  yield toggleResponse(actions.SECTION_RESUME_LINK);
+  yield toggleResponse(actions.SECTION_RESUME_LINK, actions.SECTION_CONTACT_MAIL);
 }
 
 function* startResumeLink() {
@@ -120,7 +120,7 @@ function* startResumeMore() {
 function* startContactMail() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_CONTACT_MAIL);
-  yield showMessage(actions.SECTION_CONTACT_MAIL, 1);
+  yield showMessage(actions.SECTION_CONTACT_MAIL, 2);
 }
 
 function* watchStartSection() {
