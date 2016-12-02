@@ -39,7 +39,8 @@ function projectFirefox(state = {
       has_html: true
     }, {
       type: 'server',
-      content: 'Basically all of my works in Mozilla are open source'
+      content: 'Basically all of my works in Mozilla are <strong>open source</strong>',
+      has_html: true
     }, {
       type: 'server',
       content: `You can check out my contributions <a class="link" href="${FIREFOX_LINK}" title="${FIREFOX_LINK}" target="_blank">here</a>`,
@@ -73,7 +74,7 @@ function projectGaia(state = {
       content: 'It\'s a really large code base with some browser specific APIs'
     }, {
       type: 'server',
-      content: `You can browse my contributions <a class="link" href="${GAIA_LINK}" title="${GAIA_LINK}" target="_blank">here</a>`,
+      content: `You can browse my contributions on <a class="link" href="${GAIA_LINK}" title="${GAIA_LINK}" target="_blank">GitHub</a>!`,
       has_html: true
     }
   ]
@@ -110,7 +111,7 @@ function projectMarketplaceApp(state = {
       is_iframe: true
     }, {
       type: 'server',
-      content: `Source code is available at <a class="link" href="${MARKETPLACE_APP_LINK}" title="${MARKETPLACE_APP_LINK}" target="_blank">GitHub</a>!`,
+      content: `Source code is available on <a class="link" href="${MARKETPLACE_APP_LINK}" title="${MARKETPLACE_APP_LINK}" target="_blank">GitHub</a>!`,
       has_html: true
     }
   ]

@@ -18,7 +18,7 @@ function resumeLink(state = {
       has_html: true
     }, {
       type: 'server',
-      content: `or download the PDF <a class="link" href="${RESUME_PDF_LINK}" title="${RESUME_PDF_LINK}" target="_blank">here</a>`,
+      content: `or download the <a class="link" href="${RESUME_PDF_LINK}" title="${RESUME_PDF_LINK}" target="_blank">PDF</a>`,
       has_html: true
     }
   ]
