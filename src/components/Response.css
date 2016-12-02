@@ -11,7 +11,7 @@
   max-height: 9.3125em;
   margin-top: 1em;
 
-  transition: max-height .5s ease-in,
+  transition: max-height .5s ease-in-out,
               margin .5s ease-out;
 }
 

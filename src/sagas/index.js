@@ -23,7 +23,7 @@ function* toggleResponse(...sections) {
     return;
   }
 
-  yield call(delay, 1300);
+  yield call(delay, 1600);
   yield put(actions.toggleResponse(sections));
 }
 
@@ -34,6 +34,9 @@ function* startSection(action) {
       break;
     case actions.SECTION_ABOUT_YOURSELF:
       yield startAboutYourself();
+      break;
+    case actions.SECTION_ABOUT_MORE:
+      yield startAboutMore();
       break;
     case actions.SECTION_PROJECT_LIST:
       yield startProjectList();
@@ -70,6 +73,13 @@ function* startAboutYourself() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_ABOUT_YOURSELF);
   yield showMessage(actions.SECTION_ABOUT_YOURSELF, 3);
+  yield toggleResponse(actions.SECTION_ABOUT_MORE, actions.SECTION_PROJECT_LIST);
+}
+
+function* startAboutMore() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_ABOUT_MORE);
+  yield showMessage(actions.SECTION_ABOUT_MORE, 1);
   yield toggleResponse(actions.SECTION_PROJECT_LIST, actions.SECTION_RESUME_LINK);
 }
 

@@ -125,11 +125,11 @@
 
 .message-visible .text,
 .message-client .message .text {
-  max-height: 3em;
+  max-height: 4.5em;
 
   color: #000;
 
-  transition: max-height .5s ease .8s,
+  transition: max-height .5s ease-in-out .8s,
               color .3s ease .5s;
 }
 

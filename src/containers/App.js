@@ -46,7 +46,7 @@ function mapProjectNameToResponse(response) {
 
 function mapStateToProps({
   hello: { helloWorld },
-  about: { aboutYourself },
+  about: { aboutYourself, aboutMore },
   project: { projectList, projectFirefox, projectGaia, projectMarketplaceApp},
   resume: { resumeLink, resumeMore },
   contact: { contactMail },
@@ -54,13 +54,14 @@ function mapStateToProps({
 }) {
   return {
     hello: mapSectionToMessages(helloWorld),
-    about: mapSectionToMessages(aboutYourself),
+    about: mapSectionToMessages(aboutYourself, aboutMore),
     project: mapSectionToMessages(projectList, projectFirefox, projectGaia, projectMarketplaceApp),
     resume: mapSectionToMessages(resumeLink, resumeMore),
     contact: mapSectionToMessages(contactMail),
     response: response,
     responseMap: {
       [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
+      [actions.SECTION_ABOUT_MORE]: aboutMore.response,
       [actions.SECTION_PROJECT_LIST]: projectList.response,
       [actions.SECTION_PROJECT_FIREFOX]: mapProjectNameToResponse(projectFirefox.response),
       [actions.SECTION_PROJECT_GAIA]: mapProjectNameToResponse(projectGaia.response),
