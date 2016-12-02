@@ -57,7 +57,7 @@
 }
 
 .message ul {
-  max-height: 1.5em;
+  max-height: 3.5em;
   padding: 0;
   overflow: hidden;
 
@@ -105,12 +105,12 @@
 
 .message .gaia {
   background-image: url('../../public/img/gaia.png');
-  transition: opacity 1s ease 1s;
+  transition: opacity 1s ease .75s;
 }
 
 .message .marketplace-app {
   background-image: url('../../public/img/marketplace-app.png');
-  transition: opacity 1s ease 1.5s;
+  transition: opacity 1s ease 1s;
 }
 
 .message .name {

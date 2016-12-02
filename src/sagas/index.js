@@ -77,7 +77,7 @@ function* startProjectList() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_LIST);
   yield showMessage(actions.SECTION_PROJECT_LIST, 2);
-  yield call(delay, 1000);
+  yield call(delay, 500);
   yield showMessage(actions.SECTION_PROJECT_LIST, 3, 2);
   yield toggleResponse(actions.SECTION_PROJECT_FIREFOX, actions.SECTION_PROJECT_GAIA, actions.SECTION_PROJECT_MARKETPLACE_APP);
 }

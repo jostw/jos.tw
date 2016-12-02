@@ -67,7 +67,7 @@ function projectGaia(state = {
       has_html: true
     }, {
       type: 'server',
-      content: 'I\'ve implement new features on Home App and System App'
+      content: 'I\'ve implemented new features on Home App and System App'
     }, {
       type: 'server',
       content: 'It\'s a really large code base with some browser specific APIs'
