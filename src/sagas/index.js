@@ -86,21 +86,21 @@ function* startProjectFirefox() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_FIREFOX);
   yield showMessage(actions.SECTION_PROJECT_FIREFOX, 4);
-  yield toggleResponse(actions.SECTION_PROJECT_GAIA, actions.SECTION_PROJECT_MARKETPLACE_APP, actions.SECTION_RESUME_LINK);
+  yield toggleResponse(actions.SECTION_RESUME_LINK);
 }
 
 function* startProjectGaia() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_GAIA);
   yield showMessage(actions.SECTION_PROJECT_GAIA, 4);
-  yield toggleResponse(actions.SECTION_PROJECT_MARKETPLACE_APP, actions.SECTION_RESUME_LINK);
+  yield toggleResponse(actions.SECTION_RESUME_LINK);
 }
 
 function* startProjectMarketplaceApp() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_MARKETPLACE_APP);
   yield showMessage(actions.SECTION_PROJECT_MARKETPLACE_APP, 6);
-  yield toggleResponse(actions.SECTION_RESUME_LINK, actions.SECTION_CONTACT_MAIL);
+  yield toggleResponse(actions.SECTION_RESUME_LINK);
 }
 
 function* startResumeLink() {

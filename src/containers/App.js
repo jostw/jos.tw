@@ -37,6 +37,13 @@ function mapSectionToMessages(...sections) {
   });
 }
 
+function mapProjectNameToResponse(response) {
+  return {
+    ...response,
+    content: response.name
+  };
+}
+
 function mapStateToProps({
   hello: { helloWorld },
   about: { aboutYourself },
@@ -55,9 +62,9 @@ function mapStateToProps({
     responseMap: {
       [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
       [actions.SECTION_PROJECT_LIST]: projectList.response,
-      [actions.SECTION_PROJECT_FIREFOX]: projectFirefox.response,
-      [actions.SECTION_PROJECT_GAIA]: projectGaia.response,
-      [actions.SECTION_PROJECT_MARKETPLACE_APP]: projectMarketplaceApp.response,
+      [actions.SECTION_PROJECT_FIREFOX]: mapProjectNameToResponse(projectFirefox.response),
+      [actions.SECTION_PROJECT_GAIA]: mapProjectNameToResponse(projectGaia.response),
+      [actions.SECTION_PROJECT_MARKETPLACE_APP]: mapProjectNameToResponse(projectMarketplaceApp.response),
       [actions.SECTION_RESUME_LINK]: resumeLink.response,
       [actions.SECTION_RESUME_MORE]: resumeMore.response,
       [actions.SECTION_CONTACT_MAIL]: contactMail.response

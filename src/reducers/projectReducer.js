@@ -30,7 +30,8 @@ const FIREFOX_LINK = 'https://hg.mozilla.org/mozilla-central/log?rev=jyeh@mozill
 function projectFirefox(state = {
   response: {
     type: 'client',
-    content: 'Cool! I\'d like to know more about Firefox'
+    content: 'Cool! I\'d like to know more about Firefox',
+    name: 'Firefox'
   },
   messages: [
     {
@@ -59,7 +60,8 @@ const GAIA_LINK = 'https://github.com/mozilla-b2g/gaia/commits/v2.6?author=jostw
 function projectGaia(state = {
   response: {
     type: 'client',
-    content: 'Tell me more about Gaia'
+    content: 'Cool! I\'d like to know more about Gaia',
+    name: 'Gaia'
   },
   messages: [
     {
@@ -88,7 +90,8 @@ const MARKETPLACE_APP_LINK = 'https://github.com/mozilla-b2g/marketplace-tv-fron
 function projectMarketplaceApp(state = {
   response: {
     type: 'client',
-    content: 'Tell me more about Marketplace App'
+    content: 'Cool! I\'d like to know more about Marketplace App',
+    name: 'Marketplace App'
   },
   messages: [
     {
