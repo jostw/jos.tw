@@ -1,16 +1,18 @@
 import { ENTER_RESPONSE, SHOW_RESPONSE, ENTER_MESSAGE, SHOW_MESSAGE } from '../actions';
 
 function enterMessage(message) {
-  return Object.assign({}, message, {
+  return {
+    ...message,
     is_typing: true
-  });
+  };
 }
 
 function showMessage(message) {
-  return Object.assign({}, message, {
+  return {
+    ...message,
     is_typing: false,
     is_visible: true
-  });
+  };
 }
 
 function responseFilter(state, action) {
@@ -53,10 +55,9 @@ export function createFilteredReducer(reducerFunction, reducerPredicate) {
 
     const nextState = reducerFunction(state, action);
 
-    return Object.assign(nextState.response ? {
-      response: responseFilter(nextState.response, action)
-    } : {}, {
+    return {
+      ...nextState.response ? { response: responseFilter(nextState.response, action) } : {},
       messages: messagesFilter(nextState.messages, action)
-    });
+    };
   }
 }

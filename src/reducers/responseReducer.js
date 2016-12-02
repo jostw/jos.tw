@@ -8,10 +8,11 @@ export default function response(state = {
     case TOGGLE_RESPONSE:
       const isVisible = !!action.sections;
 
-      return Object.assign({}, state, {
+      return {
+        ...state,
         sections: isVisible ? action.sections : state.sections,
         is_visible: isVisible
-      });
+      };
     default:
       return state;
   }

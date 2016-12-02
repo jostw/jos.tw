@@ -72,23 +72,25 @@ function mapDispatchToProps(dispatch) {
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { hello, about, project, resume, contact, response, responseMap } = stateProps;
 
-  return Object.assign({}, ownProps, {
+  return {
+    ...ownProps,
     hello, about, project, resume, contact,
     response: {
       messages: response.sections.map(section => {
-        return Object.assign({}, responseMap[section], {
+        return {
+          ...responseMap[section],
           is_visible: true,
           onclick: e => {
             e.preventDefault();
 
             dispatchProps.actions.startSection(section);
           }
-        });
+        };
       }),
       is_visible: response.is_visible
     },
     actions: dispatchProps.actions
-  });
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(App);
