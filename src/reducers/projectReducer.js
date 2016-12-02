@@ -11,7 +11,8 @@ function projectList(state = {
   messages: [
     {
       type: 'server',
-      content: 'Sure, here are some of my works in Mozilla'
+      content: 'Sure, here are some of my works in <strong>Mozilla</strong>',
+      has_html: true
     }, {
       type: 'server',
       content: ['Firefox', 'Gaia', 'Marketplace App'],

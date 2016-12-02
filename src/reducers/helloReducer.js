@@ -10,7 +10,8 @@ function helloWorld(state = {
       content: 'Hi, it\'s good to see you!'
     }, {
       type: 'server',
-      content: 'I\'m Joseph, what can I do for you?'
+      content: 'I\'m <strong>Joseph</strong>, what can I do for you?',
+      has_html: true
     }
   ]
 }, action) {
