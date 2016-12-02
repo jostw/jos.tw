@@ -34,11 +34,8 @@
 
 .message .text {
   display: block;
+  max-height: 1.5em;
   overflow: hidden;
-
-  white-space: nowrap;
-
-  transition: color .3s ease .5s;
 }
 
 .message .link {
@@ -47,21 +44,23 @@
   transition: color .3s ease .5s;
 }
 
+.message iframe,
+.message .project {
+  max-height: 3.5em;
+  opacity: 0;
+}
+
 .message iframe {
   display: block;
   width: 16.6875em;
   border: 0;
-  opacity: 0;
 
-  transition: opacity .3s ease .5s
+  transition: max-height .5s,
+              opacity .3s ease .5s
 }
 
-.message ul {
-  max-height: 3.5em;
+.message .projects {
   padding: 0;
-  overflow: hidden;
-
-  transition: max-height .5s ease;
 }
 
 .message .project {
@@ -69,10 +68,9 @@
 
   display: inline-block;
   width: 16.6875em;
-  max-width: 33.3%;
   height: 9.375em;
+  max-width: 33.3%;
   border-right: 1px solid #FFF;
-  opacity: 0;
 
   background-position: center;
   background-size: cover;
@@ -84,45 +82,33 @@
   border-bottom-right-radius: .75em;
 }
 
-.message .project::before {
-  content: '';
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-  height: 2.5em;
-  opacity: .5;
-
-  background-color: #000;
-}
-
 .message .firefox {
   background-image: url('../../public/img/firefox.jpg');
-  transition: opacity 1s ease .5s;
 }
 
 .message .gaia {
   background-image: url('../../public/img/gaia.png');
-  transition: opacity 1s ease .75s;
 }
 
 .message .marketplace-app {
   background-image: url('../../public/img/marketplace-app.png');
-  transition: opacity 1s ease 1s;
 }
 
 .message .name {
   position: absolute;
-  bottom: .5em;
-  z-index: 1;
+  bottom: 0;
 
   width: 100%;
+  padding: .5em 0;
 
   text-align: center;
 
   color: #FFF;
+  background-color: rgba(0,0,0,.5);
+}
+
+.message .project:last-child .name {
+  border-bottom-right-radius: .75em;
 }
 
 .message-visible,
@@ -138,23 +124,37 @@
 
 .message-visible .text,
 .message-client .message .text {
+  max-height: 3em;
+
   color: #000;
+
+  transition: max-height .5s ease .8s,
+              color .3s ease .5s;
 }
 
 .message-visible .link {
   color: #1E88E5;
 }
 
-.message-visible iframe {
-  opacity: 1;
-}
-
-.message-visible ul {
-  max-height: 9.375em;
-}
-
+.message-visible iframe,
 .message-visible .project {
+  max-height: 9.375em;
   opacity: 1;
+}
+
+.message-visible .firefox {
+  transition: max-height .5s,
+              opacity 1s ease .5s;
+}
+
+.message-visible .gaia {
+  transition: max-height .5s,
+              opacity 1s ease .75s;
+}
+
+.message-visible .marketplace-app {
+  transition: max-height .5s,
+              opacity 1s ease 1s;
 }
 
 .message-fullscreen {

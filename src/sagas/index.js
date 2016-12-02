@@ -10,7 +10,7 @@ function* showResponse(section) {
 
 function* showMessage(section, size, startIndex = 0) {
   for (let index = startIndex; index < size; index++) {
-    yield call(delay, 1000);
+    yield call(delay, 1300);
     yield put(actions.enterMessage(section, index));
     yield call(delay, 600);
     yield put(actions.showMessage(section, index));
@@ -23,7 +23,7 @@ function* toggleResponse(...sections) {
     return;
   }
 
-  yield call(delay, 1000);
+  yield call(delay, 1300);
   yield put(actions.toggleResponse(sections));
 }
 

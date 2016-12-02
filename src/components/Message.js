@@ -3,6 +3,20 @@ import React, { Component } from 'react';
 import './Message.css';
 
 class Message extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { iframe_src: null };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { message } = nextProps;
+
+    if (message.is_iframe && message.is_typing) {
+      this.setState({ iframe_src: message.content });
+    }
+  }
+
   render() {
     const { message } = this.props;
 
@@ -16,7 +30,7 @@ class Message extends Component {
     if (message.is_array) {
       classList = [...classList, 'message-fullscreen'];
       content = (
-        <ul>{
+        <ul className="projects">{
           message.content.map((item, index) => {
             const classList = ['text', 'project', item.split(' ').join('-').toLowerCase()];
             return (
@@ -30,7 +44,7 @@ class Message extends Component {
     } else if (message.is_iframe) {
       classList = [...classList, 'message-fullscreen'];
       content = (
-        <iframe src={ message.content }></iframe>
+        <iframe src={ this.state.iframe_src }></iframe>
       );
     } else if (message.has_html) {
       content = (
