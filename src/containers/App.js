@@ -5,14 +5,22 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Section from '../components/Section';
 import Response from '../components/Response';
+import Modal from '../components/Modal';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    Section.prototype.toggleModal = props.actions.toggleModal;
+    Modal.prototype.closeModal = this.closeModal.bind(this);
+  }
+
   componentDidMount() {
     this.props.actions.startSection();
   }
 
   render() {
-    const { hello, about, project, resume, contact, response } = this.props;
+    const { hello, about, project, resume, contact, response, modal } = this.props;
 
     return (
       <div>
@@ -22,8 +30,13 @@ class App extends Component {
         <Section section={ resume } />
         <Section section={ contact } />
         <Response response={ response } />
+        <Modal modal={ modal } />
       </div>
     );
+  }
+
+  closeModal() {
+    this.props.actions.toggleModal(false);
   }
 }
 
@@ -50,26 +63,27 @@ function mapStateToProps({
   project: { projectList, projectFirefox, projectGaia, projectMarketplaceApp},
   resume: { resumeLink, resumeMore },
   contact: { contactMail },
-  response
+  response, modal
 }) {
+  const responseMap = {
+    [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
+    [actions.SECTION_ABOUT_MORE]: aboutMore.response,
+    [actions.SECTION_PROJECT_LIST]: projectList.response,
+    [actions.SECTION_PROJECT_FIREFOX]: mapProjectNameToResponse(projectFirefox.response),
+    [actions.SECTION_PROJECT_GAIA]: mapProjectNameToResponse(projectGaia.response),
+    [actions.SECTION_PROJECT_MARKETPLACE_APP]: mapProjectNameToResponse(projectMarketplaceApp.response),
+    [actions.SECTION_RESUME_LINK]: resumeLink.response,
+    [actions.SECTION_RESUME_MORE]: resumeMore.response,
+    [actions.SECTION_CONTACT_MAIL]: contactMail.response
+  };
+
   return {
     hello: mapSectionToMessages(helloWorld),
     about: mapSectionToMessages(aboutYourself, aboutMore),
     project: mapSectionToMessages(projectList, projectFirefox, projectGaia, projectMarketplaceApp),
     resume: mapSectionToMessages(resumeLink, resumeMore),
     contact: mapSectionToMessages(contactMail),
-    response: response,
-    responseMap: {
-      [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
-      [actions.SECTION_ABOUT_MORE]: aboutMore.response,
-      [actions.SECTION_PROJECT_LIST]: projectList.response,
-      [actions.SECTION_PROJECT_FIREFOX]: mapProjectNameToResponse(projectFirefox.response),
-      [actions.SECTION_PROJECT_GAIA]: mapProjectNameToResponse(projectGaia.response),
-      [actions.SECTION_PROJECT_MARKETPLACE_APP]: mapProjectNameToResponse(projectMarketplaceApp.response),
-      [actions.SECTION_RESUME_LINK]: resumeLink.response,
-      [actions.SECTION_RESUME_MORE]: resumeMore.response,
-      [actions.SECTION_CONTACT_MAIL]: contactMail.response
-    }
+    response, responseMap, modal
   };
 }
 
@@ -78,7 +92,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { hello, about, project, resume, contact, response, responseMap } = stateProps;
+  const { hello, about, project, resume, contact, response, responseMap, modal } = stateProps;
 
   return {
     ...ownProps,
@@ -97,6 +111,7 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
       }),
       is_visible: response.is_visible
     },
+    modal,
     actions: dispatchProps.actions
   };
 }

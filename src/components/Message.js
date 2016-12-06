@@ -32,11 +32,27 @@ class Message extends Component {
       content = (
         <ul className="projects">{
           message.content.map((item, index) => {
-            const classList = ['text', 'project', item.split(' ').join('-').toLowerCase()];
+            let classList = ['text', 'project'];
+
+            if (!message.is_image_array) {
+              classList = [...classList, item.split(' ').join('-').toLowerCase()];
+            }
+
             return (
-              <li className={ classList.join(' ') } key={ index }>
-                <span className="name">{ item }</span>
-              </li>
+              <li className={ classList.join(' ') } key={ index }>{
+                message.is_image_array ? (
+                  <a href="#"
+                     className="image"
+                     onClick={ message.openImage(item.name, item.image_url) }
+                     title={ item.name }>
+                    <img src={ item.image_url }
+                         alt={ item.name }
+                         title={ item.name } />
+                  </a>
+                ) : (
+                  <span className="name">{ item }</span>
+                )
+              }</li>
             );
           })
         }</ul>

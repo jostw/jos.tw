@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import MessageList from './MessageList';
 
 class Section extends Component {
+  constructor(props) {
+    super(props);
+
+    this.openImage = this.openImage.bind(this);
+  }
+
   render() {
     const { section } = this.props;
 
@@ -15,11 +21,22 @@ class Section extends Component {
         section.map((subSectionMessages, index) => {
           return (
             <MessageList key={ index }
+                         openImage={ this.openImage }
                          messages={ subSectionMessages } />
           );
         })
       }</section>
     );
+  }
+
+  openImage(name, imageUrl) {
+    const { toggleModal } = this;
+
+    return e => {
+      e.preventDefault();
+
+      toggleModal(name, imageUrl);
+    };
   }
 }
 

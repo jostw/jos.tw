@@ -102,14 +102,14 @@ function* startProjectFirefox() {
 function* startProjectGaia() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_GAIA);
-  yield showMessage(actions.SECTION_PROJECT_GAIA, 4);
+  yield showMessage(actions.SECTION_PROJECT_GAIA, 5);
   yield toggleResponse(actions.SECTION_RESUME_LINK);
 }
 
 function* startProjectMarketplaceApp() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_MARKETPLACE_APP);
-  yield showMessage(actions.SECTION_PROJECT_MARKETPLACE_APP, 6);
+  yield showMessage(actions.SECTION_PROJECT_MARKETPLACE_APP, 7);
   yield toggleResponse(actions.SECTION_RESUME_LINK);
 }
 

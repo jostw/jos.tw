@@ -71,6 +71,22 @@ function projectGaia(state = {
       has_html: true
     }, {
       type: 'server',
+      content: [
+        {
+          name: 'Home App',
+          image_url: 'img/gaia/home-app.png'
+        }, {
+          name: 'Home App Folder Navigation',
+          image_url: 'img/gaia/home-app-folder-navigation.png'
+        }, {
+          name: 'Home App Create Folder',
+          image_url: 'img/gaia/home-app-create-folder.png'
+        }
+      ],
+      is_array: true,
+      is_image_array: true
+    }, {
+      type: 'server',
       content: 'I\'ve implemented new features on Home App and System App'
     }, {
       type: 'server',
@@ -99,6 +115,22 @@ function projectMarketplaceApp(state = {
       type: 'server',
       content: 'It\'s also known as <strong>Web Apps</strong> discovery portal for Firefox OS TV',
       has_html: true
+    }, {
+      type: 'server',
+      content: [
+        {
+          name: 'Marketplace App',
+          image_url: 'img/marketplace-app/marketplace-app.png'
+        }, {
+          name: 'Marketplace App Action Menu',
+          image_url: 'img/marketplace-app/marketplace-app-action-menu.png'
+        }, {
+          name: 'Marketplace App Error',
+          image_url: 'img/marketplace-app/marketplace-app-error.png'
+        }
+      ],
+      is_array: true,
+      is_image_array: true
     }, {
       type: 'server',
       content: 'This is my first project in Mozilla!'

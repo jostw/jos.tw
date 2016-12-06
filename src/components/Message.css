@@ -75,6 +75,8 @@
 
   background-position: center;
   background-size: cover;
+
+  -webkit-transform: translateZ(0);
 }
 
 .message .project:last-child {
@@ -112,6 +114,22 @@
   border-bottom-right-radius: .75em;
 }
 
+.message .image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.message img {
+  position: relative;
+  left: 50%;
+
+  width: auto;
+  height: 100%;
+
+  transform: translateX(-50%);
+}
+
 .message-visible,
 .message-client .message {
   max-width: 100%;
@@ -143,17 +161,17 @@
   opacity: 1;
 }
 
-.message-visible .firefox {
+.message-visible .project:nth-child(1) {
   transition: max-height .5s,
               opacity 1s ease .5s;
 }
 
-.message-visible .gaia {
+.message-visible .project:nth-child(2) {
   transition: max-height .5s,
               opacity 1s ease .75s;
 }
 
-.message-visible .marketplace-app {
+.message-visible .project:nth-child(3) {
   transition: max-height .5s,
               opacity 1s ease 1s;
 }

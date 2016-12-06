@@ -24,6 +24,10 @@ class MessageList extends Component {
             classList = [...classList, 'message-multiline'];
           }
 
+          if (message.is_image_array) {
+            message.openImage = this.props.openImage;
+          }
+
           return (
             <li className={ classList.join(' ') } key={ index }>
               <Message message={ message } />

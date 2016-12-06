@@ -1,0 +1,48 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  background-color: rgba(0,0,0,.75);
+  cursor: pointer;
+
+  transition: top 0s ease .2s,
+              left 0s ease .2s,
+              width 0s ease .2s,
+              height 0s ease .2s,
+              opacity .2s;
+}
+
+.modal-open {
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+
+  transition: opacity .5s;
+}
+
+.modal-image {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+
+  width: 60%;
+  height: auto;
+
+  transition: left .2s,
+              width .2s;
+  transform: translateY(-50%);
+}
+
+.modal-open .modal-image {
+  left: 10%;
+
+  width: 80%;
+}
