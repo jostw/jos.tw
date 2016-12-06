@@ -35,7 +35,7 @@ class Section extends Component {
     return e => {
       e.preventDefault();
 
-      toggleModal(name, imageUrl);
+      toggleModal(name, imageUrl.replace('-640x360', ''));
     };
   }
 }

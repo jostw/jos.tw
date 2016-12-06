@@ -86,15 +86,15 @@
 }
 
 .message .firefox {
-  background-image: url('../../public/img/firefox.jpg');
+  background-image: url('../../public/img/firefox-640x360.jpg');
 }
 
 .message .gaia {
-  background-image: url('../../public/img/gaia.png');
+  background-image: url('../../public/img/home-app-640x360.png');
 }
 
 .message .marketplace-app {
-  background-image: url('../../public/img/marketplace-app.png');
+  background-image: url('../../public/img/marketplace-app-640x360.png');
 }
 
 .message .name {

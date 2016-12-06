@@ -74,13 +74,13 @@ function projectGaia(state = {
       content: [
         {
           name: 'Home App',
-          image_url: 'img/gaia/home-app.png'
+          image_url: 'img/home-app-640x360.png'
         }, {
           name: 'Home App Folder Navigation',
-          image_url: 'img/gaia/home-app-folder-navigation.png'
+          image_url: 'img/home-app-folder-navigation-640x360.png'
         }, {
           name: 'Home App Create Folder',
-          image_url: 'img/gaia/home-app-create-folder.png'
+          image_url: 'img/home-app-create-folder-640x360.png'
         }
       ],
       is_array: true,
@@ -120,13 +120,13 @@ function projectMarketplaceApp(state = {
       content: [
         {
           name: 'Marketplace App',
-          image_url: 'img/marketplace-app/marketplace-app.png'
+          image_url: 'img/marketplace-app-640x360.png'
         }, {
           name: 'Marketplace App Action Menu',
-          image_url: 'img/marketplace-app/marketplace-app-action-menu.png'
+          image_url: 'img/marketplace-app-action-menu-640x360.png'
         }, {
           name: 'Marketplace App Error',
-          image_url: 'img/marketplace-app/marketplace-app-error.png'
+          image_url: 'img/marketplace-app-error-640x360.png'
         }
       ],
       is_array: true,

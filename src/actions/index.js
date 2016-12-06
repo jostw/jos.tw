@@ -27,6 +27,8 @@ export const startSection = (section = SECTION_HELLO_WORLD) => ({ type: START_SE
 
 export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const SHOW_MODAL_IMAGE = 'SHOW_MODAL_IMAGE';
 
 export const toggleResponse = sections => ({ type: TOGGLE_RESPONSE, sections });
 export const toggleModal = (name, imageUrl) => ({ type: TOGGLE_MODAL, name, imageUrl });
+export const showModalImage = () => ({ type: SHOW_MODAL_IMAGE });

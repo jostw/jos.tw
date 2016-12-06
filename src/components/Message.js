@@ -29,6 +29,7 @@ class Message extends Component {
 
     if (message.is_array) {
       classList = [...classList, 'message-fullscreen'];
+
       content = (
         <ul className="projects">{
           message.content.map((item, index) => {
@@ -59,6 +60,7 @@ class Message extends Component {
       );
     } else if (message.is_iframe) {
       classList = [...classList, 'message-fullscreen'];
+
       content = (
         <iframe src={ this.state.iframe_src }></iframe>
       );

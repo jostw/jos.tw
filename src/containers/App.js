@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
 
     Section.prototype.toggleModal = props.actions.toggleModal;
+    Modal.prototype.onImageLoad = props.actions.showModalImage;
     Modal.prototype.closeModal = this.closeModal.bind(this);
   }
 
