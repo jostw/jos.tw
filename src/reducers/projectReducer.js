@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import {
   SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP,
-  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR, SECTION_PROJECT_MUZIK_ONLINE, SECTION_PROJECT_MUZIK_STUDY
+  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR, SECTION_PROJECT_MUZIK_ONLINE, SECTION_PROJECT_MUZIK_STUDY, SECTION_PROJECT_IMUSIC
 } from '../actions';
 
 import { createFilteredReducer } from './filterReducer';
@@ -284,8 +284,37 @@ function projectMuzikStudy(state = {
       is_image_array: true
     }, {
       type: 'server',
-      content: 'It’s a single page application built with <strong>React</strong> and <strong>Flux</strong>',
+      content: 'It\'s a single page application built with <strong>React</strong> and <strong>Flux</strong>',
       has_html: true
+    }
+  ]
+}, action) {
+  return state;
+}
+
+function projectIMusic(state = {
+  response: {
+    type: 'client',
+    content: 'Tell me more about iMusic',
+    name: 'iMusic'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'iMusic is a prototype of music streaming service with new business model'
+    }, {
+      type: 'server',
+      content: [
+        {
+          name: 'iMusic',
+          image_url: 'img/imusic-640x313.png'
+        }
+      ],
+      is_array: true,
+      is_image_array: true
+    }, {
+      type: 'server',
+      content: 'We delivered this prototype in one month in order to make a demo to our investors'
     }
   ]
 }, action) {
@@ -300,5 +329,6 @@ export default combineReducers({
   projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST),
   projectMuzikAir: createFilteredReducer(projectMuzikAir, action => action.section === SECTION_PROJECT_MUZIK_AIR),
   projectMuzikOnline: createFilteredReducer(projectMuzikOnline, action => action.section === SECTION_PROJECT_MUZIK_ONLINE),
-  projectMuzikStudy: createFilteredReducer(projectMuzikStudy, action => action.section === SECTION_PROJECT_MUZIK_STUDY)
+  projectMuzikStudy: createFilteredReducer(projectMuzikStudy, action => action.section === SECTION_PROJECT_MUZIK_STUDY),
+  projectIMusic: createFilteredReducer(projectIMusic, action => action.section === SECTION_PROJECT_IMUSIC)
 });
