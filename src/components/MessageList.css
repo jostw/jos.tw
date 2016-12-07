@@ -23,7 +23,7 @@
 }
 
 @media (max-width: 480px) {
-  .message-list .message-array {
+  .message-list .message-array-four {
     max-width: 18.75em;
     max-height: 18.75em;
   }

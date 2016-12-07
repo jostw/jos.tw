@@ -58,6 +58,9 @@ function* startSection(action) {
     case actions.SECTION_PROJECT_MUZIK_LIST:
       yield startProjectMuzikList();
       break;
+    case actions.SECTION_PROJECT_MUZIK_AIR:
+      yield startProjectMuzikAir();
+      break;
     case actions.SECTION_RESUME_LINK:
       yield startResumeLink();
       break;
@@ -127,7 +130,13 @@ function* startProjectMuzikList() {
   yield showMessage(actions.SECTION_PROJECT_MUZIK_LIST, 4);
   yield call(delay, 500);
   yield showMessage(actions.SECTION_PROJECT_MUZIK_LIST, 4, 5);
+  yield toggleResponse(actions.SECTION_PROJECT_MUZIK_AIR);
+}
 
+function* startProjectMuzikAir() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_PROJECT_MUZIK_AIR);
+  yield showMessage(actions.SECTION_PROJECT_MUZIK_AIR, 4);
   yield toggleResponse(actions.SECTION_RESUME_LINK, actions.SECTION_CONTACT_MAIL);
 }
 

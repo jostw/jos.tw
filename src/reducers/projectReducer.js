@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP, SECTION_PROJECT_MUZIK_LIST } from '../actions';
+import {
+  SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP,
+  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR
+} from '../actions';
+
 import { createFilteredReducer } from './filterReducer';
 
 function projectList(state = {
@@ -185,10 +189,45 @@ function projectMuzikList(state = {
   return state;
 }
 
+function projectMuzikAir(state = {
+  response: {
+    type: 'client',
+    content: 'Tell me more about MUZIK AIR',
+    name: 'MUZIK AIR'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'MUZIK AIR is an on-demand classical music streaming service with scenario-oriented playlists'
+    }, {
+      type: 'server',
+      content: [
+        {
+          name: 'MUZIK AIR',
+          image_url: 'img/muzik-air-640x313.png'
+        }
+      ],
+      is_array: true,
+      is_image_array: true
+    }, {
+      type: 'server',
+      content: 'I\'ve developed each feature as <strong>reusable components</strong>',
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'And managed workflow with <strong>Webpack</strong> and npm scripts',
+      has_html: true
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
   projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
   projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
   projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA),
   projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP),
-  projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST)
+  projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST),
+  projectMuzikAir: createFilteredReducer(projectMuzikAir, action => action.section === SECTION_PROJECT_MUZIK_AIR)
 });

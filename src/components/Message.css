@@ -69,11 +69,11 @@
   position: relative;
 
   display: inline-block;
-  width: 16.6875em;
+  width: 16.5em;
   height: 9.375em;
-  max-width: 33.3%;
   margin-bottom: -.375em;
-  border-right: 1px solid #F5F5F5;
+  border: 1px solid #F5F5F5;
+  border-right: 0;
 
   background-position: center;
   background-size: cover;
@@ -81,37 +81,40 @@
   -webkit-transform: translateZ(0);
 }
 
-.message-array .project {
+.message-array-three .project {
+  max-width: 33.33%;
+}
+
+.message-array-four .project {
   width: 9.375em;
   max-width: 25%;
 }
 
 .message .project:last-child {
-  border-right: 0;
+  border-right: 1px solid #F5F5F5;
   border-top-right-radius: .75em;
   border-bottom-right-radius: .75em;
 }
 
 @media (max-width: 480px) {
-  .message-array .projects {
+  .message-array-four .projects {
     white-space: normal;
   }
 
-  .message-array .project {
+  .message-array-four .project {
     max-width: 50%;
   }
 
-  .message-array .project:nth-child(1),
-  .message-array .project:nth-child(2) {
-    border-bottom: 1px solid #F5F5F5;
+  .message-array-four .project:nth-child(n+3) {
+    border-top: 0;
   }
 
-  .message-array .project:nth-child(2) {
-    border-right: 0;
+  .message-array-four .project:nth-child(2) {
+    border-right: 1px solid #F5F5F5;
     border-top-right-radius: .75em;
   }
 
-  .message-array .project:last-child {
+  .message-array-four .project:last-child {
     border-top-right-radius: 0;
   }
 }
