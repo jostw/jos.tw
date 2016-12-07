@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import Section from '../components/Section';
+import Section from './Section';
 import Response from '../components/Response';
 import Modal from '../components/Modal';
 

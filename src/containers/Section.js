@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MessageList from './MessageList';
+import MessageList from '../components/MessageList';
 
 class Section extends Component {
   constructor(props) {
