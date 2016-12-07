@@ -187,7 +187,7 @@ function* startResumeMore() {
 function* startContactMail() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_CONTACT_MAIL);
-  yield showMessage(actions.SECTION_CONTACT_MAIL, 2);
+  yield showMessage(actions.SECTION_CONTACT_MAIL, 3);
 }
 
 function* watchStartSection() {

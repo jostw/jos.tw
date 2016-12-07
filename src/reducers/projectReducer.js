@@ -91,10 +91,11 @@ function projectGaia(state = {
       is_image_array: true
     }, {
       type: 'server',
-      content: 'I\'ve implemented new features on Home App and System App'
+      content: 'I implemented new features on Home App and System App'
     }, {
       type: 'server',
-      content: 'It\'s a really large code base with some browser specific APIs'
+      content: 'It\'s a really large code base with some <strong>browser specific APIs</strong>',
+      has_html: true
     }, {
       type: 'server',
       content: `You can browse my contributions on <a class="link" href="${GAIA_LINK}" title="${GAIA_LINK}" target="_blank">GitHub</a>!`,
@@ -140,7 +141,7 @@ function projectMarketplaceApp(state = {
       content: 'This is my first project in Mozilla!'
     }, {
       type: 'server',
-      content: `We actually build this in 2 months in order to make a demo in <a class="link" href="${CES_LINK}" title="${CES_LINK}" target="_blank">CES 2016</a>`,
+      content: `We actually built this in 2 months in order to make a demo in <strong><a class="link" href="${CES_LINK}" title="${CES_LINK}" target="_blank">CES 2016</a></strong>`,
       has_html: true
     }, {
       type: 'server',
@@ -212,7 +213,7 @@ function projectMuzikAir(state = {
       is_image_array: true
     }, {
       type: 'server',
-      content: 'I\'ve developed each feature as <strong>reusable components</strong>',
+      content: 'I developed each feature as <strong>reusable component</strong>',
       has_html: true
     }, {
       type: 'server',
