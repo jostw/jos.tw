@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import {
   SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP,
-  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR, SECTION_PROJECT_MUZIK_ONLINE
+  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR, SECTION_PROJECT_MUZIK_ONLINE, SECTION_PROJECT_MUZIK_STUDY
 } from '../actions';
 
 import { createFilteredReducer } from './filterReducer';
@@ -261,6 +261,37 @@ function projectMuzikOnline(state = {
   return state;
 }
 
+function projectMuzikStudy(state = {
+  response: {
+    type: 'client',
+    content: 'Tell me more about MUZIK STUDY',
+    name: 'MUZIK STUDY'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'MUZIK STUDY is a <strong>B2B</strong> classical music database service',
+      has_html: true
+    }, {
+      type: 'server',
+      content: [
+        {
+          name: 'MUZIK STUDY',
+          image_url: 'img/muzik-study-640x313.png'
+        }
+      ],
+      is_array: true,
+      is_image_array: true
+    }, {
+      type: 'server',
+      content: 'It’s a single page application built with <strong>React</strong> and <strong>Flux</strong>',
+      has_html: true
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
   projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
   projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
@@ -268,5 +299,6 @@ export default combineReducers({
   projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP),
   projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST),
   projectMuzikAir: createFilteredReducer(projectMuzikAir, action => action.section === SECTION_PROJECT_MUZIK_AIR),
-  projectMuzikOnline: createFilteredReducer(projectMuzikOnline, action => action.section === SECTION_PROJECT_MUZIK_ONLINE)
+  projectMuzikOnline: createFilteredReducer(projectMuzikOnline, action => action.section === SECTION_PROJECT_MUZIK_ONLINE),
+  projectMuzikStudy: createFilteredReducer(projectMuzikStudy, action => action.section === SECTION_PROJECT_MUZIK_STUDY)
 });
