@@ -63,7 +63,7 @@ function mapStateToProps({
   about: { aboutYourself, aboutMore },
   project: {
     projectList, projectFirefox, projectGaia, projectMarketplaceApp,
-    projectMuzikList, projectMuzikAir
+    projectMuzikList, projectMuzikAir, projectMuzikOnline
   },
   resume: { resumeLink, resumeMore },
   contact: { contactMail },
@@ -78,6 +78,7 @@ function mapStateToProps({
     [actions.SECTION_PROJECT_MARKETPLACE_APP]: mapProjectNameToResponse(projectMarketplaceApp.response),
     [actions.SECTION_PROJECT_MUZIK_LIST]: projectMuzikList.response,
     [actions.SECTION_PROJECT_MUZIK_AIR]: mapProjectNameToResponse(projectMuzikAir.response),
+    [actions.SECTION_PROJECT_MUZIK_ONLINE]: mapProjectNameToResponse(projectMuzikOnline.response),
     [actions.SECTION_RESUME_LINK]: resumeLink.response,
     [actions.SECTION_RESUME_MORE]: resumeMore.response,
     [actions.SECTION_CONTACT_MAIL]: contactMail.response
@@ -88,7 +89,7 @@ function mapStateToProps({
     about: mapSectionToMessages(aboutYourself, aboutMore),
     project: mapSectionToMessages(
       projectList, projectFirefox, projectGaia, projectMarketplaceApp,
-      projectMuzikList, projectMuzikAir
+      projectMuzikList, projectMuzikAir, projectMuzikOnline
     ),
     resume: mapSectionToMessages(resumeLink, resumeMore),
     contact: mapSectionToMessages(contactMail),

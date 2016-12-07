@@ -258,16 +258,20 @@
   bottom: 0;
 }
 
-.message-visible .firefox .name {
+.message-visible .project:nth-child(1) .name {
   transition: bottom .5s ease .5s;
 }
 
-.message-visible .gaia .name {
+.message-visible .project:nth-child(2) .name {
   transition: bottom .5s ease .75s;
 }
 
-.message-visible .marketplace-app .name {
+.message-visible .project:nth-child(3) .name {
   transition: bottom .5s ease 1s;
+}
+
+.message-visible .project:nth-child(4) .name {
+  transition: bottom .5s ease 1.25s;
 }
 
 .message-fullscreen {

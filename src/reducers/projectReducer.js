@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import {
   SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP,
-  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR
+  SECTION_PROJECT_MUZIK_LIST, SECTION_PROJECT_MUZIK_AIR, SECTION_PROJECT_MUZIK_ONLINE
 } from '../actions';
 
 import { createFilteredReducer } from './filterReducer';
@@ -198,7 +198,8 @@ function projectMuzikAir(state = {
   messages: [
     {
       type: 'server',
-      content: 'MUZIK AIR is an on-demand classical music streaming service with scenario-oriented playlists'
+      content: 'MUZIK AIR is an on-demand classical music streaming service with <strong>scenario-oriented</strong> playlists',
+      has_html: true
     }, {
       type: 'server',
       content: [
@@ -223,11 +224,49 @@ function projectMuzikAir(state = {
   return state;
 }
 
+function projectMuzikOnline(state = {
+  response: {
+    type: 'client',
+    content: 'Tell me more about MUZIK ONLINE',
+    name: 'MUZIK ONLINE'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'MUZIK ONLINE is a classical music portal platform',
+    }, {
+      type: 'server',
+      content: [
+        {
+          name: 'MUZIK ONLINE',
+          image_url: 'img/muzik-online-640x313.png'
+        }
+      ],
+      is_array: true,
+      is_image_array: true
+    }, {
+      type: 'server',
+      content: 'It\'s a <strong>single page application</strong> built with <strong>Backbone</strong> and <strong>Marionette</strong>',
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'We solved the <strong>SEO</strong> problem in single page application with <strong>server-side rendering</strong>',
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'That was even before Facebook introduced React!'
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
   projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
   projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
   projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA),
   projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP),
   projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST),
-  projectMuzikAir: createFilteredReducer(projectMuzikAir, action => action.section === SECTION_PROJECT_MUZIK_AIR)
+  projectMuzikAir: createFilteredReducer(projectMuzikAir, action => action.section === SECTION_PROJECT_MUZIK_AIR),
+  projectMuzikOnline: createFilteredReducer(projectMuzikOnline, action => action.section === SECTION_PROJECT_MUZIK_ONLINE)
 });
