@@ -24,6 +24,10 @@ class MessageList extends Component {
             classList = [...classList, 'message-multiline'];
           }
 
+          if (message.is_visible && message.is_array && message.content.length > 3) {
+            classList = [...classList, 'message-array'];
+          }
+
           if (message.is_image_array) {
             message.openImage = this.props.openImage;
           }

@@ -8,7 +8,12 @@ function* showResponse(section) {
   yield put(actions.showResponse(section));
 }
 
-function* showMessage(section, size, startIndex = 0) {
+function* showMessage(section, startIndex, size) {
+  if (!size) {
+    size = startIndex;
+    startIndex = 0;
+  }
+
   for (let index = startIndex; index < size; index++) {
     yield call(delay, 1300);
     yield put(actions.enterMessage(section, index));
@@ -50,6 +55,9 @@ function* startSection(action) {
     case actions.SECTION_PROJECT_MARKETPLACE_APP:
       yield startProjectMarketplaceApp();
       break;
+    case actions.SECTION_PROJECT_MUZIK_LIST:
+      yield startProjectMuzikList();
+      break;
     case actions.SECTION_RESUME_LINK:
       yield startResumeLink();
       break;
@@ -88,7 +96,7 @@ function* startProjectList() {
   yield showResponse(actions.SECTION_PROJECT_LIST);
   yield showMessage(actions.SECTION_PROJECT_LIST, 2);
   yield call(delay, 500);
-  yield showMessage(actions.SECTION_PROJECT_LIST, 3, 2);
+  yield showMessage(actions.SECTION_PROJECT_LIST, 2, 3);
   yield toggleResponse(actions.SECTION_PROJECT_FIREFOX, actions.SECTION_PROJECT_GAIA, actions.SECTION_PROJECT_MARKETPLACE_APP);
 }
 
@@ -96,21 +104,31 @@ function* startProjectFirefox() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_FIREFOX);
   yield showMessage(actions.SECTION_PROJECT_FIREFOX, 4);
-  yield toggleResponse(actions.SECTION_RESUME_LINK);
+  yield toggleResponse(actions.SECTION_PROJECT_MUZIK_LIST, actions.SECTION_RESUME_LINK);
 }
 
 function* startProjectGaia() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_GAIA);
   yield showMessage(actions.SECTION_PROJECT_GAIA, 5);
-  yield toggleResponse(actions.SECTION_RESUME_LINK);
+  yield toggleResponse(actions.SECTION_PROJECT_MUZIK_LIST, actions.SECTION_RESUME_LINK);
 }
 
 function* startProjectMarketplaceApp() {
   yield toggleResponse(false);
   yield showResponse(actions.SECTION_PROJECT_MARKETPLACE_APP);
   yield showMessage(actions.SECTION_PROJECT_MARKETPLACE_APP, 7);
-  yield toggleResponse(actions.SECTION_RESUME_LINK);
+  yield toggleResponse(actions.SECTION_PROJECT_MUZIK_LIST, actions.SECTION_RESUME_LINK);
+}
+
+function* startProjectMuzikList() {
+  yield toggleResponse(false);
+  yield showResponse(actions.SECTION_PROJECT_MUZIK_LIST);
+  yield showMessage(actions.SECTION_PROJECT_MUZIK_LIST, 4);
+  yield call(delay, 500);
+  yield showMessage(actions.SECTION_PROJECT_MUZIK_LIST, 4, 5);
+
+  yield toggleResponse(actions.SECTION_RESUME_LINK, actions.SECTION_CONTACT_MAIL);
 }
 
 function* startResumeLink() {

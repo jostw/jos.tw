@@ -33,14 +33,14 @@ class Message extends Component {
       content = (
         <ul className="projects">{
           message.content.map((item, index) => {
-            let classList = ['text', 'project'];
+            let projectClassList = ['text', 'project'];
 
             if (!message.is_image_array) {
-              classList = [...classList, item.split(' ').join('-').toLowerCase()];
+              projectClassList = [...projectClassList, item.split(' ').join('-').toLowerCase()];
             }
 
             return (
-              <li className={ classList.join(' ') } key={ index }>{
+              <li className={ projectClassList.join(' ') } key={ index }>{
                 message.is_image_array ? (
                   <a href="#"
                      className="image"

@@ -61,7 +61,7 @@ function mapProjectNameToResponse(response) {
 function mapStateToProps({
   hello: { helloWorld },
   about: { aboutYourself, aboutMore },
-  project: { projectList, projectFirefox, projectGaia, projectMarketplaceApp},
+  project: { projectList, projectFirefox, projectGaia, projectMarketplaceApp, projectMuzikList },
   resume: { resumeLink, resumeMore },
   contact: { contactMail },
   response, modal
@@ -73,6 +73,7 @@ function mapStateToProps({
     [actions.SECTION_PROJECT_FIREFOX]: mapProjectNameToResponse(projectFirefox.response),
     [actions.SECTION_PROJECT_GAIA]: mapProjectNameToResponse(projectGaia.response),
     [actions.SECTION_PROJECT_MARKETPLACE_APP]: mapProjectNameToResponse(projectMarketplaceApp.response),
+    [actions.SECTION_PROJECT_MUZIK_LIST]: projectMuzikList.response,
     [actions.SECTION_RESUME_LINK]: resumeLink.response,
     [actions.SECTION_RESUME_MORE]: resumeMore.response,
     [actions.SECTION_CONTACT_MAIL]: contactMail.response
@@ -81,7 +82,7 @@ function mapStateToProps({
   return {
     hello: mapSectionToMessages(helloWorld),
     about: mapSectionToMessages(aboutYourself, aboutMore),
-    project: mapSectionToMessages(projectList, projectFirefox, projectGaia, projectMarketplaceApp),
+    project: mapSectionToMessages(projectList, projectFirefox, projectGaia, projectMarketplaceApp, projectMuzikList),
     resume: mapSectionToMessages(resumeLink, resumeMore),
     contact: mapSectionToMessages(contactMail),
     response, responseMap, modal

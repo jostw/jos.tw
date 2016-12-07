@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP } from '../actions';
+import { SECTION_PROJECT_LIST, SECTION_PROJECT_FIREFOX, SECTION_PROJECT_GAIA, SECTION_PROJECT_MARKETPLACE_APP, SECTION_PROJECT_MUZIK_LIST } from '../actions';
 import { createFilteredReducer } from './filterReducer';
 
 function projectList(state = {
@@ -155,9 +155,40 @@ function projectMarketplaceApp(state = {
   return state;
 }
 
+function projectMuzikList(state = {
+  response: {
+    type: 'client',
+    content: 'Awesome! What else?'
+  },
+  messages: [
+    {
+      type: 'server',
+      content: 'Well, I worked for <strong>MUZIK</strong> for 2.5 years before Mozilla',
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'It\'s a <strong>startup</strong> focused on <strong>music streaming services</strong> and other related business',
+      has_html: true
+    }, {
+      type: 'server',
+      content: 'Here are some of the projects I made'
+    }, {
+      type: 'server',
+      content: ['MUZIK AIR', 'MUZIK ONLINE', 'MUZIK STUDY', 'iMusic'],
+      is_array: true
+    }, {
+      type: 'server',
+      content: 'Would you like to know any of them?'
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
   projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
   projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
   projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA),
-  projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP)
+  projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP),
+  projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST)
 });
