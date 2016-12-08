@@ -1,8 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import './Message.css';
 
 class Message extends Component {
+  static propTypes = {
+    message: PropTypes.shape({
+      type: PropTypes.oneOf(['client', 'server']),
+      content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
+      onClick: PropTypes.func,
+      has_html: PropTypes.bool,
+      is_typing: PropTypes.bool,
+      is_visible: PropTypes.bool,
+      is_array: PropTypes.bool,
+      is_image_array: PropTypes.bool,
+      is_iframe: PropTypes.bool
+    }).isRequired,
+    openImage: PropTypes.func
+  }
+
   constructor(props) {
     super(props);
 
@@ -28,6 +43,8 @@ class Message extends Component {
     }
 
     if (message.is_array) {
+      const { openImage } = this.props;
+
       classList = [...classList, 'message-fullscreen'];
 
       content = (
@@ -44,7 +61,7 @@ class Message extends Component {
                 message.is_image_array ? (
                   <a href="#"
                      className="image"
-                     onClick={ message.openImage(item.name, item.image_url) }
+                     onClick={ openImage(item.name, item.image_url) }
                      title={ item.name }>
                     <img src={ item.image_url }
                          alt={ item.name }
@@ -75,11 +92,11 @@ class Message extends Component {
       );
     }
 
-    if (message.onclick) {
+    if (message.onClick) {
       return (
         <a href="#"
            className={ classList.join(' ') }
-           onClick={ message.onclick }
+           onClick={ message.onClick }
            title={ message.content }>{ content }</a>
       );
     }

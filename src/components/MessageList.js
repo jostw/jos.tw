@@ -34,14 +34,21 @@ class MessageList extends Component {
             }
           }
 
+          let messageComponent = null;
+
           if (message.is_image_array) {
-            message.openImage = this.props.openImage;
+            messageComponent = (
+              <Message message={ message }
+                       openImage={ this.props.openImage } />
+            );
+          } else {
+            messageComponent = (
+              <Message message={ message } />
+            );
           }
 
           return (
-            <li className={ classList.join(' ') } key={ index }>
-              <Message message={ message } />
-            </li>
+            <li className={ classList.join(' ') } key={ index }>{ messageComponent }</li>
           );
         })
       }</ul>
