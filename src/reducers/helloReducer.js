@@ -19,5 +19,5 @@ function helloWorld(state = {
 }
 
 export default combineReducers({
-  helloWorld: createFilteredReducer(helloWorld, action => action.section === SECTION_HELLO_WORLD)
+  helloWorld: createFilteredReducer(helloWorld, SECTION_HELLO_WORLD)
 });

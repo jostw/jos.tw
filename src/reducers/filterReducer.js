@@ -45,9 +45,9 @@ function messagesFilter(state, action) {
   }
 }
 
-export function createFilteredReducer(reducerFunction, reducerPredicate) {
+export function createFilteredReducer(reducerFunction, section) {
   return (state = reducerFunction(), action) => {
-    const shouldRunWrappedReducer = reducerPredicate(action);
+    const shouldRunWrappedReducer = action.section === section;
 
     if (!shouldRunWrappedReducer) {
       return state;

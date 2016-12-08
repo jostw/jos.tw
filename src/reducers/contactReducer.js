@@ -28,5 +28,5 @@ function contactMail(state = {
 }
 
 export default combineReducers({
-  contactMail: createFilteredReducer(contactMail, action => action.section === SECTION_CONTACT_MAIL)
+  contactMail: createFilteredReducer(contactMail, SECTION_CONTACT_MAIL)
 });

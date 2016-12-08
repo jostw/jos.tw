@@ -46,6 +46,6 @@ function resumeMore(state = {
 }
 
 export default combineReducers({
-  resumeLink: createFilteredReducer(resumeLink, action => action.section === SECTION_RESUME_LINK),
-  resumeMore: createFilteredReducer(resumeMore, action => action.section === SECTION_RESUME_MORE)
+  resumeLink: createFilteredReducer(resumeLink, SECTION_RESUME_LINK),
+  resumeMore: createFilteredReducer(resumeMore, SECTION_RESUME_MORE)
 });

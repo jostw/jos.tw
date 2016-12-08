@@ -323,13 +323,13 @@ function projectIMusic(state = {
 }
 
 export default combineReducers({
-  projectList: createFilteredReducer(projectList, action => action.section === SECTION_PROJECT_LIST),
-  projectFirefox: createFilteredReducer(projectFirefox, action => action.section === SECTION_PROJECT_FIREFOX),
-  projectGaia: createFilteredReducer(projectGaia, action => action.section === SECTION_PROJECT_GAIA),
-  projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, action => action.section === SECTION_PROJECT_MARKETPLACE_APP),
-  projectMuzikList: createFilteredReducer(projectMuzikList, action => action.section === SECTION_PROJECT_MUZIK_LIST),
-  projectMuzikAir: createFilteredReducer(projectMuzikAir, action => action.section === SECTION_PROJECT_MUZIK_AIR),
-  projectMuzikOnline: createFilteredReducer(projectMuzikOnline, action => action.section === SECTION_PROJECT_MUZIK_ONLINE),
-  projectMuzikStudy: createFilteredReducer(projectMuzikStudy, action => action.section === SECTION_PROJECT_MUZIK_STUDY),
-  projectIMusic: createFilteredReducer(projectIMusic, action => action.section === SECTION_PROJECT_IMUSIC)
+  projectList: createFilteredReducer(projectList, SECTION_PROJECT_LIST),
+  projectFirefox: createFilteredReducer(projectFirefox, SECTION_PROJECT_FIREFOX),
+  projectGaia: createFilteredReducer(projectGaia, SECTION_PROJECT_GAIA),
+  projectMarketplaceApp: createFilteredReducer(projectMarketplaceApp, SECTION_PROJECT_MARKETPLACE_APP),
+  projectMuzikList: createFilteredReducer(projectMuzikList, SECTION_PROJECT_MUZIK_LIST),
+  projectMuzikAir: createFilteredReducer(projectMuzikAir, SECTION_PROJECT_MUZIK_AIR),
+  projectMuzikOnline: createFilteredReducer(projectMuzikOnline, SECTION_PROJECT_MUZIK_ONLINE),
+  projectMuzikStudy: createFilteredReducer(projectMuzikStudy, SECTION_PROJECT_MUZIK_STUDY),
+  projectIMusic: createFilteredReducer(projectIMusic, SECTION_PROJECT_IMUSIC)
 });

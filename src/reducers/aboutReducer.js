@@ -56,6 +56,6 @@ function aboutMore(state = {
 }
 
 export default combineReducers({
-  aboutYourself: createFilteredReducer(aboutYourself, action => action.section === SECTION_ABOUT_YOURSELF),
-  aboutMore: createFilteredReducer(aboutMore, action => action.section === SECTION_ABOUT_MORE)
+  aboutYourself: createFilteredReducer(aboutYourself, SECTION_ABOUT_YOURSELF),
+  aboutMore: createFilteredReducer(aboutMore, SECTION_ABOUT_MORE)
 });
