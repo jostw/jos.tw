@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import './Response.css';
 import Message from './Message';
 
 class Response extends Component {
+  static propTypes = {
+    response: PropTypes.shape({
+      messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+      is_visible: PropTypes.bool.isRequired
+    }).isRequired
+  }
+
   render() {
     const { response } = this.props;
 
