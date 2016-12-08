@@ -51,11 +51,27 @@ function mapSectionToMessages(...sections) {
   });
 }
 
-function mapProjectNameToResponse(response) {
-  return {
-    ...response,
-    content: response.name
-  };
+let responseMap = {};
+
+function mapSectionToResponse(section, state) {
+  if (state) {
+    let { response } = state;
+
+    if (response.name) {
+      response = {
+        ...response,
+        content: response.name
+      };
+    }
+
+    responseMap = {
+      ...responseMap,
+      [section]: response
+    };
+    return;
+  }
+
+  return responseMap[section];
 }
 
 function mapStateToProps({
@@ -69,22 +85,20 @@ function mapStateToProps({
   contact: { contactMail },
   response, modal
 }) {
-  const responseMap = {
-    [actions.SECTION_ABOUT_YOURSELF]: aboutYourself.response,
-    [actions.SECTION_ABOUT_MORE]: aboutMore.response,
-    [actions.SECTION_PROJECT_LIST]: projectList.response,
-    [actions.SECTION_PROJECT_FIREFOX]: mapProjectNameToResponse(projectFirefox.response),
-    [actions.SECTION_PROJECT_GAIA]: mapProjectNameToResponse(projectGaia.response),
-    [actions.SECTION_PROJECT_MARKETPLACE_APP]: mapProjectNameToResponse(projectMarketplaceApp.response),
-    [actions.SECTION_PROJECT_MUZIK_LIST]: projectMuzikList.response,
-    [actions.SECTION_PROJECT_MUZIK_AIR]: mapProjectNameToResponse(projectMuzikAir.response),
-    [actions.SECTION_PROJECT_MUZIK_ONLINE]: mapProjectNameToResponse(projectMuzikOnline.response),
-    [actions.SECTION_PROJECT_MUZIK_STUDY]: mapProjectNameToResponse(projectMuzikStudy.response),
-    [actions.SECTION_PROJECT_IMUSIC]: mapProjectNameToResponse(projectIMusic.response),
-    [actions.SECTION_RESUME_LINK]: resumeLink.response,
-    [actions.SECTION_RESUME_MORE]: resumeMore.response,
-    [actions.SECTION_CONTACT_MAIL]: contactMail.response
-  };
+  mapSectionToResponse(actions.SECTION_ABOUT_YOURSELF, aboutYourself);
+  mapSectionToResponse(actions.SECTION_ABOUT_MORE, aboutMore);
+  mapSectionToResponse(actions.SECTION_PROJECT_LIST, projectList);
+  mapSectionToResponse(actions.SECTION_PROJECT_FIREFOX, projectFirefox);
+  mapSectionToResponse(actions.SECTION_PROJECT_GAIA, projectGaia);
+  mapSectionToResponse(actions.SECTION_PROJECT_MARKETPLACE_APP, projectMarketplaceApp);
+  mapSectionToResponse(actions.SECTION_PROJECT_MUZIK_LIST, projectMuzikList);
+  mapSectionToResponse(actions.SECTION_PROJECT_MUZIK_AIR, projectMuzikAir);
+  mapSectionToResponse(actions.SECTION_PROJECT_MUZIK_ONLINE, projectMuzikOnline);
+  mapSectionToResponse(actions.SECTION_PROJECT_MUZIK_STUDY, projectMuzikStudy);
+  mapSectionToResponse(actions.SECTION_PROJECT_IMUSIC, projectIMusic);
+  mapSectionToResponse(actions.SECTION_RESUME_LINK, resumeLink);
+  mapSectionToResponse(actions.SECTION_RESUME_MORE, resumeMore);
+  mapSectionToResponse(actions.SECTION_CONTACT_MAIL, contactMail);
 
   return {
     hello: mapSectionToMessages(helloWorld),
@@ -95,7 +109,7 @@ function mapStateToProps({
     ),
     resume: mapSectionToMessages(resumeLink, resumeMore),
     contact: mapSectionToMessages(contactMail),
-    response, responseMap, modal
+    response, modal
   };
 }
 
@@ -104,7 +118,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { hello, about, project, resume, contact, response, responseMap, modal } = stateProps;
+  const { hello, about, project, resume, contact, response, modal } = stateProps;
 
   return {
     ...ownProps,
@@ -112,7 +126,7 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
     response: {
       messages: response.sections.map(section => {
         return {
-          ...responseMap[section],
+          ...mapSectionToResponse(section),
           is_visible: true,
           onclick: e => {
             e.preventDefault();
