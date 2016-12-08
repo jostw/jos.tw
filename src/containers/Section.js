@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import MessageList from '../components/MessageList';
 
 class Section extends Component {
+  static propTypes = {
+    section: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired
+  }
+
   constructor(props) {
     super(props);
 
