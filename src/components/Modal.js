@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import './Modal.css';
 
 class Modal extends Component {
+  static propTypes = {
+    modal: PropTypes.shape({
+      is_visible: PropTypes.bool.isRequired,
+      is_image_visible: PropTypes.bool.isRequired,
+      name: PropTypes.string,
+      image_url: PropTypes.string
+    }).isRequired
+  }
+
   render() {
     const { modal } = this.props;
     let classList = ['modal'];

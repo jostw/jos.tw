@@ -5,7 +5,7 @@ import './Message.css';
 class Message extends Component {
   static propTypes = {
     message: PropTypes.shape({
-      type: PropTypes.oneOf(['client', 'server']),
+      type: PropTypes.oneOf(['client', 'server']).isRequired,
       content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
       onClick: PropTypes.func,
       has_html: PropTypes.bool,
