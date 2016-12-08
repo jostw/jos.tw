@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,16 @@ import Response from '../components/Response';
 import Modal from '../components/Modal';
 
 class App extends Component {
+  static propTypes = {
+    hello: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+    about: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+    project: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+    resume: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+    contact: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+    response: PropTypes.object.isRequired,
+    modal: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props);
 
