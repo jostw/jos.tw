@@ -6,7 +6,7 @@ class Message extends Component {
   static propTypes = {
     message: PropTypes.shape({
       type: PropTypes.oneOf(['client', 'server']).isRequired,
-      content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
+      content: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]).isRequired,
       onClick: PropTypes.func,
       has_html: PropTypes.bool,
       is_typing: PropTypes.bool,
@@ -53,7 +53,7 @@ class Message extends Component {
             let projectClassList = ['text', 'project'];
 
             if (!message.is_image_array) {
-              projectClassList = [...projectClassList, item.split(' ').join('-').toLowerCase()];
+              projectClassList = [...projectClassList, item.name.split(' ').join('-').toLowerCase()];
             }
 
             return (
@@ -67,8 +67,13 @@ class Message extends Component {
                          alt={ item.name }
                          title={ item.name } />
                   </a>
+                ) : item.url ? (
+                  <a href={ item.url }
+                     className="name project-link"
+                     target="_blank"
+                     title={ item.name }>{ item.name }</a>
                 ) : (
-                  <span className="name">{ item }</span>
+                  <span className="name">{ item.name }</span>
                 )
               }</li>
             );

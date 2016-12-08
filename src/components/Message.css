@@ -174,13 +174,26 @@
   position: absolute;
   bottom: -4em;
 
-  width: 100%;
-  padding: .5em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  text-align: center;
+  width: 100%;
+  height: 2.5em;
+  padding: .5em 0;
 
   color: #FFF;
   background-color: rgba(0,0,0,.5);
+}
+
+.message .project:hover .name {
+  height: 100%;
+
+  background-color: rgba(0,0,0,.75);
+}
+
+.message .project:hover .project-link {
+  background-color: rgba(30,136,229,.9);
 }
 
 .message .project:last-child .name {
@@ -228,6 +241,12 @@
   color: #1E88E5;
 }
 
+.message-visible .project-link {
+  text-decoration: none;
+
+  color: #FFF;
+}
+
 .message-visible iframe,
 .message-visible .project {
   max-height: 9.375em;
@@ -259,19 +278,27 @@
 }
 
 .message-visible .project:nth-child(1) .name {
-  transition: bottom .5s ease .5s;
+  transition: bottom .5s ease .5s,
+              height .2s,
+              background-color .2s;
 }
 
 .message-visible .project:nth-child(2) .name {
-  transition: bottom .5s ease .75s;
+  transition: bottom .5s ease .75s,
+              height .2s,
+              background-color .2s;
 }
 
 .message-visible .project:nth-child(3) .name {
-  transition: bottom .5s ease 1s;
+  transition: bottom .5s ease 1s,
+              height .2s,
+              background-color .2s;
 }
 
 .message-visible .project:nth-child(4) .name {
-  transition: bottom .5s ease 1.25s;
+  transition: bottom .5s ease 1.25s,
+              height .2s,
+              background-color .2s;
 }
 
 .message-fullscreen {

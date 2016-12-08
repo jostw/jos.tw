@@ -19,7 +19,15 @@ function projectList(state = {
       has_html: true
     }, {
       type: 'server',
-      content: ['Firefox', 'Gaia', 'Marketplace App'],
+      content: [
+        {
+          name: 'Firefox'
+        }, {
+          name: 'Gaia'
+        }, {
+          name: 'Marketplace App'
+        }
+      ],
       is_array: true
     }, {
       type: 'server',
@@ -160,6 +168,9 @@ function projectMarketplaceApp(state = {
   return state;
 }
 
+const MUZIK_AIR_LINK = 'https://www.muzikair.com/';
+const MUZIK_ONLINE_LINK = 'https://www.muzik-online.com/';
+
 function projectMuzikList(state = {
   response: {
     type: 'client',
@@ -179,7 +190,19 @@ function projectMuzikList(state = {
       content: 'Here are some of the projects I made'
     }, {
       type: 'server',
-      content: ['MUZIK AIR', 'MUZIK ONLINE', 'MUZIK STUDY', 'iMusic'],
+      content: [
+        {
+          name: 'MUZIK AIR',
+          url: MUZIK_AIR_LINK
+        }, {
+          name: 'MUZIK ONLINE',
+          url: MUZIK_ONLINE_LINK
+        }, {
+          name: 'MUZIK STUDY'
+        }, {
+          name: 'iMusic'
+        }
+      ],
       is_array: true
     }, {
       type: 'server',
