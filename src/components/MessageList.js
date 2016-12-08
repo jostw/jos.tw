@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import './MessageList.css';
 import Message from './Message';
 
 class MessageList extends Component {
+  static propTypes = {
+    messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+    openImage: PropTypes.func.isRequired
+  }
+
   render() {
-    const { messages } = this.props;
+    const { messages, openImage } = this.props;
 
     if (messages.length === 0) {
       return null;
@@ -34,21 +39,11 @@ class MessageList extends Component {
             }
           }
 
-          let messageComponent = null;
-
-          if (message.is_image_array) {
-            messageComponent = (
-              <Message message={ message }
-                       openImage={ this.props.openImage } />
-            );
-          } else {
-            messageComponent = (
-              <Message message={ message } />
-            );
-          }
-
           return (
-            <li className={ classList.join(' ') } key={ index }>{ messageComponent }</li>
+            <li className={ classList.join(' ') } key={ index }>
+              <Message message={ message }
+                       openImage={ openImage } />
+            </li>
           );
         })
       }</ul>
