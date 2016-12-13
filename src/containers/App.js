@@ -21,6 +21,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.state = { requestAnimationFrameID: null };
+
+    this.scrollToEnd = this.scrollToEnd.bind(this);
+
     Section.prototype.toggleModal = props.actions.toggleModal;
     Modal.prototype.onImageLoad = props.actions.showModalImage;
     Modal.prototype.closeModal = this.closeModal.bind(this);
@@ -30,11 +34,30 @@ class App extends Component {
     this.props.actions.startSection();
   }
 
+  componentDidUpdate() {
+    const { app } = this.props;
+    const { requestAnimationFrameID } = this.state;
+
+    if (app.is_scrolling && !requestAnimationFrameID) {
+      this.startScrolling();
+    }
+
+    if (!app.is_scrolling && requestAnimationFrameID) {
+      this.stopScrolling();
+    }
+  }
+
   render() {
-    const { hello, about, project, resume, contact, response, modal } = this.props;
+    const { app, hello, about, project, resume, contact, response, modal } = this.props;
+
+    let classList = ['app'];
+
+    if (app.is_scrolling) {
+      classList = [...classList, 'app-hidden'];
+    }
 
     return (
-      <div>
+      <div className={ classList.join(' ') } ref="app">
         <Section section={ hello } />
         <Section section={ about } />
         <Section section={ project } />
@@ -44,6 +67,27 @@ class App extends Component {
         <Modal modal={ modal } />
       </div>
     );
+  }
+
+  scrollToEnd() {
+    const { app } = this.refs;
+
+    if (app.scrollTop !== app.scrollHeight) {
+      app.scrollTop = app.scrollHeight;
+    }
+
+    this.startScrolling();
+  }
+
+  startScrolling() {
+    this.setState({
+      requestAnimationFrameID: requestAnimationFrame(this.scrollToEnd)
+    });
+  }
+
+  stopScrolling() {
+    cancelAnimationFrame(this.state.requestAnimationFrameID);
+    this.setState({ requestAnimationFrameID: null });
   }
 
   closeModal() {
@@ -85,6 +129,7 @@ function mapSectionToResponse(section, state) {
 }
 
 function mapStateToProps({
+  app,
   hello: { helloWorld },
   about: { aboutYourself, aboutMore },
   project: {
@@ -111,6 +156,7 @@ function mapStateToProps({
   mapSectionToResponse(actions.SECTION_CONTACT_MAIL, contactMail);
 
   return {
+    app,
     hello: mapSectionToMessages(helloWorld),
     about: mapSectionToMessages(aboutYourself, aboutMore),
     project: mapSectionToMessages(
@@ -128,11 +174,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { hello, about, project, resume, contact, response, modal } = stateProps;
+  const { app, hello, about, project, resume, contact, response, modal } = stateProps;
 
   return {
     ...ownProps,
-    hello, about, project, resume, contact,
+    app, hello, about, project, resume, contact,
     response: {
       messages: response.sections.map(section => {
         return {

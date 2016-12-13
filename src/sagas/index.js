@@ -9,23 +9,30 @@ function* showMessage(section, startIndex, size) {
     startIndex = 0;
 
     if (section !== actions.SECTION_HELLO_WORLD) {
+      yield put(actions.toggleScrolling(true));
       yield put(actions.toggleResponse(false));
       yield call(delay, 600);
       yield put(actions.showResponse(section));
+      yield call(delay, 1000);
+      yield put(actions.toggleScrolling(false));
     }
   }
 
   for (let index = startIndex; index < size; index++) {
-    yield call(delay, 1300);
+    yield put(actions.toggleScrolling(true));
     yield put(actions.enterMessage(section, index));
     yield call(delay, 600);
     yield put(actions.showMessage(section, index));
+    yield call(delay, 1000);
+    yield put(actions.toggleScrolling(false));
   }
 }
 
 function* toggleResponse(...sections) {
-  yield call(delay, 1600);
+  yield put(actions.toggleScrolling(true));
   yield put(actions.toggleResponse(sections));
+  yield call(delay, 600);
+  yield put(actions.toggleScrolling(false));
 }
 
 function* startHelloWorld() {
