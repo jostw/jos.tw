@@ -24,6 +24,7 @@
 }
 
 @media (max-width: 480px) {
+  .message-list .message-array-three,
   .message-list .message-array-four {
     max-width: 18.75em;
     max-height: 18.75em;
@@ -40,6 +41,8 @@
 
 .message-client .message {
   border-bottom-right-radius: 0;
+
+  text-align: start;
 
   background-color: #E3F2FD;
 }
