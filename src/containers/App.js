@@ -137,7 +137,7 @@ function mapStateToProps({
     projectMuzikList, projectMuzikAir, projectMuzikOnline, projectMuzikStudy, projectIMusic
   },
   resume: { resumeLink, resumeMore },
-  contact: { contactMail },
+  contact: { contactMail, contactGoodbye },
   response, modal
 }) {
   mapSectionToResponse(actions.SECTION_ABOUT_YOURSELF, aboutYourself);
@@ -154,6 +154,7 @@ function mapStateToProps({
   mapSectionToResponse(actions.SECTION_RESUME_LINK, resumeLink);
   mapSectionToResponse(actions.SECTION_RESUME_MORE, resumeMore);
   mapSectionToResponse(actions.SECTION_CONTACT_MAIL, contactMail);
+  mapSectionToResponse(actions.SECTION_CONTACT_GOODBYE, contactGoodbye);
 
   return {
     app,
@@ -164,7 +165,7 @@ function mapStateToProps({
       projectMuzikList, projectMuzikAir, projectMuzikOnline, projectMuzikStudy, projectIMusic
     ),
     resume: mapSectionToMessages(resumeLink, resumeMore),
-    contact: mapSectionToMessages(contactMail),
+    contact: mapSectionToMessages(contactMail, contactGoodbye),
     response, modal
   };
 }

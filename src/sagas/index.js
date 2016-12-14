@@ -112,11 +112,15 @@ function* startResumeLink() {
 
 function* startResumeMore() {
   yield showMessage(actions.SECTION_RESUME_MORE, 1);
-  yield toggleResponse(actions.SECTION_CONTACT_MAIL);
+  yield toggleResponse(actions.SECTION_CONTACT_MAIL, actions.SECTION_CONTACT_GOODBYE);
 }
 
 function* startContactMail() {
   yield showMessage(actions.SECTION_CONTACT_MAIL, 3);
+}
+
+function* startContactGoodbye() {
+  yield showMessage(actions.SECTION_CONTACT_GOODBYE, 1);
 }
 
 function* startSection(action) {
@@ -168,6 +172,9 @@ function* startSection(action) {
       break;
     case actions.SECTION_CONTACT_MAIL:
       yield startContactMail();
+      break;
+    case actions.SECTION_CONTACT_GOODBYE:
+      yield startContactGoodbye();
       break;
     default:
       break;
