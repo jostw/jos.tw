@@ -8,8 +8,16 @@ function* showMessage(section, startIndex, size) {
     size = startIndex;
     startIndex = 0;
 
-    if (section !== actions.SECTION_HELLO_WORLD &&
-        section !== actions.SECTION_HELLO_AGAIN) {
+    if (section === actions.SECTION_HELLO_WORLD ||
+        section === actions.SECTION_HELLO_AGAIN) {
+      const { classList } = document.getElementById('root');
+
+      yield call(delay, 1000);
+      classList.add('loaded');
+      yield call(delay, 1500);
+      classList.add('started');
+      yield call(delay, 500);
+    } else {
       yield put(actions.toggleScrolling(true));
       yield put(actions.toggleResponse(false));
       yield call(delay, 600);
