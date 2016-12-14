@@ -13,6 +13,7 @@ export const showMessage = (section, index) => ({ type: SHOW_MESSAGE, section, i
 export const START_SECTION = 'START_SECTION';
 
 export const SECTION_HELLO_WORLD = 'SECTION_HELLO_WORLD';
+export const SECTION_HELLO_AGAIN = 'SECTION_HELLO_AGAIN';
 export const SECTION_ABOUT_YOURSELF = 'SECTION_ABOUT_YOURSELF';
 export const SECTION_ABOUT_MORE = 'SECTION_ABOUT_MORE';
 export const SECTION_PROJECT_LIST = 'SECTION_PROJECT_LIST';
@@ -28,7 +29,23 @@ export const SECTION_RESUME_LINK = 'SECTION_RESUME_LINK';
 export const SECTION_RESUME_MORE = 'SECTION_RESUME_MORE';
 export const SECTION_CONTACT_MAIL = 'SECTION_CONTACT_MAIL';
 
-export const startSection = (section = SECTION_HELLO_WORLD) => ({ type: START_SECTION, section });
+export const startSection = section => {
+  const type = START_SECTION;
+
+  if (section) {
+    return { type, section };
+  }
+
+  const hasVisited = document.cookie.replace(/(?:(?:^|.*;\s*)has_visited\s*=\s*([^;]*).*$)|^.*$/, '$1') === 'true';
+
+  if (hasVisited) {
+    return { type, section: SECTION_HELLO_AGAIN };
+  }
+
+  document.cookie = 'has_visited=true';
+
+  return { type, section: SECTION_HELLO_WORLD };
+};
 
 export const TOGGLE_SCROLLING = 'TOGGLE_SCROLLING';
 export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';

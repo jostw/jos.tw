@@ -8,7 +8,8 @@ function* showMessage(section, startIndex, size) {
     size = startIndex;
     startIndex = 0;
 
-    if (section !== actions.SECTION_HELLO_WORLD) {
+    if (section !== actions.SECTION_HELLO_WORLD &&
+        section !== actions.SECTION_HELLO_AGAIN) {
       yield put(actions.toggleScrolling(true));
       yield put(actions.toggleResponse(false));
       yield call(delay, 600);
@@ -37,6 +38,11 @@ function* toggleResponse(...sections) {
 
 function* startHelloWorld() {
   yield showMessage(actions.SECTION_HELLO_WORLD, 2);
+  yield toggleResponse(actions.SECTION_ABOUT_YOURSELF, actions.SECTION_PROJECT_LIST);
+}
+
+function* startHelloAgain() {
+  yield showMessage(actions.SECTION_HELLO_AGAIN, 2);
   yield toggleResponse(actions.SECTION_ABOUT_YOURSELF, actions.SECTION_PROJECT_LIST);
 }
 
@@ -117,6 +123,9 @@ function* startSection(action) {
   switch (action.section) {
     case actions.SECTION_HELLO_WORLD:
       yield startHelloWorld();
+      break;
+    case actions.SECTION_HELLO_AGAIN:
+      yield startHelloAgain();
       break;
     case actions.SECTION_ABOUT_YOURSELF:
       yield startAboutYourself();

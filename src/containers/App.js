@@ -130,7 +130,7 @@ function mapSectionToResponse(section, state) {
 
 function mapStateToProps({
   app,
-  hello: { helloWorld },
+  hello: { helloWorld, helloAgain },
   about: { aboutYourself, aboutMore },
   project: {
     projectList, projectFirefox, projectGaia, projectMarketplaceApp,
@@ -157,7 +157,7 @@ function mapStateToProps({
 
   return {
     app,
-    hello: mapSectionToMessages(helloWorld),
+    hello: mapSectionToMessages(helloWorld, helloAgain),
     about: mapSectionToMessages(aboutYourself, aboutMore),
     project: mapSectionToMessages(
       projectList, projectFirefox, projectGaia, projectMarketplaceApp,

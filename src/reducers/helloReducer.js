@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SECTION_HELLO_WORLD } from '../actions';
+import { SECTION_HELLO_WORLD, SECTION_HELLO_AGAIN } from '../actions';
 import { createFilteredReducer } from './filterReducer';
 
 function helloWorld(state = {
@@ -18,6 +18,21 @@ function helloWorld(state = {
   return state;
 }
 
+function helloAgain(state = {
+  messages: [
+    {
+      type: 'server',
+      content: 'Hey, good to see you again!'
+    }, {
+      type: 'server',
+      content: 'Need any help?'
+    }
+  ]
+}, action) {
+  return state;
+}
+
 export default combineReducers({
-  helloWorld: createFilteredReducer(helloWorld, SECTION_HELLO_WORLD)
+  helloWorld: createFilteredReducer(helloWorld, SECTION_HELLO_WORLD),
+  helloAgain: createFilteredReducer(helloAgain, SECTION_HELLO_AGAIN)
 });
