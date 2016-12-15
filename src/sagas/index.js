@@ -44,6 +44,14 @@ function* toggleResponse(...sections) {
   yield put(actions.toggleScrolling(false));
 }
 
+function* toggleFooter(isVisible) {
+  yield put(actions.toggleScrolling(true));
+  yield call(delay, 600);
+  yield put(actions.toggleFooter(isVisible));
+  yield call(delay, 600);
+  yield put(actions.toggleScrolling(false));
+}
+
 function* startHelloWorld() {
   yield showMessage(actions.SECTION_HELLO_WORLD, 2);
   yield toggleResponse(actions.SECTION_ABOUT_YOURSELF, actions.SECTION_PROJECT_LIST);
@@ -125,10 +133,12 @@ function* startResumeMore() {
 
 function* startContactMail() {
   yield showMessage(actions.SECTION_CONTACT_MAIL, 3);
+  yield toggleFooter(true);
 }
 
 function* startContactGoodbye() {
   yield showMessage(actions.SECTION_CONTACT_GOODBYE, 1);
+  yield toggleFooter(true);
 }
 
 function* startSection(action) {

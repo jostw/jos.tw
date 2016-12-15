@@ -1,0 +1,23 @@
+.footer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  text-align: center;
+
+  transition: max-height .5s,
+              padding .5s,
+              opacity 1.5s ease-in-out .5s;
+}
+
+.footer-visible {
+  max-height: 3.125em;
+  padding: 1em 0 .5em;
+  opacity: .5;
+}
+
+.copyright {
+  font-size: 12px;
+
+  color: #000;
+}

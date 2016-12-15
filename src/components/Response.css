@@ -1,22 +1,25 @@
 .response {
   max-height: 0;
   margin-top: .5em;
-  border-top: 1px solid #EEE;
+  border-top: 0 solid #EEE;
   padding: 0;
   overflow: hidden;
 
   background-color: #F5F5F5;
 
   transition: max-height .5s ease-out,
-              margin .5s ease-out;
+              margin .5s ease-out,
+              border .5s ease-out;
 }
 
 .response-visible {
   max-height: 9.3125em;
   margin-top: 1em;
+  border-top-width: 1px;
 
   transition: max-height .5s ease-in-out,
-              margin .5s ease-in-out;
+              margin .5s ease-in-out,
+              border .5s ease-in-out;
 }
 
 .response-input {

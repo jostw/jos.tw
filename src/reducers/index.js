@@ -7,8 +7,9 @@ import project from './projectReducer';
 import resume from './resumeReducer';
 import contact from './contactReducer';
 import response from './responseReducer';
+import footer from './footerReducer';
 import modal from './modalReducer';
 
-const rootReducer = combineReducers({ app, hello, about, project, resume, contact, response, modal });
+const rootReducer = combineReducers({ app, hello, about, project, resume, contact, response, footer, modal });
 
 export default rootReducer;

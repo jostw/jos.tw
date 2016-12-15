@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Section from './Section';
 import Response from '../components/Response';
+import Footer from '../components/Footer';
 import Modal from '../components/Modal';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
     resume: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
     contact: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
     response: PropTypes.object.isRequired,
+    footer: PropTypes.object.isRequired,
     modal: PropTypes.object.isRequired
   }
 
@@ -48,7 +50,7 @@ class App extends Component {
   }
 
   render() {
-    const { app, hello, about, project, resume, contact, response, modal } = this.props;
+    const { app, hello, about, project, resume, contact, response, footer, modal } = this.props;
 
     let classList = ['app'];
 
@@ -64,6 +66,7 @@ class App extends Component {
         <Section section={ resume } />
         <Section section={ contact } />
         <Response response={ response } />
+        <Footer footer={ footer } />
         <Modal modal={ modal } />
       </div>
     );
@@ -138,7 +141,7 @@ function mapStateToProps({
   },
   resume: { resumeLink, resumeMore },
   contact: { contactMail, contactGoodbye },
-  response, modal
+  response, footer, modal
 }) {
   mapSectionToResponse(actions.SECTION_ABOUT_YOURSELF, aboutYourself);
   mapSectionToResponse(actions.SECTION_ABOUT_MORE, aboutMore);
@@ -166,7 +169,7 @@ function mapStateToProps({
     ),
     resume: mapSectionToMessages(resumeLink, resumeMore),
     contact: mapSectionToMessages(contactMail, contactGoodbye),
-    response, modal
+    response, footer, modal
   };
 }
 
@@ -175,7 +178,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
-  const { app, hello, about, project, resume, contact, response, modal } = stateProps;
+  const { app, hello, about, project, resume, contact, response, footer, modal } = stateProps;
 
   return {
     ...ownProps,
@@ -194,7 +197,7 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
       }),
       is_visible: response.is_visible
     },
-    modal,
+    footer, modal,
     actions: dispatchProps.actions
   };
 }
