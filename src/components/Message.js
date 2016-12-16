@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-import './Message.css';
+if (!process.env.SERVER) {
+  require('./Message.css');
+}
 
 class Message extends Component {
   static propTypes = {

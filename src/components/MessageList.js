@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
-import './MessageList.css';
+if (!process.env.SERVER) {
+  require('./MessageList.css');
+}
+
 import Message from './Message';
 
 class MessageList extends Component {

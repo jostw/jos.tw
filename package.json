@@ -3,6 +3,8 @@
   "version": "0.2.0",
   "private": true,
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-react-app": "^2.0.1",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
@@ -16,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && NODE_ENV=production SERVER=true babel-node app.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-import './Modal.css';
+if (!process.env.SERVER) {
+  require('./Modal.css');
+}
 
 class Modal extends Component {
   static propTypes = {

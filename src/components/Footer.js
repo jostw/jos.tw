@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-import './Footer.css';
+if (!process.env.SERVER) {
+  require('./Footer.css');
+}
 
 class Footer extends Component {
   static propTypes = {

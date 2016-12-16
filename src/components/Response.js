@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
-import './Response.css';
+if (!process.env.SERVER) {
+  require('./Response.css');
+}
+
 import Message from './Message';
 
 class Response extends Component {
