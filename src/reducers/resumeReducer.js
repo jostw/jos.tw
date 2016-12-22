@@ -14,11 +14,17 @@ function resumeLink(state = {
   messages: [
     {
       type: 'server',
-      content: `You can visit it at <a class="link" href="${RESUME_LINK}" title="${RESUME_LINK}" target="_blank">${RESUME_LINK}</a>`,
+      content: `
+        You can visit it at
+        <a class="link" href="${RESUME_LINK}" title="${RESUME_LINK}" target="_blank">${RESUME_LINK}</a>
+      `,
       has_html: true
     }, {
       type: 'server',
-      content: `or download the <a class="link" href="${RESUME_PDF_LINK}" title="${RESUME_PDF_LINK}" target="_blank">PDF</a>`,
+      content: `
+        or download the
+        <a class="link" href="${RESUME_PDF_LINK}" title="${RESUME_PDF_LINK}" target="_blank">PDF</a>
+      `,
       has_html: true
     }
   ]
@@ -37,7 +43,12 @@ function resumeMore(state = {
   messages: [
     {
       type: 'server',
-      content: `Maybe my <a class="link" href="${LINKEDIN_LINK}" title="LinkedIn" target="_blank">LinkedIn</a> or <a class="link" href="${GITHUB_LINK}" title="GitHub" target="_blank">GitHub</a> will tell you more!`,
+      content: `
+        Maybe my
+        <a class="link" href="${LINKEDIN_LINK}" title="LinkedIn" target="_blank">LinkedIn</a> or
+        <a class="link" href="${GITHUB_LINK}" title="GitHub" target="_blank">GitHub</a>
+        will tell you more!
+      `,
       has_html: true
     }
   ]

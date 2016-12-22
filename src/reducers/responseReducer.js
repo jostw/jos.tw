@@ -4,7 +4,7 @@ export default function response(state = {
   sections: [],
   is_visible: false
 }, action) {
-  switch(action.type) {
+  switch (action.type) {
     case TOGGLE_RESPONSE:
       const isVisible = !!action.sections;
 

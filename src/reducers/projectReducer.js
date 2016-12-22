@@ -57,7 +57,10 @@ function projectFirefox(state = {
       has_html: true
     }, {
       type: 'server',
-      content: `You can check out my contributions <a class="link" href="${FIREFOX_LINK}" title="${FIREFOX_LINK}" target="_blank">here</a>`,
+      content: `
+        You can check out my contributions
+        <a class="link" href="${FIREFOX_LINK}" title="${FIREFOX_LINK}" target="_blank">here</a>
+      `,
       has_html: true
     }, {
       type: 'server',
@@ -106,7 +109,10 @@ function projectGaia(state = {
       has_html: true
     }, {
       type: 'server',
-      content: `You can browse my contributions on <a class="link" href="${GAIA_LINK}" title="${GAIA_LINK}" target="_blank">GitHub</a>!`,
+      content: `
+        You can browse my contributions on
+        <a class="link" href="${GAIA_LINK}" title="${GAIA_LINK}" target="_blank">GitHub</a>!
+      `,
       has_html: true
     }
   ]
@@ -149,7 +155,12 @@ function projectMarketplaceApp(state = {
       content: 'This is my first project in Mozilla!'
     }, {
       type: 'server',
-      content: `We actually built this in 2 months in order to make a demo in <strong><a class="link" href="${CES_LINK}" title="${CES_LINK}" target="_blank">CES 2016</a></strong>`,
+      content: `
+        We actually built this in 2 months in order to make a demo in
+        <strong>
+          <a class="link" href="${CES_LINK}" title="${CES_LINK}" target="_blank">CES 2016</a>
+        </strong>
+      `,
       has_html: true
     }, {
       type: 'server',
@@ -160,7 +171,10 @@ function projectMarketplaceApp(state = {
       is_iframe: true
     }, {
       type: 'server',
-      content: `Source code is available on <a class="link" href="${MARKETPLACE_APP_LINK}" title="${MARKETPLACE_APP_LINK}" target="_blank">GitHub</a>!`,
+      content: `
+        Source code is available on
+        <a class="link" href="${MARKETPLACE_APP_LINK}" title="${MARKETPLACE_APP_LINK}" target="_blank">GitHub</a>!
+      `,
       has_html: true
     }
   ]

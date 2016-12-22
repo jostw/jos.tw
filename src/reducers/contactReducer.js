@@ -13,7 +13,10 @@ function contactMail(state = {
   messages: [
     {
       type: 'server',
-      content: `Just send email to <a class="link" href="mailto:${CONTACT_EMAIL}" title="${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>`,
+      content: `
+        Just send email to
+        <a class="link" href="mailto:${CONTACT_EMAIL}" title="${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+      `,
       has_html: true
     }, {
       type: 'server',

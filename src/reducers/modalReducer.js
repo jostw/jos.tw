@@ -6,7 +6,7 @@ export default function modal(state = {
   name: null,
   image_url: null
 }, action) {
-  switch(action.type) {
+  switch (action.type) {
     case TOGGLE_MODAL:
       if (action.name) {
         return {
