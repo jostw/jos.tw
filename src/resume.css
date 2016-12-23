@@ -6,6 +6,7 @@
 @import 'components/resume/Period.css';
 @import 'components/resume/Company.css';
 @import 'components/resume/Project.css';
+@import 'components/resume/Award.css';
 
 .container {
   position: relative;

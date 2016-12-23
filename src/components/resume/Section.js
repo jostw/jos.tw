@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import List from './List';
 import Company from './Company';
 import Project from './Project';
+import Award from './Award';
 
 class Section extends Component {
   render() {
@@ -55,6 +56,18 @@ class Section extends Component {
             return (
               <li key={ `project-${index}` }>
                 <Project project={ project } />
+              </li>
+            );
+          })
+        }</ul>
+      );
+    } else if (section.awards) {
+      content = (
+        <ul>{
+          section.awards.map((award, index) => {
+            return (
+              <li key={ `award-${index}` }>
+                <Award award={ award } />
               </li>
             );
           })

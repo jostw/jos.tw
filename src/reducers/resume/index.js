@@ -4,7 +4,8 @@ import header from './headerReducer';
 import summary from './summaryReducer';
 import experience from './experienceReducer';
 import project from './projectReducer';
+import award from './awardReducer';
 
-const rootReducer = combineReducers({ header, summary, experience, project });
+const rootReducer = combineReducers({ header, summary, experience, project, award });
 
 export default rootReducer;
