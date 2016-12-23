@@ -1,0 +1,29 @@
+.school {
+  position: relative;
+
+  margin-bottom: 1.5em;
+}
+
+.school .section-title {
+  margin-bottom: .5em;
+}
+
+.school-lab {
+  margin-top: .5em;
+}
+
+.school-lab-name {
+  margin-bottom: .25em;
+
+  font-size: 18px;
+}
+
+.school .list {
+  margin-top: .25em;
+}
+
+@media print {
+  .school {
+    margin-bottom: 1em;
+  }
+}
