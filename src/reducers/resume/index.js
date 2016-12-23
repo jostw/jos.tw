@@ -8,7 +8,8 @@ import award from './awardReducer';
 import education from './educationReducer';
 import publication from './publicationReducer';
 import skill from './skillReducer';
+import footer from './footerReducer';
 
-const rootReducer = combineReducers({ header, summary, experience, project, award, education, publication, skill });
+const rootReducer = combineReducers({ header, summary, experience, project, award, education, publication, skill, footer });
 
 export default rootReducer;

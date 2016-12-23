@@ -1,0 +1,46 @@
+.footer {
+  padding: 1em 0 2em;
+
+  text-align: start;
+}
+
+.footer-copyright {
+  font-size: 14px;
+
+  color: #A2A2A2;
+}
+
+.footer .list {
+  position: absolute;
+  top: 0;
+  right: 2em;
+  z-index: 1;
+
+  margin: 0;
+  padding: 0;
+}
+
+.footer .item {
+  display: inline-block;
+  padding: 0 .3125em;
+}
+
+.footer .icon {
+  font-size: 22px;
+  text-decoration: none;
+
+  color: #A2A2A2;
+
+  transition: font-size .2s,
+              color .2s;
+}
+
+.footer .icon:hover {
+  color: #55ACEE;
+}
+
+@media (max-width: 480px) {
+  .footer .icon {
+    font-size: 18px;
+  }
+}
