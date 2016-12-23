@@ -1,0 +1,19 @@
+.company {
+  position: relative;
+
+  margin-bottom: 1.5em;
+}
+
+.company .link {
+  color: #222;
+}
+
+@media print {
+  .company {
+    margin-bottom: 1em;
+  }
+
+  .company .link {
+    text-decoration: none;
+  }
+}

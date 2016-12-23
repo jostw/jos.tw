@@ -6,13 +6,14 @@ import Section from '../components/resume/Section';
 
 class Resume extends Component {
   render() {
-    const { header, summary } = this.props;
+    const { header, summary, experience } = this.props;
 
     return (
       <main>
         <Header header={ header } />
         <div className="container">
           <Section section={ summary } />
+          <Section section={ experience } />
         </div>
       </main>
     );

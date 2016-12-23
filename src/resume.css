@@ -3,6 +3,8 @@
 
 @import 'components/resume/Header.css';
 @import 'components/resume/Section.css';
+@import 'components/resume/Period.css';
+@import 'components/resume/Company.css';
 
 .container {
   position: relative;

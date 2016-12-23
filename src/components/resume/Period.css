@@ -1,0 +1,27 @@
+.period {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  font-size: 14px;
+  line-height: 1.875em;
+
+  color: #A2A2A2;
+
+  transition: top .2s,
+              left .2s;
+}
+
+@media (max-width: 768px) {
+  .period {
+    top: 1.625em;
+    left: 0;
+  }
+}
+
+@media print {
+  .period {
+    top: 0;
+    left: inherit;
+  }
+}

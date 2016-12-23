@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import List from './List';
+import Company from './Company';
 
 class Section extends Component {
   render() {
@@ -33,6 +34,18 @@ class Section extends Component {
     if (section.items) {
       content = (
         <List items={ section.items } />
+      );
+    } else if (section.companies) {
+      content = (
+        <ul>{
+          section.companies.map((company, index) => {
+            return (
+              <li key={ `company-${index}` }>
+                <Company company={ company } />
+              </li>
+            );
+          })
+        }</ul>
       );
     }
 
