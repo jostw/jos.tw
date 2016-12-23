@@ -8,6 +8,7 @@
 @import 'components/resume/Project.css';
 @import 'components/resume/Award.css';
 @import 'components/resume/School.css';
+@import 'components/resume/Publication.css';
 
 .container {
   position: relative;

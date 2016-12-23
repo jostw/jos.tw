@@ -5,6 +5,7 @@ import Company from './Company';
 import Project from './Project';
 import Award from './Award';
 import School from './School';
+import Publication from './Publication';
 
 class Section extends Component {
   render() {
@@ -81,6 +82,18 @@ class Section extends Component {
             return (
               <li key={ `school-${index}` }>
                 <School school={ school } />
+              </li>
+            );
+          })
+        }</ul>
+      );
+    } else if (section.publications) {
+      content = (
+        <ul>{
+          section.publications.map((publication, index) => {
+            return (
+              <li key={ `publication-${index}` }>
+                <Publication publication={ publication } />
               </li>
             );
           })

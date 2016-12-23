@@ -1,0 +1,10 @@
+.publication {
+  margin-top: -.125em;
+}
+
+.publication .section-name {
+  margin-bottom: .25em;
+
+  line-height: 30px;
+  white-space: normal;
+}

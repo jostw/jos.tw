@@ -26,6 +26,10 @@
               left .2s;
 }
 
+.section-label-publication {
+  line-height: 36px;
+}
+
 .section-article {
   text-align: justify;
 }
