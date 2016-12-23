@@ -1,0 +1,140 @@
+.section {
+  position: relative;
+
+  margin-bottom: 1.5em;
+
+  transition: padding .2s;
+}
+
+.section-label {
+  position: absolute;
+  top: 0;
+  left: -120px;
+
+  width: 120px;
+  margin: 0;
+  padding-inline-end: 1em;
+
+  font-family: 'Raleway';
+  font-size: 16px;
+  font-weight: normal;
+  text-align: end;
+
+  color: #A2A2A2;
+
+  transition: top .2s,
+              left .2s;
+}
+
+.section-article {
+  text-align: justify;
+}
+
+.section-article ul {
+  margin: 0;
+  padding: 0;
+}
+
+.section-article li {
+  list-style: none;
+}
+
+.section-name {
+  display: block;
+  margin: 0 0 .25em;
+
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1em;
+  text-align: start;
+  letter-spacing: .0625em;
+  white-space: nowrap;
+
+  color: #222;
+
+  transition: margin .2s,
+              font-size .2s,
+              line-height .2s;
+}
+
+.section-name a {
+  text-decoration: none;
+
+  color: #222;
+}
+
+.section-name a:hover {
+  text-decoration: underline;
+}
+
+.section-title {
+  display: block;
+  margin-bottom: .5em;
+}
+
+.section-article .list {
+  margin-top: 1em;
+  padding-inline-start: 1.25em;
+}
+
+.section-article .item {
+  position: relative;
+
+  margin-bottom: .125em;
+
+  text-align: start;
+
+  list-style: none;
+}
+
+.section-article .item::before {
+  content: '';
+
+  position: absolute;
+  top: .625em;
+  left: -1em;
+
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+
+  background-color: #222;
+}
+
+@media (max-width: 768px) {
+  .section-name {
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    margin-bottom: 2em;
+    padding-top: 2.25em;
+  }
+
+  .section-label {
+    left: 0;
+
+    text-align: start;
+  }
+
+  .section-name {
+    font-size: 18px;
+    line-height: 1em;
+  }
+}
+
+@media print {
+  .section {
+    margin-bottom: 1em;
+  }
+
+  .section-name {
+    margin-bottom: .25em;
+  }
+
+  .section-article .item {
+    list-style: disc;
+  }
+}

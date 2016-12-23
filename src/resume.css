@@ -2,6 +2,7 @@
 @import 'config.css';
 
 @import 'components/resume/Header.css';
+@import 'components/resume/Section.css';
 
 .container {
   position: relative;
