@@ -1,0 +1,5 @@
+{
+  "use": ["postcss-import", "autoprefixer", "cssnano"],
+  "input": "src/resume.css",
+  "output": "build/resume/index.css"
+}
