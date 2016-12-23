@@ -6,6 +6,7 @@ import Project from './Project';
 import Award from './Award';
 import School from './School';
 import Publication from './Publication';
+import Skill from './Skill';
 
 class Section extends Component {
   render() {
@@ -94,6 +95,18 @@ class Section extends Component {
             return (
               <li key={ `publication-${index}` }>
                 <Publication publication={ publication } />
+              </li>
+            );
+          })
+        }</ul>
+      );
+    } else if (section.skills) {
+      content = (
+        <ul>{
+          section.skills.map((skill, index) => {
+            return (
+              <li key={ `skill-${index}` }>
+                <Skill skill={ skill } />
               </li>
             );
           })

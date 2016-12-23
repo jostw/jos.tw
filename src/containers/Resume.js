@@ -6,7 +6,7 @@ import Section from '../components/resume/Section';
 
 class Resume extends Component {
   render() {
-    const { header, summary, experience, project, award, education, publication } = this.props;
+    const { header, summary, experience, project, award, education, publication, skill } = this.props;
 
     return (
       <main>
@@ -18,6 +18,7 @@ class Resume extends Component {
           <Section section={ award } />
           <Section section={ education } />
           <Section section={ publication } />
+          <Section section={ skill } />
         </div>
       </main>
     );

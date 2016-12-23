@@ -9,6 +9,7 @@
 @import 'components/resume/Award.css';
 @import 'components/resume/School.css';
 @import 'components/resume/Publication.css';
+@import 'components/resume/Skill.css';
 
 .container {
   position: relative;

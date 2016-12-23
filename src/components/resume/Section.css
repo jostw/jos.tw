@@ -30,6 +30,16 @@
   line-height: 36px;
 }
 
+.section-label-skill {
+  line-height: 22px;
+}
+
+.section-label-skill .br {
+  display: block;
+
+  transition: padding .2s;
+}
+
 .section-article {
   text-align: justify;
 }
@@ -125,6 +135,11 @@
 
   .section-label-summary {
     top: 1.25em;
+  }
+
+  .section-label-skill .br {
+    display: inline;
+    padding-inline-start: .325em;
   }
 
   .section-name {

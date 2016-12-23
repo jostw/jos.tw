@@ -1,0 +1,14 @@
+.skill {
+  margin-bottom: .25em;
+
+  text-align: start;
+}
+
+.skill .section-name {
+  display: inline-block;
+  margin-bottom: 0;
+  padding-inline-end: .25em;
+
+  font-size: 16px;
+  letter-spacing: .03125em;
+}
