@@ -1,0 +1,47 @@
+.project {
+  position: relative;
+
+  margin-bottom: 1.5em;
+}
+
+.project strong {
+  font-weight: normal;
+}
+
+.project .ps {
+  padding-inline-start: .5em;
+
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+
+  color: #A2A2A2;
+
+  transition: font-size .2s,
+              line-height .2s;
+}
+
+.project .list {
+  margin-top: .5em;
+}
+
+.project .link {
+  color: #222;
+}
+
+@media (max-width: 480px) {
+  .project .ps {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+@media print {
+  .project {
+    margin-bottom: 1em;
+  }
+
+  .project .link {
+    text-decoration: none;
+  }
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import List from './List';
 import Company from './Company';
+import Project from './Project';
 
 class Section extends Component {
   render() {
@@ -42,6 +43,18 @@ class Section extends Component {
             return (
               <li key={ `company-${index}` }>
                 <Company company={ company } />
+              </li>
+            );
+          })
+        }</ul>
+      );
+    } else if (section.projects) {
+      content = (
+        <ul>{
+          section.projects.map((project, index) => {
+            return (
+              <li key={ `project-${index}` }>
+                <Project project={ project } />
               </li>
             );
           })

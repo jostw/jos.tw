@@ -119,6 +119,10 @@
     text-align: start;
   }
 
+  .section-label-summary {
+    top: 1.25em;
+  }
+
   .section-name {
     font-size: 18px;
     line-height: 1em;
