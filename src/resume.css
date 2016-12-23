@@ -1,2 +1,36 @@
 @import 'normalize.css';
 @import 'config.css';
+
+@import 'components/resume/Header.css';
+
+.container {
+  position: relative;
+
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5em 0 100px;
+
+  transition: padding .2s;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding-inline-start: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline-start: 1.5em;
+  }
+}
+
+@media print {
+  a[href]::after {
+    content: none;
+  }
+
+  .hide-from-print {
+    display: none !important;
+  }
+}

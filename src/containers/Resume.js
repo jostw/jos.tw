@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Header from '../components/resume/Header';
+
 class Resume extends Component {
   render() {
+    const { header } = this.props;
+
     return (
-      <main>Hello Resume!</main>
+      <main>
+        <Header header={ header } />
+      </main>
     );
   }
 }
