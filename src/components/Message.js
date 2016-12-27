@@ -91,7 +91,7 @@ class Message extends Component {
     } else if (message.has_html) {
       content = (
         <span className="text"
-              dangerouslySetInnerHTML={{ __html: message.content }}></span>
+              dangerouslySetInnerHTML={{ __html: message.content }} />
       );
     } else {
       content = (

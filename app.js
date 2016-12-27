@@ -2,38 +2,25 @@ import fs from 'fs';
 import path from 'path';
 import React from 'react';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
-import { Provider } from 'react-redux';
 
-import configureStore from './src/store/configureStore';
-import resumeStore from './src/store/resumeStore';
+import metaReducer from './src/reducers/metaReducer';
+import Index from './src/containers/Index';
 
-import rootSaga from './src/sagas';
+const templateName = 'index.html';
 
-import App from './src/containers/App';
-import Resume from './src/containers/Resume';
+const indexPath = path.join(__dirname, 'public');
+const resumePath = path.join(__dirname, 'public/resume');
 
-const templatePath = path.join(__dirname, 'build/index.html');
-const resumeTemplatePath = path.join(__dirname, 'build/resume/index.html');
+const { index, resume } = metaReducer();
 
-const store = configureStore();
-store.runSaga(rootSaga);
-
-renderTemplate(templatePath, renderToString(
-  <Provider store={ store }>
-    <App />
-  </Provider>
+fs.writeFileSync(path.join(indexPath, templateName), renderToString(
+  <Index meta={ index } />
 ));
 
-renderTemplate(resumeTemplatePath, renderToStaticMarkup(
-  <Provider store={ resumeStore() }>
-    <Resume />
-  </Provider>
-));
-
-function renderTemplate(path, content) {
-  fs.writeFileSync(
-    path,
-    fs.readFileSync(path).toString()
-      .replace('<div id="root"></div>', `<div id="root">${content}</div>`)
-  );
+if (!fs.existsSync(resumePath)) {
+  fs.mkdirSync(resumePath);
 }
+
+fs.writeFileSync(path.join(resumePath, templateName), renderToStaticMarkup(
+  <Index meta={ resume } />
+));

@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "build:template": "NODE_ENV=production SERVER=true babel-node app.js",
     "build:css": "postcss -c postcss.json",
-    "postbuild": "npm run build:template & npm run build:css",
+    "prebuild": "npm run build:template",
+    "postbuild": "npm run build:css",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
