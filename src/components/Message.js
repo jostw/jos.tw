@@ -60,18 +60,21 @@ class Message extends Component {
       classList = [...classList, 'message-fullscreen'];
 
       content = (
-        <ul className="projects">{
+        <ul className="message-projects">{
           message.content.map((item, index) => {
-            let projectClassList = ['text', 'project'];
+            let projectClassList = ['message-text', 'message-project'];
 
             if (!message.is_image_array) {
-              projectClassList = [...projectClassList, item.name.split(' ').join('-').toLowerCase()];
+              projectClassList = [
+                ...projectClassList,
+                `message-project-${item.name.split(' ').join('-').toLowerCase()}`
+              ];
             }
 
             return (
               <li className={ projectClassList.join(' ') } key={ index }>{
                 message.is_image_array ? (
-                  <Link className="image"
+                  <Link className="message-project-image"
                         onClick={ openImage(item.name, item.image_url) }
                         title={ item.name }>
                     <img src={ item.image_url }
@@ -79,11 +82,11 @@ class Message extends Component {
                          title={ item.name } />
                   </Link>
                 ) : item.url ? (
-                  <Link className="name project-link"
+                  <Link className="message-project-name message-project-link"
                         link={ item.url }
                         content={ item.name } />
                 ) : (
-                  <span className="name">{ item.name }</span>
+                  <span className="message-project-name">{ item.name }</span>
                 )
               }</li>
             );
@@ -94,12 +97,13 @@ class Message extends Component {
       classList = [...classList, 'message-fullscreen'];
 
       content = (
-        <iframe src={ this.state.iframe_src }></iframe>
+        <iframe className="message-iframe"
+                src={ this.state.iframe_src }></iframe>
       );
     } else {
       content = (
         <Item { ...message }
-              className="text" />
+              className="message-text" />
       );
     }
 

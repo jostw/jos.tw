@@ -22,7 +22,7 @@ class Footer extends Component {
 
     return (
       <footer className={ classList.join(' ') }>
-        <span className="copyright">Copyright © 2017 Joseph Yeh</span>
+        <span className="footer-copyright">Copyright © 2017 Joseph Yeh</span>
       </footer>
     );
   }

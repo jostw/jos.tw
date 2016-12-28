@@ -32,7 +32,7 @@
   transition: opacity .5s;
 }
 
-.message .text {
+.message-text {
   max-height: 1.5em;
   overflow: hidden;
 }
@@ -43,28 +43,19 @@
   transition: color .3s ease .5s;
 }
 
-.message iframe,
-.message .project {
-  max-height: 3.5em;
-  opacity: 0;
-}
-
-.message iframe {
-  display: block;
-  width: 16.6875em;
-  border: 0;
-
-  transition: max-height .5s,
-              opacity .3s ease .5s
-}
-
-.message .projects {
+.message-projects {
   padding: 0;
 
   white-space: nowrap;
 }
 
-.message .project {
+.message-project,
+.message-iframe {
+  max-height: 3.5em;
+  opacity: 0;
+}
+
+.message-project {
   position: relative;
 
   display: inline-block;
@@ -79,82 +70,82 @@
   -webkit-transform: translateZ(0);
 }
 
-.message-array-three .project {
-  max-width: 33.33%;
-}
-
-.message-array-four .project {
-  width: 9.375em;
-  max-width: 25%;
-}
-
-.message .project:last-child {
+.message-project:last-child {
   border-right: 1px solid #F5F5F5;
   border-top-right-radius: .75em;
   border-bottom-right-radius: .75em;
 }
 
+.message-array-three .message-project {
+  max-width: 33.33%;
+}
+
+.message-array-four .message-project {
+  width: 9.375em;
+  max-width: 25%;
+}
+
 @media (max-width: 480px) {
-  .message-array-three .projects,
-  .message-array-four .projects {
+  .message-array-three .message-projects,
+  .message-array-four .message-projects {
     white-space: normal;
   }
 
-  .message-array-three .project,
-  .message-array-four .project {
+  .message-array-three .message-project,
+  .message-array-four .message-project {
     max-width: 50%;
   }
 
-  .message-array-three .project:first-child {
+  .message-array-three .message-project:first-child {
     width: 100%;
     max-width: 100%;
   }
 
-  .message-array-three .project:first-child img {
+  .message-array-three .message-project:first-child img {
     width: 100%;
     height: auto;
   }
 
-  .message-array-three .project:first-child,
-  .message-array-four .project:nth-child(2) {
+  .message-array-three .message-project:first-child,
+  .message-array-four .message-project:nth-child(2) {
     border-right: 1px solid #F5F5F5;
     border-top-right-radius: .75em;
   }
 
-  .message-array-three .project:nth-child(n+2),
-  .message-array-four .project:nth-child(n+3) {
+  .message-array-three .message-project:nth-child(n+2),
+  .message-array-four .message-project:nth-child(n+3) {
     border-top: 0;
   }
 
-  .message-array-three .project:last-child,
-  .message-array-four .project:last-child {
+  .message-array-three .message-project:last-child,
+  .message-array-four .message-project:last-child {
     border-top-right-radius: 0;
   }
 }
 
-.message .firefox {
+.message-project-firefox {
   background-image: url('../../public/img/firefox-640x360.png');
 }
 
-.message .gaia {
+.message-project-gaia {
   background-image: url('../../public/img/home-app-640x360.png');
 }
 
-.message .marketplace-app {
+.message-project-marketplace-app {
   background-image: url('../../public/img/marketplace-app-640x360.png');
 }
 
-.message .muzik-air {
+.message-project-muzik-air {
   background-image: url('../../public/img/muzik-air-360x360.png');
 }
 
-.message .muzik-online,
-.message .muzik-study {
+.message-project-muzik-online,
+.message-project-muzik-study {
   background-color: #212121;
 }
 
-.message .muzik-online::before,
-.message .muzik-study::before {
+.message-project-muzik-online::before,
+.message-project-muzik-study::before {
   content: '';
 
   position: absolute;
@@ -164,26 +155,49 @@
   transform: translate(-50%, -50%);
 }
 
-.message .muzik-online::before {
+.message-project-muzik-online::before {
   width: 135px;
   height: 27px;
 
   background-image: url('../../public/img/muzik-online-135x27.png');
 }
 
-.message .muzik-study::before {
+.message-project-muzik-study::before {
   width: 130px;
   height: 29px;
 
   background-image: url('../../public/img/muzik-study-130x29.png');
 }
 
-.message .imusic {
+.message-project-imusic {
   background-image: url('../../public/img/imusic-720x360.png');
   background-position-x: 47%;
 }
 
-.message .name {
+.message-project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  transition: transform .2s;
+}
+
+.message-project-image img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+
+  width: auto;
+  height: 100%;
+
+  transform: translate(-50%, -50%);
+}
+
+.message-project:hover .message-project-image {
+  transform: scale(1.25);
+}
+
+.message-project-name {
   position: absolute;
   bottom: -4em;
 
@@ -199,41 +213,27 @@
   background-color: rgba(0,0,0,.5);
 }
 
-.message .project:hover .name {
+.message-project:hover .message-project-name {
   height: 100%;
 
   background-color: rgba(0,0,0,.75);
 }
 
-.message .project:hover .project-link {
+.message-project:hover .message-project-link {
   background-color: rgba(30,136,229,.9);
 }
 
-.message .project:last-child .name {
+.message-project:last-child .message-project-name {
   border-bottom-right-radius: .75em;
 }
 
-.message .image {
+.message-iframe {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 16.6875em;
+  border: 0;
 
-  transition: transform .2s;
-}
-
-.message .project:hover .image {
-  transform: scale(1.25);
-}
-
-.message img {
-  position: relative;
-  top: 50%;
-  left: 50%;
-
-  width: auto;
-  height: 100%;
-
-  transform: translate(-50%, -50%);
+  transition: max-height .5s,
+              opacity .3s ease .5s
 }
 
 .message-visible,
@@ -247,8 +247,8 @@
   opacity: 0;
 }
 
-.message-visible .text,
-.message-client .message .text {
+.message-visible .message-text,
+.message-client .message-text {
   max-height: 4.5em;
 
   color: #000;
@@ -261,61 +261,61 @@
   color: #1E88E5;
 }
 
-.message-visible .project-link {
+.message-visible .message-project,
+.message-visible .message-iframe {
+  max-height: 9.375em;
+  opacity: 1;
+}
+
+.message-visible .message-project:nth-child(1) {
+  transition: max-height .5s,
+              opacity 1s ease .5s;
+}
+
+.message-visible .message-project:nth-child(2) {
+  transition: max-height .5s,
+              opacity 1s ease .75s;
+}
+
+.message-visible .message-project:nth-child(3) {
+  transition: max-height .5s,
+              opacity 1s ease 1s;
+}
+
+.message-visible .message-project:nth-child(4) {
+  transition: max-height .5s,
+              opacity 1s ease 1.25s;
+}
+
+.message-visible .message-project-name {
+  bottom: 0;
+}
+
+.message-visible .message-project-link {
   text-decoration: none;
 
   color: #FFF;
 }
 
-.message-visible iframe,
-.message-visible .project {
-  max-height: 9.375em;
-  opacity: 1;
-}
-
-.message-visible .project:nth-child(1) {
-  transition: max-height .5s,
-              opacity 1s ease .5s;
-}
-
-.message-visible .project:nth-child(2) {
-  transition: max-height .5s,
-              opacity 1s ease .75s;
-}
-
-.message-visible .project:nth-child(3) {
-  transition: max-height .5s,
-              opacity 1s ease 1s;
-}
-
-.message-visible .project:nth-child(4) {
-  transition: max-height .5s,
-              opacity 1s ease 1.25s;
-}
-
-.message-visible .name {
-  bottom: 0;
-}
-
-.message-visible .project:nth-child(1) .name {
+.message-visible .message-project:nth-child(1) .message-project-name {
   transition: bottom .5s ease .5s,
               height .2s,
               background-color .2s;
 }
 
-.message-visible .project:nth-child(2) .name {
+.message-visible .message-project:nth-child(2) .message-project-name {
   transition: bottom .5s ease .75s,
               height .2s,
               background-color .2s;
 }
 
-.message-visible .project:nth-child(3) .name {
+.message-visible .message-project:nth-child(3) .message-project-name {
   transition: bottom .5s ease 1s,
               height .2s,
               background-color .2s;
 }
 
-.message-visible .project:nth-child(4) .name {
+.message-visible .message-project:nth-child(4) .message-project-name {
   transition: bottom .5s ease 1.25s,
               height .2s,
               background-color .2s;
@@ -335,8 +335,8 @@
     transition: max-width .8s ease-in-out;
   }
 
-  .message-visible .text,
-  .message-client .message .text {
+  .message-visible .message-text,
+  .message-client .message-text {
     transition: max-height .5s ease-in-out .6s,
                 color .3s ease .4s;
   }
