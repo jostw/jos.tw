@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
-import Link from '../Link';
-import Item from './Item';
+import Link from '../../components/Link';
+import Item from '../../components/Item';
 
 class List extends Component {
   static propTypes = {

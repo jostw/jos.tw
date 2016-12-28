@@ -5,7 +5,7 @@ if (!process.env.SERVER) {
 }
 
 import Link from './Link';
-import Item from './resume/Item';
+import Item from './Item';
 
 class Message extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import List from './List';
+import List from '../../containers/resume/List';
 
 class Header extends Component {
   static propTypes = {

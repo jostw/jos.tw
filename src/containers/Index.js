@@ -6,7 +6,7 @@ import rootSaga from '../sagas';
 import App from './App';
 
 import resumeStore from '../store/resumeStore';
-import Resume from './Resume';
+import ResumeApp from './resume/App';
 
 class Index extends Component {
   static propTypes = {
@@ -45,7 +45,7 @@ class Index extends Component {
       store = resumeStore();
 
       root = (
-        <Resume />
+        <ResumeApp />
       );
     } else {
       store = configureStore();

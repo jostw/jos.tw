@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import Link from '../Link';
 import Period from './Period';
-import List from './List';
+import List from '../../containers/resume/List';
 
 class Award extends Component {
   static propTypes = {

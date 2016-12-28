@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import List from './List';
+import List from '../../containers/resume/List';
 import Company from './Company';
 import Project from './Project';
 import Award from './Award';

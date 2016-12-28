@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import Period from './Period';
-import Item from './Item';
+import Item from '../Item';
 
 class Company extends Component {
   static propTypes = {

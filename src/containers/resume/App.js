@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Header from '../components/resume/Header';
-import Section from '../components/resume/Section';
-import Footer from '../components/resume/Footer';
+import Header from '../../components/resume/Header';
+import Section from '../../components/resume/Section';
+import Footer from '../../components/resume/Footer';
 
-class Resume extends Component {
+class App extends Component {
   static propTypes = {
     ...Header.propTypes.section,
     summary: Section.propTypes.section,
@@ -43,4 +43,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(Resume);
+export default connect(mapStateToProps)(App);

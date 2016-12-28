@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import Period from './Period';
-import List from './List';
+import List from '../../containers/resume/List';
 
 class School extends Component {
   static propTypes = {
