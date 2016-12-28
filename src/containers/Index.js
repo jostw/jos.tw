@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
 
 import configureStore from '../store/configureStore';
@@ -9,6 +9,21 @@ import resumeStore from '../store/resumeStore';
 import Resume from './Resume';
 
 class Index extends Component {
+  static propTypes = {
+    meta: PropTypes.shape({
+      lang: PropTypes.string.isRequired,
+      favicon: PropTypes.string.isRequired,
+      stylesheets: PropTypes.arrayOf(PropTypes.string).isRequired,
+      titles: PropTypes.arrayOf(PropTypes.string).isRequired,
+      descriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+      keywords: PropTypes.arrayOf(PropTypes.string).isRequired,
+      type: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      ga_code: PropTypes.string.isRequired
+    }).isRequired
+  }
+
   render() {
     const { meta } = this.props;
 
