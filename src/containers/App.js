@@ -188,9 +188,7 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
         return {
           ...mapSectionToResponse(section),
           is_visible: true,
-          onClick: e => {
-            e.preventDefault();
-
+          onClick: () => {
             dispatchProps.actions.startSection(section);
           }
         };

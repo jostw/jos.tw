@@ -36,9 +36,7 @@ class Section extends Component {
   openImage(name, imageUrl) {
     const { toggleModal } = this;
 
-    return e => {
-      e.preventDefault();
-
+    return () => {
       toggleModal(name, imageUrl.replace(/-640x(360|313)/, ''));
     };
   }

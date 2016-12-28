@@ -9,7 +9,7 @@ import Message from './Message';
 class Response extends Component {
   static propTypes = {
     response: PropTypes.shape({
-      messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+      messages: PropTypes.arrayOf(Message.propTypes.message).isRequired,
       is_visible: PropTypes.bool.isRequired
     }).isRequired
   }

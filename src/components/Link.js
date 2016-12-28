@@ -14,7 +14,7 @@ class Link extends Component {
     const { content } = this.props;
 
     let props = {
-      className: this.props.className || this.props.classList && this.props.classList.join(' '),
+      className: this.props.className || (this.props.classList && this.props.classList.join(' ')),
       title: this.props.title || content
     };
 
@@ -43,7 +43,7 @@ class Link extends Component {
     }
 
     return (
-      <a { ...props }>{ content }</a>
+      <a { ...props }>{ this.props.children || content }</a>
     );
   }
 }

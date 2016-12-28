@@ -8,7 +8,7 @@ import Message from './Message';
 
 class MessageList extends Component {
   static propTypes = {
-    messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+    messages: PropTypes.arrayOf(Message.propTypes.message).isRequired,
     openImage: PropTypes.func.isRequired
   }
 

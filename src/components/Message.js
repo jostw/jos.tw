@@ -4,13 +4,23 @@ if (!process.env.SERVER) {
   require('./Message.css');
 }
 
+import Link from './Link';
+import Item from './resume/Item';
+
 class Message extends Component {
   static propTypes = {
     message: PropTypes.shape({
+      ...Link.propTypes,
+      ...Item.propTypes,
       type: PropTypes.oneOf(['client', 'server']).isRequired,
-      content: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.object)]).isRequired,
-      onClick: PropTypes.func,
-      has_html: PropTypes.bool,
+      content: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          image_url: PropTypes.string,
+          url: PropTypes.string
+        }))
+      ]).isRequired,
       is_typing: PropTypes.bool,
       is_visible: PropTypes.bool,
       is_array: PropTypes.bool,
@@ -61,19 +71,17 @@ class Message extends Component {
             return (
               <li className={ projectClassList.join(' ') } key={ index }>{
                 message.is_image_array ? (
-                  <a href="#"
-                     className="image"
-                     onClick={ openImage(item.name, item.image_url) }
-                     title={ item.name }>
+                  <Link className="image"
+                        onClick={ openImage(item.name, item.image_url) }
+                        title={ item.name }>
                     <img src={ item.image_url }
                          alt={ item.name }
                          title={ item.name } />
-                  </a>
+                  </Link>
                 ) : item.url ? (
-                  <a href={ item.url }
-                     className="name project-link"
-                     target="_blank"
-                     title={ item.name }>{ item.name }</a>
+                  <Link className="name project-link"
+                        link={ item.url }
+                        content={ item.name } />
                 ) : (
                   <span className="name">{ item.name }</span>
                 )
@@ -88,23 +96,17 @@ class Message extends Component {
       content = (
         <iframe src={ this.state.iframe_src }></iframe>
       );
-    } else if (message.has_html) {
-      content = (
-        <span className="text"
-              dangerouslySetInnerHTML={{ __html: message.content }} />
-      );
     } else {
       content = (
-        <span className="text">{ message.content }</span>
+        <Item { ...message }
+              className="text" />
       );
     }
 
     if (message.onClick) {
       return (
-        <a href="#"
-           className={ classList.join(' ') }
-           onClick={ message.onClick }
-           title={ message.content }>{ content }</a>
+        <Link { ...message }
+              classList={ classList }>{ content }</Link>
       );
     }
 
