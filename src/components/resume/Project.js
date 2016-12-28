@@ -32,7 +32,7 @@ class Project extends Component {
       name = (
         <span>
           { project.name.content }
-          <span className="ps">({ project.name.ps })</span>
+          <span className="project-name-ps">({ project.name.ps })</span>
         </span>
       );
     } else {
