@@ -1,6 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Period extends Component {
+  static propTypes = {
+    period: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        begin: PropTypes.string.isRequired,
+        end: PropTypes.string.isRequired
+      })
+    ]).isRequired
+  }
+
   render() {
     const { period } = this.props;
 

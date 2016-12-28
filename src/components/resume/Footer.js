@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import List from './List';
 
 class Footer extends Component {
+  static propTypes = {
+    footer: PropTypes.shape({
+      copyright: PropTypes.string.isRequired,
+      links: List.propTypes.links.isRequired
+    }).isRequired
+  }
+
   render() {
     const { footer } = this.props;
 

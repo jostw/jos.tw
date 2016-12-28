@@ -1,10 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Link from '../Link';
 import Period from './Period';
 import List from './List';
 
 class Project extends Component {
+  static propTypes = {
+    project: PropTypes.shape({
+      name: Link.propTypes.isRequired,
+      ...Period.propTypes.isRequired,
+      items: List.propTypes.items.isRequired,
+      hide_from_print: PropTypes.bool
+    }).isRequired
+  }
+
   render() {
     const { project } = this.props;
 

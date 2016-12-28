@@ -1,9 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Period from './Period';
 import List from './List';
 
 class School extends Component {
+  static propTypes = {
+    school: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      ...Period.propTypes.isRequired,
+      gpa: PropTypes.shape({
+        score: PropTypes.number.isRequired,
+        total: PropTypes.number.isRequired,
+        hide_from_print: PropTypes.bool
+      }).isRequired,
+      lab: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        items: List.propTypes.items.isRequired,
+        hide_from_print: PropTypes.bool
+      }),
+      hide_from_print: PropTypes.bool
+    }).isRequired
+  }
+
   render() {
     const { school } = this.props;
 

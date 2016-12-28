@@ -1,6 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Publication extends Component {
+  static propTypes = {
+    publication: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired
+    }).isRequired
+  }
+
   render() {
     const { publication } = this.props;
 

@@ -1,6 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Skill extends Component {
+  static propTypes = {
+    skill: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      items: PropTypes.arrayOf(PropTypes.string).isRequired
+    }).isRequired
+  }
+
   render() {
     const { skill } = this.props;
 

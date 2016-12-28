@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import List from './List';
 import Company from './Company';
@@ -9,6 +9,24 @@ import Publication from './Publication';
 import Skill from './Skill';
 
 class Section extends Component {
+  static propTypes = {
+    section: PropTypes.shape({
+      label: PropTypes.shape({
+        className: PropTypes.string,
+        content: PropTypes.string.isRequired,
+        has_html: PropTypes.bool
+      }).isRequired,
+      items: List.propTypes.items,
+      companies: PropTypes.arrayOf(Company.propTypes.company),
+      projects: PropTypes.arrayOf(Project.propTypes.project),
+      awards: PropTypes.arrayOf(Award.propTypes.award),
+      schools: PropTypes.arrayOf(School.propTypes.school),
+      publications: PropTypes.arrayOf(Publication.propTypes.publication),
+      skills: PropTypes.arrayOf(Skill.propTypes.skill),
+      hide_from_print: PropTypes.bool
+    }).isRequired
+  }
+
   render() {
     const { section } = this.props;
 

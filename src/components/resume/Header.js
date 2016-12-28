@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import List from './List';
 
 class Header extends Component {
+  static propTypes = {
+    header: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      links: List.propTypes.links.isRequired,
+      items: List.propTypes.items.isRequired,
+    }).isRequired
+  }
+
   render() {
     const { header } = this.props;
 

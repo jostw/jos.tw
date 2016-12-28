@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Link from '../Link';
+import Item from './Item';
 
 class List extends Component {
+  static propTypes = {
+    links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
+    items: PropTypes.arrayOf(PropTypes.shape({
+      ...Item.propTypes,
+      hide_from_print: PropTypes.bool
+    }))
+  }
+
   render() {
     let list = [];
 
@@ -24,25 +33,15 @@ class List extends Component {
         ...list,
         this.props.items.map((item, index) => {
           let classList = ['item'];
-          let content = null;
 
           if (item.hide_from_print) {
             classList = [...classList, 'hide-from-print'];
           }
 
-          if (item.has_html) {
-            content = (
-              <span className={ item.className }
-                    dangerouslySetInnerHTML={{ __html: item.content }} />
-            );
-          } else {
-            content = (
-              <span className={ item.className }>{ item.content }</span>
-            );
-          }
-
           return (
-            <li className={ classList.join(' ') } key={ `item-${index}` }>{ content }</li>
+            <li className={ classList.join(' ') } key={ `item-${index}` }>
+              <Item { ...item } />
+            </li>
           );
         })
       ];

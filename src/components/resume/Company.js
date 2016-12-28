@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Period from './Period';
+import Item from './Item';
 
 class Company extends Component {
+  static propTypes = {
+    company: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      ...Period.propTypes.isRequired,
+      item: Item.propTypes.isRequired
+    }).isRequired
+  }
+
   render() {
     const { company } = this.props;
-
-    let content = null;
-
-    if (company.item.has_html) {
-      content = (
-        <div dangerouslySetInnerHTML={{ __html: company.item.content }} />
-      );
-    } else {
-      content = (
-        <div>{ company.item.content }</div>
-      );
-    }
 
     return (
       <div className="company">
         <h3 className="section-name">{ company.name }</h3>
         <div className="section-title">{ company.title }</div>
         <Period period={ company.period } />
-        { content }
+        <Item { ...company.item } />
       </div>
     );
   }
