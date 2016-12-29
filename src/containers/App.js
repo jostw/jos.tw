@@ -15,7 +15,7 @@ class App extends Component {
     project: Section.propTypes.section,
     resume: Section.propTypes.section,
     contact: Section.propTypes.section,
-    response: Response.propTypes.response,
+    response: PropTypes.shape(Response.propTypes).isRequired,
     footer: PropTypes.shape(Footer.propTypes).isRequired,
     modal: PropTypes.shape(Modal.propTypes).isRequired
   }
@@ -65,7 +65,7 @@ class App extends Component {
         <Section section={ project } />
         <Section section={ resume } />
         <Section section={ contact } />
-        <Response response={ response } />
+        <Response { ...response } />
         <Footer { ...footer } />
         <Modal { ...modal } />
       </div>
