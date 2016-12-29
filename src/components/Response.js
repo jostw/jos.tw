@@ -9,7 +9,7 @@ import Message from './Message';
 class Response extends Component {
   static propTypes = {
     response: PropTypes.shape({
-      messages: PropTypes.arrayOf(Message.propTypes.message).isRequired,
+      messages: PropTypes.arrayOf(PropTypes.shape(Message.propTypes)).isRequired,
       is_visible: PropTypes.bool.isRequired
     }).isRequired
   }
@@ -30,7 +30,7 @@ class Response extends Component {
           response.messages.map((message, index) => {
             return (
               <li key={ `response-message-${index}` }>
-                <Message message={ message } />
+                <Message { ...message } />
               </li>
             );
           })

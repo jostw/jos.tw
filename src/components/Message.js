@@ -9,24 +9,22 @@ import Item from './Item';
 
 class Message extends Component {
   static propTypes = {
-    message: PropTypes.shape({
-      ...Link.propTypes,
-      ...Item.propTypes,
-      type: PropTypes.oneOf(['client', 'server']).isRequired,
-      content: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.arrayOf(PropTypes.shape({
-          name: PropTypes.string.isRequired,
-          image_url: PropTypes.string,
-          url: PropTypes.string
-        }))
-      ]).isRequired,
-      is_typing: PropTypes.bool,
-      is_visible: PropTypes.bool,
-      is_array: PropTypes.bool,
-      is_image_array: PropTypes.bool,
-      is_iframe: PropTypes.bool
-    }).isRequired,
+    ...Link.propTypes,
+    ...Item.propTypes,
+    type: PropTypes.oneOf(['client', 'server']).isRequired,
+    content: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        image_url: PropTypes.string,
+        url: PropTypes.string
+      }))
+    ]).isRequired,
+    is_typing: PropTypes.bool,
+    is_visible: PropTypes.bool,
+    is_array: PropTypes.bool,
+    is_image_array: PropTypes.bool,
+    is_iframe: PropTypes.bool,
     openImage: PropTypes.func
   }
 
@@ -37,34 +35,30 @@ class Message extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { message } = nextProps;
-
-    if (message.is_iframe && message.is_typing) {
-      this.setState({ iframe_src: message.content });
+    if (nextProps.is_iframe && nextProps.is_typing) {
+      this.setState({ iframe_src: nextProps.content });
     }
   }
 
   render() {
-    const { message } = this.props;
-
     let classList = ['message'];
     let content;
 
-    if (message.is_visible) {
+    if (this.props.is_visible) {
       classList = [...classList, 'message-visible'];
     }
 
-    if (message.is_array) {
+    if (this.props.is_array) {
       const { openImage } = this.props;
 
       classList = [...classList, 'message-fullscreen'];
 
       content = (
         <ul className="message-projects">{
-          message.content.map((item, index) => {
+          this.props.content.map((item, index) => {
             let projectClassList = ['message-text', 'message-project'];
 
-            if (!message.is_image_array) {
+            if (!this.props.is_image_array) {
               projectClassList = [
                 ...projectClassList,
                 `message-project-${item.name.split(' ').join('-').toLowerCase()}`
@@ -73,7 +67,7 @@ class Message extends Component {
 
             return (
               <li className={ projectClassList.join(' ') } key={ `message-project-${index}` }>{
-                message.is_image_array ? (
+                this.props.is_image_array ? (
                   <Link className="message-project-image"
                         onClick={ openImage(item.name, item.image_url) }
                         title={ item.name }>
@@ -93,7 +87,7 @@ class Message extends Component {
           })
         }</ul>
       );
-    } else if (message.is_iframe) {
+    } else if (this.props.is_iframe) {
       classList = [...classList, 'message-fullscreen'];
 
       content = (
@@ -102,14 +96,14 @@ class Message extends Component {
       );
     } else {
       content = (
-        <Item { ...message }
+        <Item { ...this.props }
               className="message-text" />
       );
     }
 
-    if (message.onClick) {
+    if (this.props.onClick) {
       return (
-        <Link { ...message }
+        <Link { ...this.props }
               classList={ classList }>{ content }</Link>
       );
     }

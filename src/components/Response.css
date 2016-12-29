@@ -31,13 +31,14 @@
 }
 
 .response-input ul {
-  margin: 0;
+  margin: 0 0 -.5em;
   padding: 0;
 }
 
 .response-input li {
   display: inline-block;
   margin-inline-start: .5em;
+  margin-bottom: .5em;
 
   list-style: none;
 }

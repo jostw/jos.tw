@@ -8,7 +8,7 @@ import Message from './Message';
 
 class MessageList extends Component {
   static propTypes = {
-    messages: PropTypes.arrayOf(Message.propTypes.message).isRequired,
+    messages: PropTypes.arrayOf(PropTypes.shape(Message.propTypes)).isRequired,
     openImage: PropTypes.func.isRequired
   }
 
@@ -44,7 +44,7 @@ class MessageList extends Component {
 
           return (
             <li className={ classList.join(' ') } key={ `message-${index}` }>
-              <Message message={ message }
+              <Message { ...message }
                        openImage={ openImage } />
             </li>
           );
