@@ -3,7 +3,7 @@ export default function summary(state = {
     className: 'summary',
     content: 'Summary'
   },
-  items: [
+  summaries: [
     {
       content: 'Expertise in <strong>front end development</strong> with 4 years experience',
       has_html: true

@@ -6,25 +6,23 @@ import List from '../../containers/resume/List';
 
 class Award extends Component {
   static propTypes = {
-    award: PropTypes.shape({
-      name: Link.propTypes.isRequired,
-      title: PropTypes.string.isRequired,
-      ...Period.propTypes.isRequired,
-      items: List.propTypes.items.isRequired
-    }).isRequired
+    name: PropTypes.shape(Link.propTypes).isRequired,
+    title: PropTypes.string.isRequired,
+    ...Period.propTypes.isRequired,
+    items: List.propTypes.items.isRequired
   }
 
   render() {
-    const { award } = this.props;
+    const { name, title, period, items } = this.props;
 
     return (
       <div className="award">
         <h4 className="section-name">
-          <Link { ...award.name } />
+          <Link { ...name } />
         </h4>
-        <div className="section-title">{ award.title }</div>
-        <Period period={ award.period } />
-        <List items={ award.items } />
+        <div className="section-title">{ title }</div>
+        <Period period={ period } />
+        <List items={ items } />
       </div>
     );
   }

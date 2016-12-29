@@ -5,23 +5,21 @@ import Item from '../Item';
 
 class Company extends Component {
   static propTypes = {
-    company: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      ...Period.propTypes.isRequired,
-      item: Item.propTypes.isRequired
-    }).isRequired
+    name: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    ...Period.propTypes.isRequired,
+    item: PropTypes.shape(Item.propTypes).isRequired
   }
 
   render() {
-    const { company } = this.props;
+    const { name, title, period, item } = this.props;
 
     return (
       <div className="company">
-        <h3 className="section-name">{ company.name }</h3>
-        <div className="section-title">{ company.title }</div>
-        <Period period={ company.period } />
-        <Item { ...company.item } />
+        <h3 className="section-name">{ name }</h3>
+        <div className="section-title">{ title }</div>
+        <Period period={ period } />
+        <Item { ...item } />
       </div>
     );
   }

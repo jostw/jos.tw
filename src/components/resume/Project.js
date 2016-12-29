@@ -6,44 +6,42 @@ import List from '../../containers/resume/List';
 
 class Project extends Component {
   static propTypes = {
-    project: PropTypes.shape({
-      name: Link.propTypes.isRequired,
-      ...Period.propTypes.isRequired,
-      items: List.propTypes.items.isRequired,
-      hide_from_print: PropTypes.bool
-    }).isRequired
+    name: PropTypes.shape(Link.propTypes).isRequired,
+    ...Period.propTypes.isRequired,
+    items: List.propTypes.items.isRequired,
+    hide_from_print: PropTypes.bool
   }
 
   render() {
-    const { project } = this.props;
+    const { name, period, items } = this.props;
 
     let classList = ['project'];
-    let name = null;
+    let projectName = null;
 
-    if (project.hide_from_print) {
+    if (this.props.hide_from_print) {
       classList = [...classList, 'hide-from-print'];
     }
 
-    if (project.name.link) {
-      name = (
-        <Link { ...project.name } />
+    if (name.link) {
+      projectName = (
+        <Link { ...name } />
       );
-    } else if (project.name.ps) {
-      name = (
+    } else if (name.ps) {
+      projectName = (
         <span>
-          { project.name.content }
-          <span className="project-name-ps">({ project.name.ps })</span>
+          { name.content }
+          <span className="project-name-ps">({ name.ps })</span>
         </span>
       );
     } else {
-      name = project.name.content;
+      projectName = name.content;
     }
 
     return (
       <div className={ classList.join(' ') }>
-        <h4 className="section-name">{ name }</h4>
-        <Period period={ project.period } />
-        <List items={ project.items } />
+        <h4 className="section-name">{ projectName }</h4>
+        <Period period={ period } />
+        <List items={ items } />
       </div>
     );
   }

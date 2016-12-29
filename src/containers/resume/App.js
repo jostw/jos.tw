@@ -7,15 +7,15 @@ import Footer from '../../components/resume/Footer';
 
 class App extends Component {
   static propTypes = {
-    ...Header.propTypes.section,
-    summary: Section.propTypes.section,
-    experience: Section.propTypes.section,
-    project: Section.propTypes.section,
-    award: Section.propTypes.section,
-    education: Section.propTypes.section,
-    publication: Section.propTypes.section,
-    skill: Section.propTypes.section,
-    ...Footer.propTypes.isRequired
+    header: PropTypes.shape(Header.propTypes).isRequired,
+    summary: PropTypes.shape(Section.propTypes).isRequired,
+    experience: PropTypes.shape(Section.propTypes).isRequired,
+    project: PropTypes.shape(Section.propTypes).isRequired,
+    award: PropTypes.shape(Section.propTypes).isRequired,
+    education: PropTypes.shape(Section.propTypes).isRequired,
+    publication: PropTypes.shape(Section.propTypes).isRequired,
+    skill: PropTypes.shape(Section.propTypes).isRequired,
+    footer: PropTypes.shape(Footer.propTypes).isRequired
   }
 
   render() {
@@ -23,17 +23,17 @@ class App extends Component {
 
     return (
       <main>
-        <Header header={ header } />
+        <Header { ...header } />
         <div className="container">
-          <Section section={ summary } />
-          <Section section={ experience } />
-          <Section section={ project } />
-          <Section section={ award } />
-          <Section section={ education } />
-          <Section section={ publication } />
-          <Section section={ skill } />
+          <Section { ...summary } />
+          <Section { ...experience } />
+          <Section { ...project } />
+          <Section { ...award } />
+          <Section { ...education } />
+          <Section { ...publication } />
+          <Section { ...skill } />
         </div>
-        <Footer footer={ footer } />
+        <Footer { ...footer } />
       </main>
     );
   }

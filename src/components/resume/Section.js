@@ -10,121 +10,119 @@ import Skill from './Skill';
 
 class Section extends Component {
   static propTypes = {
-    section: PropTypes.shape({
-      label: PropTypes.shape({
-        className: PropTypes.string,
-        content: PropTypes.string.isRequired,
-        has_html: PropTypes.bool
-      }).isRequired,
-      items: List.propTypes.items,
-      companies: PropTypes.arrayOf(Company.propTypes.company),
-      projects: PropTypes.arrayOf(Project.propTypes.project),
-      awards: PropTypes.arrayOf(Award.propTypes.award),
-      schools: PropTypes.arrayOf(School.propTypes.school),
-      publications: PropTypes.arrayOf(Publication.propTypes.publication),
-      skills: PropTypes.arrayOf(Skill.propTypes.skill),
-      hide_from_print: PropTypes.bool
-    }).isRequired
+    label: PropTypes.shape({
+      className: PropTypes.string,
+      content: PropTypes.string.isRequired,
+      has_html: PropTypes.bool
+    }).isRequired,
+    summaries: List.propTypes.items,
+    companies: PropTypes.arrayOf(PropTypes.shape(Company.propTypes)),
+    projects: PropTypes.arrayOf(PropTypes.shape(Project.propTypes)),
+    awards: PropTypes.arrayOf(PropTypes.shape(Award.propTypes)),
+    schools: PropTypes.arrayOf(PropTypes.shape(School.propTypes)),
+    publications: PropTypes.arrayOf(PropTypes.shape(Publication.propTypes)),
+    skills: PropTypes.arrayOf(PropTypes.shape(Skill.propTypes)),
+    hide_from_print: PropTypes.bool
   }
 
   render() {
-    const { section } = this.props;
+    const { label, summaries, companies, projects, awards, schools, publications, skills } = this.props;
 
     let classList = ['section'];
     let labelClassList = ['section-label'];
-    let label = null;
+    let labelContent = null;
     let content = null;
 
-    if (section.hide_from_print) {
+    if (this.props.hide_from_print) {
       classList = [...classList, 'hide-from-print'];
     }
 
-    if (section.label.className) {
-      labelClassList = [...labelClassList, `section-label-${section.label.className}`];
+    if (label.className) {
+      labelClassList = [...labelClassList, `section-label-${label.className}`];
     }
 
-    if (section.label.has_html) {
-      label = (
+    if (label.has_html) {
+      labelContent = (
         <h6 className={ labelClassList.join(' ') }
-            dangerouslySetInnerHTML={{ __html: section.label.content }} />
+            dangerouslySetInnerHTML={{ __html: label.content }} />
       );
     } else {
-      label = (
-        <h6 className={ labelClassList.join(' ') }>{ section.label.content }</h6>
+      labelContent = (
+        <h6 className={ labelClassList.join(' ') }>{ label.content }</h6>
       );
     }
 
-    if (section.items) {
+    if (summaries) {
       content = (
-        <List items={ section.items } />
+        <List items={ summaries } />
       );
-    } else if (section.companies) {
+    } else if (companies) {
       content = (
         <ul>{
-          section.companies.map((company, index) => {
+          companies.map((company, index) => {
             return (
               <li key={ `company-${index}` }>
-                <Company company={ company } />
+                <Company { ...company } />
               </li>
             );
           })
         }</ul>
       );
-    } else if (section.projects) {
+    } else if (projects) {
       content = (
         <ul>{
-          section.projects.map((project, index) => {
+          projects.map((project, index) => {
             return (
               <li key={ `project-${index}` }>
-                <Project project={ project } />
+                <Project { ...project } />
               </li>
             );
           })
         }</ul>
       );
-    } else if (section.awards) {
+    } else if (awards) {
       content = (
         <ul>{
-          section.awards.map((award, index) => {
+          awards.map((award, index) => {
             return (
               <li key={ `award-${index}` }>
-                <Award award={ award } />
+                <Award { ...award } />
               </li>
             );
           })
         }</ul>
       );
-    } else if (section.schools) {
+    } else if (schools) {
       content = (
         <ul>{
-          section.schools.map((school, index) => {
+          schools.map((school, index) => {
             return (
               <li key={ `school-${index}` }>
-                <School school={ school } />
+                <School { ...school } />
               </li>
             );
           })
         }</ul>
       );
-    } else if (section.publications) {
+    } else if (publications) {
       content = (
         <ul>{
-          section.publications.map((publication, index) => {
+          publications.map((publication, index) => {
             return (
               <li key={ `publication-${index}` }>
-                <Publication publication={ publication } />
+                <Publication { ...publication } />
               </li>
             );
           })
         }</ul>
       );
-    } else if (section.skills) {
+    } else if (skills) {
       content = (
         <ul>{
-          section.skills.map((skill, index) => {
+          skills.map((skill, index) => {
             return (
               <li key={ `skill-${index}` }>
-                <Skill skill={ skill } />
+                <Skill { ...skill } />
               </li>
             );
           })
@@ -134,7 +132,7 @@ class Section extends Component {
 
     return (
       <section className={ classList.join(' ') }>
-        { label }
+        { labelContent }
         <article className="section-article">{ content }</article>
       </section>
     );
