@@ -11,27 +11,27 @@ class Link extends Component {
   }
 
   render() {
-    const { content } = this.props;
+    const { className, classList, link, onClick, title, content, children } = this.props;
 
     let props = {
-      className: this.props.className || (this.props.classList && this.props.classList.join(' ')),
-      title: this.props.title || content
+      className: className || (classList && classList.join(' ')),
+      title: title || content
     };
 
-    if (this.props.onClick) {
+    if (onClick) {
       props = {
         ...props,
         href: '#',
         onClick: e => {
           e.preventDefault();
 
-          this.props.onClick();
+          onClick();
         }
       };
     } else {
       props = {
         ...props,
-        href: this.props.link || content,
+        href: link || content,
       };
 
       if (!props.href.match(/mailto|javascript/)) {
@@ -43,7 +43,7 @@ class Link extends Component {
     }
 
     return (
-      <a { ...props }>{ this.props.children || content }</a>
+      <a { ...props }>{ children || content }</a>
     );
   }
 }

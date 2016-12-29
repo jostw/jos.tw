@@ -14,7 +14,7 @@ const resumePath = path.join(__dirname, 'public/resume');
 const { index, resume } = metaReducer();
 
 fs.writeFileSync(path.join(indexPath, templateName), renderToString(
-  <Index meta={ index } />
+  <Index { ...index } />
 ));
 
 if (!fs.existsSync(resumePath)) {
@@ -22,5 +22,5 @@ if (!fs.existsSync(resumePath)) {
 }
 
 fs.writeFileSync(path.join(resumePath, templateName), renderToStaticMarkup(
-  <Index meta={ resume } />
+  <Index { ...resume } />
 ));

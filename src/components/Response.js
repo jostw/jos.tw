@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
+import Message from './Message';
+
 if (!process.env.SERVER) {
   require('./Response.css');
 }
-
-import Message from './Message';
 
 class Response extends Component {
   static propTypes = {
@@ -13,17 +13,19 @@ class Response extends Component {
   }
 
   render() {
+    const { messages } = this.props;
+
     let classList = ['response'];
-    let messages = null;
+    let responses = null;
 
     if (this.props.is_visible) {
       classList = [...classList, 'response-visible'];
     }
 
-    if (this.props.messages.length > 0) {
-      messages = (
+    if (messages.length > 0) {
+      responses = (
         <ul>{
-          this.props.messages.map((message, index) => {
+          messages.map((message, index) => {
             return (
               <li key={ `response-message-${index}` }>
                 <Message { ...message } />
@@ -36,7 +38,7 @@ class Response extends Component {
 
     return (
       <section className={ classList.join(' ') }>
-        <div className="response-input">{ messages }</div>
+        <div className="response-input">{ responses }</div>
       </section>
     );
   }

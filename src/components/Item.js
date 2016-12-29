@@ -4,8 +4,7 @@ class Item extends Component {
   static propTypes = {
     className: PropTypes.string,
     content: PropTypes.string.isRequired,
-    has_html: PropTypes.bool,
-    hide_from_print: PropTypes.bool
+    has_html: PropTypes.bool
   }
 
   render() {

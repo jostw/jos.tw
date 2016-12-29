@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 
+import Link from './Link';
+import Item from './Item';
+
 if (!process.env.SERVER) {
   require('./Message.css');
 }
-
-import Link from './Link';
-import Item from './Item';
 
 class Message extends Component {
   static propTypes = {
@@ -41,8 +41,10 @@ class Message extends Component {
   }
 
   render() {
+    const { onClick, content } = this.props;
+
     let classList = ['message'];
-    let content;
+    let message = null;
 
     if (this.props.is_visible) {
       classList = [...classList, 'message-visible'];
@@ -53,10 +55,11 @@ class Message extends Component {
 
       classList = [...classList, 'message-fullscreen'];
 
-      content = (
+      message = (
         <ul className="message-projects">{
-          this.props.content.map((item, index) => {
+          content.map((item, index) => {
             let projectClassList = ['message-text', 'message-project'];
+            let project = null;
 
             if (!this.props.is_image_array) {
               projectClassList = [
@@ -65,24 +68,31 @@ class Message extends Component {
               ];
             }
 
+            if (this.props.is_image_array) {
+              project = (
+                <Link className="message-project-image"
+                      onClick={ openImage(item.name, item.image_url) }
+                      title={ item.name }>
+                  <img src={ item.image_url }
+                       alt={ item.name }
+                       title={ item.name } />
+                </Link>
+              );
+            } else if (item.url) {
+              project = (
+                <Link className="message-project-name message-project-link"
+                      link={ item.url }
+                      content={ item.name } />
+              );
+            } else {
+              project = (
+                <span className="message-project-name">{ item.name }</span>
+              );
+            }
+
             return (
-              <li className={ projectClassList.join(' ') } key={ `message-project-${index}` }>{
-                this.props.is_image_array ? (
-                  <Link className="message-project-image"
-                        onClick={ openImage(item.name, item.image_url) }
-                        title={ item.name }>
-                    <img src={ item.image_url }
-                         alt={ item.name }
-                         title={ item.name } />
-                  </Link>
-                ) : item.url ? (
-                  <Link className="message-project-name message-project-link"
-                        link={ item.url }
-                        content={ item.name } />
-                ) : (
-                  <span className="message-project-name">{ item.name }</span>
-                )
-              }</li>
+              <li className={ projectClassList.join(' ') }
+                  key={ `message-project-${index}` }>{ project }</li>
             );
           })
         }</ul>
@@ -90,26 +100,26 @@ class Message extends Component {
     } else if (this.props.is_iframe) {
       classList = [...classList, 'message-fullscreen'];
 
-      content = (
+      message = (
         <iframe className="message-iframe"
                 src={ this.state.iframe_src }></iframe>
       );
     } else {
-      content = (
+      message = (
         <Item { ...this.props }
               className="message-text" />
       );
     }
 
-    if (this.props.onClick) {
+    if (onClick) {
       return (
         <Link { ...this.props }
-              classList={ classList }>{ content }</Link>
+              classList={ classList }>{ message }</Link>
       );
     }
 
     return (
-      <div className={ classList.join(' ') }>{ content }</div>
+      <div className={ classList.join(' ') }>{ message }</div>
     );
   }
 }

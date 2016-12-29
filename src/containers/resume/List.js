@@ -13,12 +13,14 @@ class List extends Component {
   }
 
   render() {
+    const { links, items } = this.props;
+
     let list = [];
 
-    if (this.props.links) {
+    if (links) {
       list = [
         ...list,
-        this.props.links.map((link, index) => {
+        links.map((link, index) => {
           return (
             <li className="item" key={ `link-${index}` }>
               <Link { ...link } />
@@ -28,10 +30,10 @@ class List extends Component {
       ];
     }
 
-    if (this.props.items) {
+    if (items) {
       list = [
         ...list,
-        this.props.items.map((item, index) => {
+        items.map((item, index) => {
           let classList = ['item'];
 
           if (item.hide_from_print) {

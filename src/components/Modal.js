@@ -13,6 +13,8 @@ class Modal extends Component {
   }
 
   render() {
+    const { name, image_url } = this.props;
+
     let classList = ['modal'];
     let imageClassList = ['modal-image'];
 
@@ -29,9 +31,9 @@ class Modal extends Component {
                onClick={ this.closeModal }>
         <img className={ imageClassList.join(' ') }
              onLoad={ this.onImageLoad }
-             src={ this.props.image_url }
-             alt={ this.props.name }
-             title={ this.props.name } />
+             src={ image_url }
+             alt={ name }
+             title={ name } />
       </section>
     );
   }

@@ -11,6 +11,8 @@ class Footer extends Component {
   }
 
   render() {
+    const { copyright } = this.props;
+
     let classList = ['footer'];
 
     if (this.props.is_visible) {
@@ -19,7 +21,7 @@ class Footer extends Component {
 
     return (
       <footer className={ classList.join(' ') }>
-        <span className="footer-copyright">{ this.props.copyright }</span>
+        <span className="footer-copyright">{ copyright }</span>
       </footer>
     );
   }

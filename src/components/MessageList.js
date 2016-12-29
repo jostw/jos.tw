@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
+import Message from './Message';
+
 if (!process.env.SERVER) {
   require('./MessageList.css');
 }
-
-import Message from './Message';
 
 class MessageList extends Component {
   static propTypes = {
