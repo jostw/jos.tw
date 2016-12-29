@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+import Label from './Label';
 import List from '../../containers/resume/List';
 import Company from './Company';
 import Project from './Project';
@@ -10,11 +11,7 @@ import Skill from './Skill';
 
 class Section extends Component {
   static propTypes = {
-    label: PropTypes.shape({
-      className: PropTypes.string,
-      content: PropTypes.string.isRequired,
-      has_html: PropTypes.bool
-    }).isRequired,
+    label: PropTypes.shape(Label.propTypes).isRequired,
     summaries: List.propTypes.items,
     companies: PropTypes.arrayOf(PropTypes.shape(Company.propTypes)),
     projects: PropTypes.arrayOf(PropTypes.shape(Project.propTypes)),
@@ -29,27 +26,10 @@ class Section extends Component {
     const { label, summaries, companies, projects, awards, schools, publications, skills } = this.props;
 
     let classList = ['section'];
-    let labelClassList = ['section-label'];
-    let labelContent = null;
     let content = null;
 
     if (this.props.hide_from_print) {
       classList = [...classList, 'hide-from-print'];
-    }
-
-    if (label.className) {
-      labelClassList = [...labelClassList, `section-label-${label.className}`];
-    }
-
-    if (label.has_html) {
-      labelContent = (
-        <h6 className={ labelClassList.join(' ') }
-            dangerouslySetInnerHTML={{ __html: label.content }} />
-      );
-    } else {
-      labelContent = (
-        <h6 className={ labelClassList.join(' ') }>{ label.content }</h6>
-      );
     }
 
     if (summaries) {
@@ -132,7 +112,7 @@ class Section extends Component {
 
     return (
       <section className={ classList.join(' ') }>
-        { labelContent }
+        <Label { ...label } />
         <article className="section-article">{ content }</article>
       </section>
     );

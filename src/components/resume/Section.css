@@ -1,41 +1,17 @@
+@import 'Label.css';
+@import 'Period.css';
+
+@import 'Company.css';
+@import 'Project.css';
+@import 'Award.css';
+@import 'School.css';
+@import 'Publication.css';
+@import 'Skill.css';
+
 .section {
   position: relative;
 
   margin-bottom: 1.5em;
-
-  transition: padding .2s;
-}
-
-.section-label {
-  position: absolute;
-  top: 0;
-  left: -120px;
-
-  width: 120px;
-  margin: 0;
-  padding-inline-end: 1em;
-
-  font-family: 'Raleway';
-  font-size: 16px;
-  font-weight: normal;
-  text-align: end;
-
-  color: #A2A2A2;
-
-  transition: top .2s,
-              left .2s;
-}
-
-.section-label-publication {
-  line-height: 36px;
-}
-
-.section-label-skill {
-  line-height: 22px;
-}
-
-.section-label-skill .br {
-  display: block;
 
   transition: padding .2s;
 }
@@ -125,21 +101,6 @@
   .section {
     margin-bottom: 2em;
     padding-top: 2.25em;
-  }
-
-  .section-label {
-    left: 0;
-
-    text-align: start;
-  }
-
-  .section-label-summary {
-    top: 1.25em;
-  }
-
-  .section-label-skill .br {
-    display: inline;
-    padding-inline-start: .325em;
   }
 
   .section-name {

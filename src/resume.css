@@ -3,13 +3,6 @@
 
 @import 'components/resume/Header.css';
 @import 'components/resume/Section.css';
-@import 'components/resume/Period.css';
-@import 'components/resume/Company.css';
-@import 'components/resume/Project.css';
-@import 'components/resume/Award.css';
-@import 'components/resume/School.css';
-@import 'components/resume/Publication.css';
-@import 'components/resume/Skill.css';
 @import 'components/resume/Footer.css';
 
 .container {
