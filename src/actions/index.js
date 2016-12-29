@@ -57,5 +57,5 @@ export const SHOW_MODAL_IMAGE = 'SHOW_MODAL_IMAGE';
 export const toggleScrolling = isScrolling => ({ type: TOGGLE_SCROLLING, isScrolling });
 export const toggleResponse = sections => ({ type: TOGGLE_RESPONSE, sections });
 export const toggleFooter = isVisible => ({ type: TOGGLE_FOOTER, isVisible });
-export const toggleModal = (name, imageUrl) => ({ type: TOGGLE_MODAL, name, imageUrl });
+export const toggleModal = (imageName, imageUrl) => ({ type: TOGGLE_MODAL, imageName, imageUrl });
 export const showModalImage = () => ({ type: SHOW_MODAL_IMAGE });

@@ -12,18 +12,14 @@ class Message extends Component {
     ...Link.propTypes,
     ...Item.propTypes,
     type: PropTypes.oneOf(['client', 'server']).isRequired,
-    content: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        image_url: PropTypes.string,
-        url: PropTypes.string
-      }))
-    ]).isRequired,
+    content: PropTypes.string,
+    projects: PropTypes.arrayOf(PropTypes.shape({
+      link: PropTypes.string,
+      image_url: PropTypes.string,
+      content: PropTypes.string.isRequired
+    })),
     is_typing: PropTypes.bool,
     is_visible: PropTypes.bool,
-    is_array: PropTypes.bool,
-    is_image_array: PropTypes.bool,
     is_iframe: PropTypes.bool,
     openImage: PropTypes.func
   }
@@ -41,7 +37,7 @@ class Message extends Component {
   }
 
   render() {
-    const { onClick, content } = this.props;
+    const { projects, onClick } = this.props;
 
     let classList = ['message'];
     let message = null;
@@ -50,49 +46,50 @@ class Message extends Component {
       classList = [...classList, 'message-visible'];
     }
 
-    if (this.props.is_array) {
+    if (projects) {
       const { openImage } = this.props;
 
       classList = [...classList, 'message-fullscreen'];
 
       message = (
         <ul className="message-projects">{
-          content.map((item, index) => {
+          projects.map((project, index) => {
             let projectClassList = ['message-text', 'message-project'];
-            let project = null;
+            let projectContent = null;
 
-            if (!this.props.is_image_array) {
-              projectClassList = [
-                ...projectClassList,
-                `message-project-${item.name.split(' ').join('-').toLowerCase()}`
-              ];
-            }
+            if (project.image_url) {
+              const imageUrl = `img/${project.image_url}`;
 
-            if (this.props.is_image_array) {
-              project = (
-                <Link className="message-project-image"
-                      onClick={ openImage(item.name, item.image_url) }
-                      title={ item.name }>
-                  <img src={ item.image_url }
-                       alt={ item.name }
-                       title={ item.name } />
+              projectContent = (
+                <Link { ...project }
+                      className="message-project-image"
+                      onClick={ openImage(project.content, imageUrl) }>
+                  <img src={ imageUrl }
+                       alt={ project.content }
+                       title={ project.content } />
                 </Link>
               );
-            } else if (item.url) {
-              project = (
-                <Link className="message-project-name message-project-link"
-                      link={ item.url }
-                      content={ item.name } />
-              );
             } else {
-              project = (
-                <span className="message-project-name">{ item.name }</span>
-              );
+              projectClassList = [
+                ...projectClassList,
+                `message-project-${project.content.split(' ').join('-').toLowerCase()}`
+              ];
+
+              if (project.link) {
+                projectContent = (
+                  <Link { ...project }
+                        className="message-project-name message-project-link" />
+                );
+              } else {
+                projectContent = (
+                  <span className="message-project-name">{ project.content }</span>
+                );
+              }
             }
 
             return (
               <li className={ projectClassList.join(' ') }
-                  key={ `message-project-${index}` }>{ project }</li>
+                  key={ `message-project-${index}` }>{ projectContent }</li>
             );
           })
         }</ul>

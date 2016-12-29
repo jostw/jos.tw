@@ -22,7 +22,8 @@ class List extends Component {
         ...list,
         links.map((link, index) => {
           return (
-            <li className="item" key={ `link-${index}` }>
+            <li className="item"
+                key={ `link-${index}` }>
               <Link { ...link } />
             </li>
           );
@@ -41,7 +42,8 @@ class List extends Component {
           }
 
           return (
-            <li className={ classList.join(' ') } key={ `item-${index}` }>
+            <li className={ classList.join(' ') }
+                key={ `item-${index}` }>
               <Item { ...item } />
             </li>
           );

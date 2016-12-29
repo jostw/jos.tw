@@ -23,7 +23,7 @@ function index(state = {
     'Progressive Web Apps'
   ],
   type: 'website',
-  url: 'http://jos.tw/',
+  link: 'http://jos.tw/',
   image: 'http://jos.tw/img/joseph-2560x1440.png',
   ga_code: `
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -51,7 +51,7 @@ function resume(state = index(), action) {
       ...state.titles,
       'Resume'
     ],
-    url: 'http://jos.tw/resume/'
+    link: 'http://jos.tw/resume/'
   }
 }
 

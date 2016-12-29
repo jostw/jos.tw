@@ -8,12 +8,14 @@ class Modal extends Component {
   static propTypes = {
     is_visible: PropTypes.bool.isRequired,
     is_image_visible: PropTypes.bool.isRequired,
-    name: PropTypes.string,
-    image_url: PropTypes.string
+    image: PropTypes.shape({
+      name: PropTypes.string,
+      url: PropTypes.string
+    }).isRequired
   }
 
   render() {
-    const { name, image_url } = this.props;
+    const { image } = this.props;
 
     let classList = ['modal'];
     let imageClassList = ['modal-image'];
@@ -31,9 +33,9 @@ class Modal extends Component {
                onClick={ this.closeModal }>
         <img className={ imageClassList.join(' ') }
              onLoad={ this.onImageLoad }
-             src={ image_url }
-             alt={ name }
-             title={ name } />
+             src={ image.url }
+             alt={ image.name }
+             title={ image.name } />
       </section>
     );
   }

@@ -17,18 +17,19 @@ class Index extends Component {
     descriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
     keywords: PropTypes.arrayOf(PropTypes.string).isRequired,
     type: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     ga_code: PropTypes.string.isRequired
   }
 
   render() {
-    const { lang, favicon, stylesheets, titles, descriptions, keywords, type, url, image, ga_code } = this.props;
+    const { lang, favicon, stylesheets, titles, descriptions, keywords, type, link, image, ga_code } = this.props;
 
     const links = stylesheets.map((stylesheet, index) => {
       return (
-        <link rel="stylesheet" key={ `stylesheet-${index}` }
-              href={ stylesheet } />
+        <link rel="stylesheet"
+              href={ stylesheet }
+              key={ `stylesheet-${index}` } />
       );
     });
 
@@ -39,7 +40,7 @@ class Index extends Component {
     let root = null;
     let store = null;
 
-    if (url.match('resume')) {
+    if (link.match('resume')) {
       store = resumeStore();
 
       root = (
@@ -68,9 +69,9 @@ class Index extends Component {
           <meta name="description" content={ description } />
           <meta name="keywords" content={ keyword } />
 
-          <link rel="canonical" href={ url } />
+          <link rel="canonical" href={ link } />
 
-          <meta property="og:url" content={ url } />
+          <meta property="og:url" content={ link } />
           <meta property="og:type" content={ type } />
           <meta property="og:title" content={ title } />
           <meta property="og:site_name" content={ title } />

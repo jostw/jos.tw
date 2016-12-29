@@ -24,20 +24,20 @@ class Section extends Component {
       <section>{
         section.map((subSectionMessages, index) => {
           return (
-            <MessageList key={ `message-list-${index}` }
-                         messages={ subSectionMessages }
-                         openImage={ this.openImage } />
+            <MessageList messages={ subSectionMessages }
+                         openImage={ this.openImage }
+                         key={ `message-list-${index}` } />
           );
         })
       }</section>
     );
   }
 
-  openImage(name, imageUrl) {
+  openImage(imageName, imageUrl) {
     const { toggleModal } = this;
 
     return () => {
-      toggleModal(name, imageUrl.replace(/-640x(360|313)/, ''));
+      toggleModal(imageName, imageUrl.replace(/-640x(360|313)/, ''));
     };
   }
 }

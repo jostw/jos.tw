@@ -19,16 +19,15 @@ function projectList(state = {
       has_html: true
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'Firefox'
+          content: 'Firefox'
         }, {
-          name: 'Gaia'
+          content: 'Gaia'
         }, {
-          name: 'Marketplace App'
+          content: 'Marketplace App'
         }
-      ],
-      is_array: true
+      ]
     }, {
       type: 'server',
       content: 'Which would you like to know?'
@@ -86,20 +85,18 @@ function projectGaia(state = {
       has_html: true
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'Home App',
-          image_url: 'img/home-app-640x360.png'
+          image_url: 'home-app-640x360.png',
+          content: 'Home App'
         }, {
-          name: 'Home App Folder Navigation',
-          image_url: 'img/home-app-folder-navigation-640x360.png'
+          image_url: 'home-app-folder-navigation-640x360.png',
+          content: 'Home App Folder Navigation'
         }, {
-          name: 'Home App Create Folder',
-          image_url: 'img/home-app-create-folder-640x360.png'
+          image_url: 'home-app-create-folder-640x360.png',
+          content: 'Home App Create Folder'
         }
-      ],
-      is_array: true,
-      is_image_array: true
+      ]
     }, {
       type: 'server',
       content: 'I implemented new features on Home App and System App'
@@ -122,6 +119,7 @@ function projectGaia(state = {
 
 const CES_LINK = 'https://blog.mozilla.org/blog/2016/01/05/firefox-os-will-power-new-panasonic-uhd-tvs-unveiled-at-ces/';
 const MARKETPLACE_APP_LINK = 'https://github.com/mozilla-b2g/marketplace-tv-front-end';
+const DEMO_LINK = 'https://drive.google.com/file/d/0B4K8q1qWmtAvZm1jRDZBUXh6cnc/preview';
 
 function projectMarketplaceApp(state = {
   response: {
@@ -136,20 +134,18 @@ function projectMarketplaceApp(state = {
       has_html: true
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'Marketplace App',
-          image_url: 'img/marketplace-app-640x360.png'
+          image_url: 'marketplace-app-640x360.png',
+          content: 'Marketplace App'
         }, {
-          name: 'Marketplace App Action Menu',
-          image_url: 'img/marketplace-app-action-menu-640x360.png'
+          image_url: 'marketplace-app-action-menu-640x360.png',
+          content: 'Marketplace App Action Menu'
         }, {
-          name: 'Marketplace App Error',
-          image_url: 'img/marketplace-app-error-640x360.png'
+          image_url: 'marketplace-app-error-640x360.png',
+          content: 'Marketplace App Error'
         }
-      ],
-      is_array: true,
-      is_image_array: true
+      ]
     }, {
       type: 'server',
       content: 'This is my first project in Mozilla!'
@@ -167,7 +163,7 @@ function projectMarketplaceApp(state = {
       content: 'Here\'s a demo video'
     }, {
       type: 'server',
-      content: 'https://drive.google.com/file/d/0B4K8q1qWmtAvZm1jRDZBUXh6cnc/preview',
+      content: DEMO_LINK,
       is_iframe: true
     }, {
       type: 'server',
@@ -204,20 +200,19 @@ function projectMuzikList(state = {
       content: 'Here are some of the projects I made'
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'MUZIK AIR',
-          url: MUZIK_AIR_LINK
+          link: MUZIK_AIR_LINK,
+          content: 'MUZIK AIR'
         }, {
-          name: 'MUZIK ONLINE',
-          url: MUZIK_ONLINE_LINK
+          link: MUZIK_ONLINE_LINK,
+          content: 'MUZIK ONLINE'
         }, {
-          name: 'MUZIK STUDY'
+          content: 'MUZIK STUDY'
         }, {
-          name: 'iMusic'
+          content: 'iMusic'
         }
-      ],
-      is_array: true
+      ]
     }, {
       type: 'server',
       content: 'Would you like to know any of them?'
@@ -240,14 +235,12 @@ function projectMuzikAir(state = {
       has_html: true
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'MUZIK AIR',
-          image_url: 'img/muzik-air-640x313.png'
+          image_url: 'muzik-air-640x313.png',
+          content: 'MUZIK AIR'
         }
-      ],
-      is_array: true,
-      is_image_array: true
+      ]
     }, {
       type: 'server',
       content: 'I developed each feature as <strong>reusable component</strong>',
@@ -274,14 +267,12 @@ function projectMuzikOnline(state = {
       content: 'MUZIK ONLINE is a classical music portal platform',
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'MUZIK ONLINE',
-          image_url: 'img/muzik-online-640x313.png'
+          image_url: 'muzik-online-640x313.png',
+          content: 'MUZIK ONLINE'
         }
-      ],
-      is_array: true,
-      is_image_array: true
+      ]
     }, {
       type: 'server',
       content: 'It\'s a <strong>single page application</strong> built with <strong>Backbone</strong> and <strong>Marionette</strong>',
@@ -312,14 +303,12 @@ function projectMuzikStudy(state = {
       has_html: true
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'MUZIK STUDY',
-          image_url: 'img/muzik-study-640x313.png'
+          image_url: 'muzik-study-640x313.png',
+          content: 'MUZIK STUDY'
         }
-      ],
-      is_array: true,
-      is_image_array: true
+      ]
     }, {
       type: 'server',
       content: 'It\'s a single page application built with <strong>React</strong> and <strong>Flux</strong>',
@@ -342,14 +331,12 @@ function projectIMusic(state = {
       content: 'iMusic is a prototype of music streaming service with new business model'
     }, {
       type: 'server',
-      content: [
+      projects: [
         {
-          name: 'iMusic',
-          image_url: 'img/imusic-640x313.png'
+          image_url: 'imusic-640x313.png',
+          content: 'iMusic'
         }
-      ],
-      is_array: true,
-      is_image_array: true
+      ]
     }, {
       type: 'server',
       content: 'We delivered this prototype in one month in order to make a demo to our investors'

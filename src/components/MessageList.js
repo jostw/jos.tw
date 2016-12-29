@@ -28,22 +28,23 @@ class MessageList extends Component {
             classList = [...classList, `message-${message.type}-visible`];
           }
 
-          if (message.is_visible && (message.is_array || message.is_iframe)) {
+          if (message.is_visible && (message.projects || message.is_iframe)) {
             classList = [...classList, 'message-multiline'];
           }
 
-          if (message.is_visible && message.is_array) {
-            if (message.content.length === 3) {
+          if (message.is_visible && message.projects) {
+            if (message.projects.length === 3) {
               classList = [...classList, 'message-array-three'];
             }
 
-            if (message.content.length === 4) {
+            if (message.projects.length === 4) {
               classList = [...classList, 'message-array-four'];
             }
           }
 
           return (
-            <li className={ classList.join(' ') } key={ `message-${index}` }>
+            <li className={ classList.join(' ') }
+                key={ `message-${index}` }>
               <Message { ...message }
                        openImage={ openImage } />
             </li>
