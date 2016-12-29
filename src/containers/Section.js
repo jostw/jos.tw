@@ -4,7 +4,7 @@ import MessageList from '../components/MessageList';
 
 class Section extends Component {
   static propTypes = {
-    section: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired
+    section: PropTypes.arrayOf(MessageList.propTypes.messages).isRequired
   }
 
   constructor(props) {

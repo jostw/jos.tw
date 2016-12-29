@@ -10,14 +10,14 @@ import Modal from '../components/Modal';
 
 class App extends Component {
   static propTypes = {
-    hello: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
-    about: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
-    project: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
-    resume: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
-    contact: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
-    response: PropTypes.object.isRequired,
-    footer: PropTypes.object.isRequired,
-    modal: PropTypes.object.isRequired
+    hello: Section.propTypes.section,
+    about: Section.propTypes.section,
+    project: Section.propTypes.section,
+    resume: Section.propTypes.section,
+    contact: Section.propTypes.section,
+    response: Response.propTypes.response,
+    footer: PropTypes.shape(Footer.propTypes).isRequired,
+    modal: Modal.propTypes.modal
   }
 
   constructor(props) {
