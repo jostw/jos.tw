@@ -43,7 +43,7 @@ class MessageList extends Component {
           }
 
           return (
-            <li className={ classList.join(' ') } key={ index }>
+            <li className={ classList.join(' ') } key={ `message-${index}` }>
               <Message message={ message }
                        openImage={ openImage } />
             </li>

@@ -29,7 +29,7 @@ class Response extends Component {
         <ul>{
           response.messages.map((message, index) => {
             return (
-              <li key={ index }>
+              <li key={ `response-message-${index}` }>
                 <Message message={ message } />
               </li>
             );

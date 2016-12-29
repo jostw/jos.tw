@@ -24,7 +24,7 @@ class Section extends Component {
       <section>{
         section.map((subSectionMessages, index) => {
           return (
-            <MessageList key={ index }
+            <MessageList key={ `message-list-${index}` }
                          messages={ subSectionMessages }
                          openImage={ this.openImage } />
           );

@@ -72,7 +72,7 @@ class Message extends Component {
             }
 
             return (
-              <li className={ projectClassList.join(' ') } key={ index }>{
+              <li className={ projectClassList.join(' ') } key={ `message-project-${index}` }>{
                 message.is_image_array ? (
                   <Link className="message-project-image"
                         onClick={ openImage(item.name, item.image_url) }
