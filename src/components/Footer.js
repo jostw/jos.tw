@@ -6,23 +6,20 @@ if (!process.env.SERVER) {
 
 class Footer extends Component {
   static propTypes = {
-    footer: PropTypes.shape({
-      is_visible: PropTypes.bool.isRequired
-    }).isRequired
+    copyright: PropTypes.string.isRequired,
+    is_visible: PropTypes.bool.isRequired
   }
 
   render() {
-    const { footer } = this.props;
-
     let classList = ['footer'];
 
-    if (footer.is_visible) {
+    if (this.props.is_visible) {
       classList = [...classList, 'footer-visible'];
     }
 
     return (
       <footer className={ classList.join(' ') }>
-        <span className="footer-copyright">Copyright © 2017 Joseph Yeh</span>
+        <span className="footer-copyright">{ this.props.copyright }</span>
       </footer>
     );
   }

@@ -66,7 +66,7 @@ class App extends Component {
         <Section section={ resume } />
         <Section section={ contact } />
         <Response response={ response } />
-        <Footer footer={ footer } />
+        <Footer { ...footer } />
         <Modal modal={ modal } />
       </div>
     );
