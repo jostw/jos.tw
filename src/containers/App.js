@@ -17,7 +17,7 @@ class App extends Component {
     contact: Section.propTypes.section,
     response: Response.propTypes.response,
     footer: PropTypes.shape(Footer.propTypes).isRequired,
-    modal: Modal.propTypes.modal
+    modal: PropTypes.shape(Modal.propTypes).isRequired
   }
 
   constructor(props) {
@@ -67,7 +67,7 @@ class App extends Component {
         <Section section={ contact } />
         <Response response={ response } />
         <Footer { ...footer } />
-        <Modal modal={ modal } />
+        <Modal { ...modal } />
       </div>
     );
   }

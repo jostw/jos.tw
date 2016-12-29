@@ -6,24 +6,21 @@ if (!process.env.SERVER) {
 
 class Modal extends Component {
   static propTypes = {
-    modal: PropTypes.shape({
-      is_visible: PropTypes.bool.isRequired,
-      is_image_visible: PropTypes.bool.isRequired,
-      name: PropTypes.string,
-      image_url: PropTypes.string
-    }).isRequired
+    is_visible: PropTypes.bool.isRequired,
+    is_image_visible: PropTypes.bool.isRequired,
+    name: PropTypes.string,
+    image_url: PropTypes.string
   }
 
   render() {
-    const { modal } = this.props;
     let classList = ['modal'];
     let imageClassList = ['modal-image'];
 
-    if (modal.is_visible) {
+    if (this.props.is_visible) {
       classList = [...classList, 'modal-open'];
     }
 
-    if (modal.is_image_visible) {
+    if (this.props.is_image_visible) {
       imageClassList = [...imageClassList, 'modal-image-visible'];
     }
 
@@ -32,9 +29,9 @@ class Modal extends Component {
                onClick={ this.closeModal }>
         <img className={ imageClassList.join(' ') }
              onLoad={ this.onImageLoad }
-             src={ modal.image_url }
-             alt={ modal.name }
-             title={ modal.name } />
+             src={ this.props.image_url }
+             alt={ this.props.name }
+             title={ this.props.name } />
       </section>
     );
   }
