@@ -14,7 +14,7 @@ export default function modal(state = {
         return {
           ...state,
           is_visible: true,
-          is_image_visible: state.image_url === action.imageUrl,
+          is_image_visible: state.image.url === action.imageUrl,
           image: {
             name: action.imageName,
             url: action.imageUrl
