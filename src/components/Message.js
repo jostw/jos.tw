@@ -34,6 +34,17 @@ class Message extends Component {
     if (nextProps.is_iframe && nextProps.is_typing) {
       this.setState({ iframe_src: nextProps.content });
     }
+
+    if (nextProps.projects && nextProps.is_typing) {
+      nextProps.projects.forEach(project => {
+        if (project.image_url) {
+          const projectName = this.getLowerCaseProjectName(project);
+          const imageUrl = this.getProjectImageUrl(project);
+
+          this.setState({ [projectName]: imageUrl });
+        }
+      });
+    }
   }
 
   render() {
@@ -57,23 +68,27 @@ class Message extends Component {
             let projectClassList = ['message-text', 'message-project'];
             let projectContent = null;
 
+            const projectName = this.getLowerCaseProjectName(project);
+
             if (project.image_url) {
-              const imageUrl = `img/${project.image_url}`;
+              const imageUrl = this.getProjectImageUrl(project);
 
               projectContent = (
                 <Link { ...project }
                       className="message-project-image"
                       onClick={ openImage(project.content, imageUrl) }>
-                  <img src={ imageUrl }
+                  <img src={ this.state[projectName] }
                        alt={ project.content }
                        title={ project.content } />
                 </Link>
               );
             } else {
-              projectClassList = [
-                ...projectClassList,
-                `message-project-${project.content.split(' ').join('-').toLowerCase()}`
-              ];
+              if (this.props.is_typing || this.props.is_visible) {
+                projectClassList = [
+                  ...projectClassList,
+                  `message-project-${projectName}`
+                ];
+              }
 
               if (project.link) {
                 projectContent = (
@@ -118,6 +133,14 @@ class Message extends Component {
     return (
       <div className={ classList.join(' ') }>{ message }</div>
     );
+  }
+
+  getLowerCaseProjectName(project) {
+    return project.content.split(' ').join('-').toLowerCase();
+  }
+
+  getProjectImageUrl(project) {
+    return `img/${project.image_url}`;
   }
 }
 
