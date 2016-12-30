@@ -44,7 +44,7 @@
 
   text-align: start;
 
-  background-color: #E3F2FD;
+  background-color: rgba(227,242,253,.8);
 }
 
 .message-server + .message-server .message {
