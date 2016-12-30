@@ -7,6 +7,8 @@
     "babel-cli": "^6.18.0",
     "babel-preset-react-app": "^2.0.1",
     "cssnano": "^3.9.1",
+    "imagemin": "^5.2.2",
+    "imagemin-pngquant": "^5.0.0",
     "postcss-cli": "^2.6.0",
     "postcss-import": "^9.0.0",
     "react-scripts": "0.7.0"
@@ -23,10 +25,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:template": "NODE_ENV=production SERVER=true babel-node app.js",
+    "build:template": "NODE_ENV=production SERVER=true babel-node template.js",
     "build:css": "postcss -c postcss.json",
+    "build:image": "NODE_ENV=production babel-node image.js",
     "prebuild": "npm run build:template",
-    "postbuild": "npm run build:css",
+    "postbuild": "npm run build:css & npm run build:image",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
