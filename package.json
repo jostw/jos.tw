@@ -7,6 +7,7 @@
     "babel-cli": "^6.18.0",
     "babel-preset-react-app": "^2.0.1",
     "cssnano": "^3.9.1",
+    "html-minifier": "^3.2.3",
     "imagemin": "^5.2.2",
     "imagemin-pngquant": "^5.0.0",
     "postcss-cli": "^2.6.0",
