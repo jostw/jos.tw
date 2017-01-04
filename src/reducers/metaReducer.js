@@ -24,7 +24,7 @@ function index(state = {
   ],
   type: 'website',
   link: 'http://jos.tw/',
-  image: 'http://jos.tw/img/joseph-2560x1440.png',
+  image: 'http://jos.tw/img/joseph-1200x675.png',
   ga_code: `
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
