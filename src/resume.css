@@ -35,4 +35,8 @@
   .hide-from-print {
     display: none !important;
   }
+
+  .container {
+    padding-inline-start: 100px;
+  }
 }

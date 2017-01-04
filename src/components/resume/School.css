@@ -1,7 +1,7 @@
 .school {
   position: relative;
 
-  margin-bottom: 1.5em;
+  margin-bottom: 1.25em;
 }
 
 .school .section-title {
@@ -13,12 +13,10 @@
 }
 
 .school-lab-name {
-  margin-bottom: .25em;
-
   font-size: 18px;
 }
 
-.school .list {
+.section-article .school-lab .list {
   margin-top: .25em;
 }
 

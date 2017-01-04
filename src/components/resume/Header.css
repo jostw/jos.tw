@@ -26,8 +26,8 @@
 
 .header-contact {
   position: absolute;
+  top: 22px;
   right: 24px;
-  bottom: 5px;
 
   font-size: 14px;
   text-align: end;
@@ -71,8 +71,8 @@
   }
 
   .header-contact {
+    top: 111px;
     left: 120px;
-    bottom: -2em;
 
     text-align: start;
   }
@@ -107,7 +107,8 @@
   }
 
   .header-contact {
-    left: 1.5em;
+    top: 105px;
+    left: 24px;
   }
 }
 
@@ -121,8 +122,8 @@
   }
 
   .header-contact {
+    top: 22px;
     left: inherit;
-    bottom: .25em;
 
     text-align: end;
   }
