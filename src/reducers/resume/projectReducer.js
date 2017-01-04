@@ -158,7 +158,7 @@ export default function project(state = {
           `,
           has_html: true
         }, {
-          content: 'Solved the problem of SEO with single page application'
+          content: 'Solved the SEO problem for single page application'
         }, {
           content: `
             Managed workflow with

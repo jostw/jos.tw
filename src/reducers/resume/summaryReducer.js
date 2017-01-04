@@ -11,7 +11,7 @@ export default function summary(state = {
       content: 'Solid <strong>JavaScript</strong> programming skills including architecture and optimization',
       has_html: true
     }, {
-      content: 'Experienced in internationalization and RTL support',
+      content: 'Experience in internationalization and RTL support',
     }, {
       content: 'Passionate for new techniques and familiar with <strong>modern web frameworks</strong>',
       has_html: true
