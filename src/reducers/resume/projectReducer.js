@@ -99,7 +99,7 @@ export default function project(state = {
           `,
           has_html: true
         }, {
-          content: 'Fully responsive at any screen sizes'
+          content: 'Fully responsive at any screen size'
         }, {
           content: 'Speeding up development by mocking server with Node.js'
         }
@@ -131,7 +131,7 @@ export default function project(state = {
           `,
           has_html: true
         }, {
-          content: 'Fully responsive at any screen sizes'
+          content: 'Fully responsive at any screen size'
         }, {
           content: 'Speeding up development by mocking server with Node.js'
         }
