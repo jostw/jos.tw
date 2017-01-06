@@ -48,13 +48,11 @@ export const startSection = section => {
   return { type, section: SECTION_HELLO_WORLD };
 };
 
-export const TOGGLE_SCROLLING = 'TOGGLE_SCROLLING';
 export const TOGGLE_RESPONSE = 'TOGGLE_RESPONSE';
 export const TOGGLE_FOOTER = 'TOGGLE_FOOTER';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const SHOW_MODAL_IMAGE = 'SHOW_MODAL_IMAGE';
 
-export const toggleScrolling = isScrolling => ({ type: TOGGLE_SCROLLING, isScrolling });
 export const toggleResponse = sections => ({ type: TOGGLE_RESPONSE, sections });
 export const toggleFooter = isVisible => ({ type: TOGGLE_FOOTER, isVisible });
 export const toggleModal = (imageName, imageUrl) => ({ type: TOGGLE_MODAL, imageName, imageUrl });

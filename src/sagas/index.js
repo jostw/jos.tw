@@ -3,6 +3,16 @@ import { put, call, fork } from 'redux-saga/effects';
 
 import * as actions from '../actions';
 
+function toggleScrolling(isScrolling) {
+  const { classList } = document.body;
+
+  if (isScrolling) {
+    classList.add('overflow-hidden');
+  } else {
+    classList.remove('overflow-hidden');
+  }
+}
+
 function* showMessage(section, startIndex, size) {
   if (!size) {
     size = startIndex;
@@ -10,7 +20,7 @@ function* showMessage(section, startIndex, size) {
 
     if (section === actions.SECTION_HELLO_WORLD ||
         section === actions.SECTION_HELLO_AGAIN) {
-      const { classList } = document.getElementById('root');
+      const { classList } = document.documentElement;
 
       yield call(delay, 1000);
       classList.add('loaded');
@@ -18,38 +28,30 @@ function* showMessage(section, startIndex, size) {
       classList.add('started');
       yield call(delay, 500);
     } else {
-      yield put(actions.toggleScrolling(true));
       yield put(actions.toggleResponse(false));
       yield call(delay, 600);
       yield put(actions.showResponse(section));
       yield call(delay, 1000);
-      yield put(actions.toggleScrolling(false));
     }
   }
 
   for (let index = startIndex; index < size; index++) {
-    yield put(actions.toggleScrolling(true));
     yield put(actions.enterMessage(section, index));
     yield call(delay, 600);
     yield put(actions.showMessage(section, index));
     yield call(delay, 1000);
-    yield put(actions.toggleScrolling(false));
   }
 }
 
 function* toggleResponse(...sections) {
-  yield put(actions.toggleScrolling(true));
   yield put(actions.toggleResponse(sections));
   yield call(delay, 600);
-  yield put(actions.toggleScrolling(false));
 }
 
 function* toggleFooter(isVisible) {
-  yield put(actions.toggleScrolling(true));
   yield call(delay, 600);
   yield put(actions.toggleFooter(isVisible));
   yield call(delay, 600);
-  yield put(actions.toggleScrolling(false));
 }
 
 function* startHelloWorld() {
@@ -142,6 +144,8 @@ function* startContactGoodbye() {
 }
 
 function* startSection(action) {
+  yield call(toggleScrolling, true);
+
   switch (action.section) {
     case actions.SECTION_HELLO_WORLD:
       yield startHelloWorld();
@@ -197,6 +201,8 @@ function* startSection(action) {
     default:
       break;
   }
+
+  yield call(toggleScrolling, false);
 }
 
 function* watchStartSection() {
