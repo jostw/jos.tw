@@ -1,15 +1,20 @@
 .message {
   position: relative;
 
-  display: inline-block;
+  display: inline-flex;
   max-width: 4.5em;
-  margin-bottom: -.375em;
   border-radius: .75em;
   padding: 1em;
   overflow: hidden;
 
   color: transparent;
   background-color: rgba(245,245,245,.8);
+}
+
+@-moz-document url-prefix() {
+  .message {
+     margin-bottom: -.375em;
+  }
 }
 
 .message::before {
@@ -44,6 +49,7 @@
 }
 
 .message-projects {
+  width: 100%;
   padding: 0;
 
   white-space: nowrap;
