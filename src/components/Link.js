@@ -19,15 +19,27 @@ class Link extends Component {
     };
 
     if (onClick) {
-      props = {
-        ...props,
-        href: '#',
-        onClick: e => {
-          e.preventDefault();
+      if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+        props = {
+          ...props,
+          href: '#',
+          onTouchStart: e => {
+            e.preventDefault();
 
-          onClick();
-        }
-      };
+            onClick();
+          }
+        };
+      } else {
+        props = {
+          ...props,
+          href: '#',
+          onClick: e => {
+            e.preventDefault();
+
+            onClick();
+          }
+        };
+      }
     } else {
       props = {
         ...props,
