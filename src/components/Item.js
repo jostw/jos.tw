@@ -12,13 +12,13 @@ class Item extends Component {
 
     if (this.props.has_html) {
       return (
-        <div className={ className }
+        <span className={ className }
              dangerouslySetInnerHTML={{ __html: content }} />
       );
     }
 
     return (
-      <div className={ className }>{ content }</div>
+      <span className={ className }>{ content }</span>
     );
   }
 }
