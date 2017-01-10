@@ -20,9 +20,13 @@ class Response extends Component {
 
   componentDidUpdate() {
     if (this.props.is_visible !== this.state.is_visible) {
-      setTimeout(() => {
+      if (this.props.is_visible) {
+        setTimeout(() => {
+          this.setState({ is_visible: this.props.is_visible });
+        }, 100);
+      } else {
         this.setState({ is_visible: this.props.is_visible });
-      }, 0);
+      }
     }
   }
 
