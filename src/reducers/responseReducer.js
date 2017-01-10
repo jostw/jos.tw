@@ -1,7 +1,7 @@
-import { TOGGLE_RESPONSE } from '../actions';
+import { SECTION_ABOUT_YOURSELF, SECTION_PROJECT_LIST, TOGGLE_RESPONSE } from '../actions';
 
 export default function response(state = {
-  sections: [],
+  sections: [SECTION_ABOUT_YOURSELF, SECTION_PROJECT_LIST],
   is_visible: false
 }, action) {
   switch (action.type) {

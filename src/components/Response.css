@@ -37,10 +37,14 @@
 
 .response-input li {
   display: inline-block;
-  margin-inline-start: .5em;
-  margin-bottom: .5em;
+  margin: 0 0 .5em .5em;
+  opacity: 0;
 
   list-style: none;
+
+  transform: translateY(50%);
+  transition: opacity 0s ease .5s,
+              transform 0s ease .5s;
 }
 
 .response-input .message {
@@ -56,4 +60,30 @@
 
 .response-input .message:hover {
   background-color: #BBDEFB;
+}
+
+.response-visible .response-input li {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.response-visible .response-input li:nth-child(1) {
+  transition: opacity .5s ease .25s,
+              transform .5s ease .25s;
+}
+
+.response-visible .response-input li:nth-child(2) {
+  transition: opacity .5s ease .5s,
+              transform .5s ease .5s;
+}
+
+.response-visible .response-input li:nth-child(3) {
+  transition: opacity .5s ease .625s,
+              transform .5s ease .625s;
+}
+
+.response-visible .response-input li:nth-child(4) {
+  transition: opacity .5s ease .75s,
+              transform .5s ease .75s;
 }

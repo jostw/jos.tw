@@ -12,13 +12,27 @@ class Response extends Component {
     is_visible: PropTypes.bool.isRequired
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = { is_visible: false };
+  }
+
+  componentDidUpdate() {
+    if (this.props.is_visible !== this.state.is_visible) {
+      setTimeout(() => {
+        this.setState({ is_visible: this.props.is_visible });
+      }, 0);
+    }
+  }
+
   render() {
     const { messages } = this.props;
 
     let classList = ['response'];
     let responses = null;
 
-    if (this.props.is_visible) {
+    if (this.state.is_visible) {
       classList = [...classList, 'response-visible'];
     }
 
