@@ -2,26 +2,20 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import MessageList from './MessageList';
 
-const messageList = {
-  messages: [],
-  openImage: jest.fn()
-};
-
 it('renders without crashing', () => {
   const wrapper = mount(
-    <MessageList { ...messageList } />
+    <MessageList { ...getMockMessageList() } />
   );
 
   expect(wrapper.html()).toBe(null);
 
   wrapper.props().openImage();
-  expect(messageList.openImage.mock.calls.length).toBe(1);
+  expect(wrapper.props().openImage.mock.calls.length).toBe(1);
 });
 
 it('renders messages', () => {
   const wrapper = shallow(
-    <MessageList { ...messageList }
-                 messages={ getMockMessages() } />
+    <MessageList { ...getMockMessageList(getMockMessages()) } />
   );
 
   expect(wrapper.hasClass('message-list')).toBe(true);
@@ -30,8 +24,7 @@ it('renders messages', () => {
 
 it('renders client or server messages', () => {
   const wrapper = shallow(
-    <MessageList { ...messageList }
-                 messages={ getMockMessages(null, { type: 'server' }) } />
+    <MessageList { ...getMockMessageList(getMockMessages(null, { type: 'server' })) } />
   );
 
   expect(wrapper.find('li').length).toBe(2);
@@ -41,7 +34,7 @@ it('renders client or server messages', () => {
 
 it('renders visible messages', () => {
   const wrapper = shallow(
-    <MessageList { ...messageList } />
+    <MessageList { ...getMockMessageList() } />
   );
 
   wrapper.setProps({ messages: getMockMessages({ is_typing: true }) });
@@ -53,7 +46,7 @@ it('renders visible messages', () => {
 
 it('renders multiline messages', () => {
   const wrapper = shallow(
-    <MessageList { ...messageList } />
+    <MessageList { ...getMockMessageList() } />
   );
 
   wrapper.setProps({ messages: getMockMessages({ projects: getMockProjects(), is_visible: true }) });
@@ -63,9 +56,9 @@ it('renders multiline messages', () => {
   expect(wrapper.find('.message-multiline').length).toBe(1);
 });
 
-it('renders 3 or 4 projects messages', () => {
+it('renders messages with 3 or 4 projects', () => {
   const wrapper = shallow(
-    <MessageList { ...messageList } />
+    <MessageList { ...getMockMessageList() } />
   );
 
   wrapper.setProps({ messages: getMockMessages({ projects: getMockProjects(3), is_visible: true }) });
@@ -75,11 +68,10 @@ it('renders 3 or 4 projects messages', () => {
   expect(wrapper.find('.message-array-four').length).toBe(1);
 });
 
-function getMockMessage(message = {}) {
+function getMockMessageList(messages = []) {
   return {
-    type: 'client',
-    content: 'test message',
-    ...message
+    messages,
+    openImage: jest.fn()
   };
 }
 
@@ -91,12 +83,11 @@ function getMockMessages(...messages) {
   return messages.map(message => getMockMessage(message));
 }
 
-function getMockProject(project = {}) {
+function getMockMessage(message = {}) {
   return {
-    link: 'test project link',
-    image_url: 'test project image url',
-    content: 'test project name',
-    ...project
+    type: 'client',
+    content: 'test message',
+    ...message
   };
 }
 
@@ -110,6 +101,15 @@ function getMockProjects(number = 1) {
   return projects.map(project => getMockProject(
     projects.length === 1 ? null : { content: `test project ${project}` }
   ));
+}
+
+function getMockProject(project = {}) {
+  return {
+    link: 'test project link',
+    image_url: 'test project image url',
+    content: 'test project name',
+    ...project
+  };
 }
 
 function getMockIframe() {
