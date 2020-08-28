@@ -1,14 +1,12 @@
 {
-  "main.css": "static/css/main.66a18a60.css",
-  "main.css.map": "static/css/main.66a18a60.css.map",
-  "main.js": "static/js/main.055ad52b.js",
-  "main.js.map": "static/js/main.055ad52b.js.map",
+  "main.css": "static/css/main.ee730035.css",
+  "main.css.map": "static/css/main.ee730035.css.map",
+  "main.js": "static/js/main.db071b7e.js",
+  "main.js.map": "static/js/main.db071b7e.js.map",
   "static/media/firefox-640x360.png": "static/media/firefox-640x360.18d568dd.png",
   "static/media/home-app-640x360.png": "static/media/home-app-640x360.98845e58.png",
   "static/media/imusic-720x360.png": "static/media/imusic-720x360.40f78e6a.png",
   "static/media/joseph-2560x1440.png": "static/media/joseph-2560x1440.72d352ff.png",
   "static/media/marketplace-app-640x360.png": "static/media/marketplace-app-640x360.7ed095f5.png",
-  "static/media/muzik-air-360x360.png": "static/media/muzik-air-360x360.3e92b6c4.png",
-  "static/media/muzik-online-135x27.png": "static/media/muzik-online-135x27.07572d91.png",
-  "static/media/muzik-study-130x29.png": "static/media/muzik-study-130x29.38ee4044.png"
+  "static/media/muzik-air-360x360.png": "static/media/muzik-air-360x360.3e92b6c4.png"
 }
